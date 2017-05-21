@@ -1678,3 +1678,381 @@ the dependencies in your gemfile changed
 
 You have added to the Gemfile:
 * mysql2
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 16:41:38 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0f25cfcf] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [0f25cfcf] Command: /usr/bin/env mkdir -p /tmp
+  INFO [0f25cfcf] Finished in 7.454 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 0.0%
+  INFO Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 100.0%
+  INFO [d133becf] Running /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh as refresh@freshair
+ DEBUG [d133becf] Command: /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh
+  INFO [d133becf] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [004d2fe7] Running /usr/bin/env git ls-remote https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git HEAD as refresh@freshair
+ DEBUG [004d2fe7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git ls-remote https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git HEAD )
+ DEBUG [004d2fe7] 	c59e3095511774ced6494c6bcf9ed268b525bb21	HEAD
+  INFO [004d2fe7] Finished in 0.748 seconds with exit status 0 (successful).
+  INFO [6fef0c5d] Running /usr/bin/env mkdir -p /var/www/refresh/shared /var/www/refresh/releases as refresh@freshair
+ DEBUG [6fef0c5d] Command: /usr/bin/env mkdir -p /var/www/refresh/shared /var/www/refresh/releases
+  INFO [6fef0c5d] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [1ded7bf6] Running /usr/bin/env mkdir -p /var/www/refresh/shared/log /var/www/refresh/shared/tmp/pids /var/www/refresh/shared/tmp/cache /var/www/refresh/shared/tmp/sockets /var/www/refresh/shared/public/system as refresh@freshair
+ DEBUG [1ded7bf6] Command: /usr/bin/env mkdir -p /var/www/refresh/shared/log /var/www/refresh/shared/tmp/pids /var/www/refresh/shared/tmp/cache /var/www/refresh/shared/tmp/sockets /var/www/refresh/shared/public/system
+  INFO [1ded7bf6] Finished in 0.116 seconds with exit status 0 (successful).
+ DEBUG [68a51de0] Running [ -f /var/www/refresh/current/REVISION ] as refresh@freshair
+ DEBUG [68a51de0] Command: [ -f /var/www/refresh/current/REVISION ]
+ DEBUG [68a51de0] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [63e508d2] Running /usr/bin/env cat /var/www/refresh/current/REVISION 2>/dev/null as refresh@freshair
+ DEBUG [63e508d2] Command: /usr/bin/env cat /var/www/refresh/current/REVISION 2>/dev/null
+ DEBUG [63e508d2] 	ca5913d688e09df23502f4c9e98ddf1d3792a903
+ DEBUG [63e508d2] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [5dbca36b] Running [ -f /var/www/refresh/repo/HEAD ] as refresh@freshair
+ DEBUG [5dbca36b] Command: [ -f /var/www/refresh/repo/HEAD ]
+ DEBUG [5dbca36b] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/refresh/repo
+ DEBUG [3517d83c] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [3517d83c] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [3517d83c] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [3c996347] Running /usr/bin/env git remote set-url origin https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git as refresh@freshair
+ DEBUG [3c996347] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git remote set-url origin https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git )
+  INFO [3c996347] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [41c286bd] Running /usr/bin/env git remote update --prune as refresh@freshair
+ DEBUG [41c286bd] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [41c286bd] 	Fetching origin
+ DEBUG [41c286bd] 	From https://github.com/leo-mazz/refresh-website
+ DEBUG [41c286bd] 	   4b37e75..c59e309  master     -> master
+  INFO [41c286bd] Finished in 0.973 seconds with exit status 0 (successful).
+ DEBUG [c0c03deb] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [c0c03deb] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [c0c03deb] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [03c0b13c] Running /usr/bin/env mkdir -p /var/www/refresh/releases/20170521154147 as refresh@freshair
+ DEBUG [03c0b13c] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env mkdir -p /var/www/refresh/releases/20170521154147 )
+  INFO [03c0b13c] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [bc1b51a3] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/refresh/releases/20170521154147 as refresh@freshair
+ DEBUG [bc1b51a3] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/refresh/releases/20170521154147 )
+  INFO [bc1b51a3] Finished in 0.437 seconds with exit status 0 (successful).
+ DEBUG [b1b7a71c] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [b1b7a71c] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [b1b7a71c] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [969560de] Running /usr/bin/env git rev-list --max-count=1 master as refresh@freshair
+ DEBUG [969560de] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [969560de] 	c59e3095511774ced6494c6bcf9ed268b525bb21
+ DEBUG [969560de] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [b53e5f06] Running if test ! -d /var/www/refresh/releases/20170521154147; then echo "Directory does not exist '/var/www/refresh/releases/20170521154147'" 1>&2; false; fi as refresh@freshair
+ DEBUG [b53e5f06] Command: if test ! -d /var/www/refresh/releases/20170521154147; then echo "Directory does not exist '/var/www/refresh/releases/20170521154147'" 1>&2; false; fi
+ DEBUG [b53e5f06] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [c6691672] Running /usr/bin/env echo "c59e3095511774ced6494c6bcf9ed268b525bb21" >> REVISION as refresh@freshair
+ DEBUG [c6691672] Command: cd /var/www/refresh/releases/20170521154147 && /usr/bin/env echo "c59e3095511774ced6494c6bcf9ed268b525bb21" >> REVISION
+  INFO [c6691672] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [4d0c6b9e] Running /usr/bin/env mkdir -p /var/www/refresh/releases/20170521154147 /var/www/refresh/releases/20170521154147/tmp /var/www/refresh/releases/20170521154147/public as refresh@freshair
+ DEBUG [4d0c6b9e] Command: /usr/bin/env mkdir -p /var/www/refresh/releases/20170521154147 /var/www/refresh/releases/20170521154147/tmp /var/www/refresh/releases/20170521154147/public
+  INFO [4d0c6b9e] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [14f103b3] Running [ -L /var/www/refresh/releases/20170521154147/log ] as refresh@freshair
+ DEBUG [14f103b3] Command: [ -L /var/www/refresh/releases/20170521154147/log ]
+ DEBUG [14f103b3] Finished in 0.112 seconds with exit status 1 (failed).
+ DEBUG [4193f78a] Running [ -d /var/www/refresh/releases/20170521154147/log ] as refresh@freshair
+ DEBUG [4193f78a] Command: [ -d /var/www/refresh/releases/20170521154147/log ]
+ DEBUG [4193f78a] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [5de78002] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521154147/log as refresh@freshair
+ DEBUG [5de78002] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521154147/log
+  INFO [5de78002] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [afbefd27] Running /usr/bin/env ln -s /var/www/refresh/shared/log /var/www/refresh/releases/20170521154147/log as refresh@freshair
+ DEBUG [afbefd27] Command: /usr/bin/env ln -s /var/www/refresh/shared/log /var/www/refresh/releases/20170521154147/log
+  INFO [afbefd27] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [0d692858] Running [ -L /var/www/refresh/releases/20170521154147/tmp/pids ] as refresh@freshair
+ DEBUG [0d692858] Command: [ -L /var/www/refresh/releases/20170521154147/tmp/pids ]
+ DEBUG [0d692858] Finished in 0.112 seconds with exit status 1 (failed).
+ DEBUG [405861e9] Running [ -d /var/www/refresh/releases/20170521154147/tmp/pids ] as refresh@freshair
+ DEBUG [405861e9] Command: [ -d /var/www/refresh/releases/20170521154147/tmp/pids ]
+ DEBUG [405861e9] Finished in 0.113 seconds with exit status 1 (failed).
+  INFO [7143748d] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/pids /var/www/refresh/releases/20170521154147/tmp/pids as refresh@freshair
+ DEBUG [7143748d] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/pids /var/www/refresh/releases/20170521154147/tmp/pids
+  INFO [7143748d] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [e7d90096] Running [ -L /var/www/refresh/releases/20170521154147/tmp/cache ] as refresh@freshair
+ DEBUG [e7d90096] Command: [ -L /var/www/refresh/releases/20170521154147/tmp/cache ]
+ DEBUG [e7d90096] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [1d48a515] Running [ -d /var/www/refresh/releases/20170521154147/tmp/cache ] as refresh@freshair
+ DEBUG [1d48a515] Command: [ -d /var/www/refresh/releases/20170521154147/tmp/cache ]
+ DEBUG [1d48a515] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [96925787] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521154147/tmp/cache as refresh@freshair
+ DEBUG [96925787] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521154147/tmp/cache
+  INFO [96925787] Finished in 0.196 seconds with exit status 0 (successful).
+  INFO [e9b0ee9a] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/cache /var/www/refresh/releases/20170521154147/tmp/cache as refresh@freshair
+ DEBUG [e9b0ee9a] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/cache /var/www/refresh/releases/20170521154147/tmp/cache
+  INFO [e9b0ee9a] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [1950f465] Running [ -L /var/www/refresh/releases/20170521154147/tmp/sockets ] as refresh@freshair
+ DEBUG [1950f465] Command: [ -L /var/www/refresh/releases/20170521154147/tmp/sockets ]
+ DEBUG [1950f465] Finished in 0.112 seconds with exit status 1 (failed).
+ DEBUG [6cf912b0] Running [ -d /var/www/refresh/releases/20170521154147/tmp/sockets ] as refresh@freshair
+ DEBUG [6cf912b0] Command: [ -d /var/www/refresh/releases/20170521154147/tmp/sockets ]
+ DEBUG [6cf912b0] Finished in 0.112 seconds with exit status 1 (failed).
+  INFO [873d7e68] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/sockets /var/www/refresh/releases/20170521154147/tmp/sockets as refresh@freshair
+ DEBUG [873d7e68] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/sockets /var/www/refresh/releases/20170521154147/tmp/sockets
+  INFO [873d7e68] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [7aaa4165] Running [ -L /var/www/refresh/releases/20170521154147/public/system ] as refresh@freshair
+ DEBUG [7aaa4165] Command: [ -L /var/www/refresh/releases/20170521154147/public/system ]
+ DEBUG [7aaa4165] Finished in 0.112 seconds with exit status 1 (failed).
+ DEBUG [4e0b1cca] Running [ -d /var/www/refresh/releases/20170521154147/public/system ] as refresh@freshair
+ DEBUG [4e0b1cca] Command: [ -d /var/www/refresh/releases/20170521154147/public/system ]
+ DEBUG [4e0b1cca] Finished in 0.112 seconds with exit status 1 (failed).
+  INFO [a79822a6] Running /usr/bin/env ln -s /var/www/refresh/shared/public/system /var/www/refresh/releases/20170521154147/public/system as refresh@freshair
+ DEBUG [a79822a6] Command: /usr/bin/env ln -s /var/www/refresh/shared/public/system /var/www/refresh/releases/20170521154147/public/system
+  INFO [a79822a6] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [da9905a7] Running if test ! -d /var/www/refresh/releases/20170521154147; then echo "Directory does not exist '/var/www/refresh/releases/20170521154147'" 1>&2; false; fi as refresh@freshair
+ DEBUG [da9905a7] Command: if test ! -d /var/www/refresh/releases/20170521154147; then echo "Directory does not exist '/var/www/refresh/releases/20170521154147'" 1>&2; false; fi
+ DEBUG [da9905a7] Finished in 0.118 seconds with exit status 0 (successful).
+ DEBUG [e00e3c9b] Running /usr/bin/env bundle check --path /var/www/refresh/shared/bundle as refresh@freshair
+ DEBUG [e00e3c9b] Command: cd /var/www/refresh/releases/20170521154147 && /usr/bin/env bundle check --path /var/www/refresh/shared/bundle
+ DEBUG [e00e3c9b] 	Warning: the running version of Bundler (1.14.5) is older than the version that created the lockfile (1.14.6). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [e00e3c9b] 	The following gems are missing
+ * net-ssh (4.1.0)
+ * net-scp (1.2.1)
+ * sshkit (1.13.1)
+ * airbrussh (1.2.0)
+ * bindex (0.5.0)
+ * byebug (9.0.6)
+ DEBUG [e00e3c9b] 	 * capistrano (3.8.1)
+ * capistrano-bundler (1.2.0)
+ * capistrano-passenger (0.2.0)
+ * capistrano-rails (1.2.3)
+ * ffi (1.9.18)
+ * rb-fsevent (0.9.8)
+ DEBUG [e00e3c9b] 	 * rb-inotify (0.9.8)
+ * listen (3.0.8)
+ * mysql2 (0.4.5)
+ * spring (2.0.1)
+ * spring-watcher-listen (2.0.1)
+ * web-console (3.5.1)
+Install missing gems with `bundle install`
+ DEBUG [e00e3c9b] Finished in 0.320 seconds with exit status 1 (failed).
+  INFO [d86da7d3] Running /usr/bin/env bundle install --path /var/www/refresh/shared/bundle --without development test --deployment --quiet as refresh@freshair
+ DEBUG [d86da7d3] Command: cd /var/www/refresh/releases/20170521154147 && /usr/bin/env bundle install --path /var/www/refresh/shared/bundle --without development test --deployment --quiet
+  INFO [d86da7d3] Finished in 6.536 seconds with exit status 0 (successful).
+  INFO [49492f17] Running /usr/bin/env ln -s /var/www/refresh/releases/20170521154147 /var/www/refresh/releases/current as refresh@freshair
+ DEBUG [49492f17] Command: /usr/bin/env ln -s /var/www/refresh/releases/20170521154147 /var/www/refresh/releases/current
+  INFO [49492f17] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [e11f7ea9] Running /usr/bin/env mv /var/www/refresh/releases/current /var/www/refresh as refresh@freshair
+ DEBUG [e11f7ea9] Command: /usr/bin/env mv /var/www/refresh/releases/current /var/www/refresh
+  INFO [e11f7ea9] Finished in 0.111 seconds with exit status 0 (successful).
+ DEBUG [af0328c0] Running /usr/bin/env ls -x /var/www/refresh/releases as refresh@freshair
+ DEBUG [af0328c0] Command: /usr/bin/env ls -x /var/www/refresh/releases
+ DEBUG [af0328c0] 	20170521150052	20170521150618	20170521150730	20170521152615	20170521152813
+20170521153542	20170521154025	20170521154147
+ DEBUG [af0328c0] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 8 deployed releases on freshair
+  INFO [019e6c15] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521150052 /var/www/refresh/releases/20170521150618 /var/www/refresh/releases/20170521150730 as refresh@freshair
+ DEBUG [019e6c15] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521150052 /var/www/refresh/releases/20170521150618 /var/www/refresh/releases/20170521150730
+  INFO [019e6c15] Finished in 0.110 seconds with exit status 0 (successful).
+ DEBUG [bd2a523c] Running if test ! -d /var/www/refresh/releases; then echo "Directory does not exist '/var/www/refresh/releases'" 1>&2; false; fi as refresh@freshair
+ DEBUG [bd2a523c] Command: if test ! -d /var/www/refresh/releases; then echo "Directory does not exist '/var/www/refresh/releases'" 1>&2; false; fi
+ DEBUG [bd2a523c] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [7792eb49] Running /usr/bin/env echo "Branch master (at c59e3095511774ced6494c6bcf9ed268b525bb21) deployed as release 20170521154147 by leo-mazz" >> /var/www/refresh/revisions.log as refresh@freshair
+ DEBUG [7792eb49] Command: cd /var/www/refresh/releases && /usr/bin/env echo "Branch master (at c59e3095511774ced6494c6bcf9ed268b525bb21) deployed as release 20170521154147 by leo-mazz" >> /var/www/refresh/revisions.log
+  INFO [7792eb49] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 17:13:53 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5ec40828] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [5ec40828] Command: /usr/bin/env mkdir -p /tmp
+  INFO [5ec40828] Finished in 6.986 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 0.0%
+  INFO Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 100.0%
+  INFO [a8a61a17] Running /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh as refresh@freshair
+ DEBUG [a8a61a17] Command: /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh
+  INFO [a8a61a17] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [d8aacd9f] Running /usr/bin/env git ls-remote https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git HEAD as refresh@freshair
+ DEBUG [d8aacd9f] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git ls-remote https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git HEAD )
+ DEBUG [d8aacd9f] 	c59e3095511774ced6494c6bcf9ed268b525bb21	HEAD
+  INFO [d8aacd9f] Finished in 0.800 seconds with exit status 0 (successful).
+  INFO [3595430a] Running /usr/bin/env mkdir -p /var/www/refresh/shared /var/www/refresh/releases as refresh@freshair
+ DEBUG [3595430a] Command: /usr/bin/env mkdir -p /var/www/refresh/shared /var/www/refresh/releases
+  INFO [3595430a] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [7719daf3] Running /usr/bin/env mkdir -p /var/www/refresh/shared/log /var/www/refresh/shared/tmp/pids /var/www/refresh/shared/tmp/cache /var/www/refresh/shared/tmp/sockets /var/www/refresh/shared/public/system /var/www/refresh/shared/public/assets as refresh@freshair
+ DEBUG [7719daf3] Command: /usr/bin/env mkdir -p /var/www/refresh/shared/log /var/www/refresh/shared/tmp/pids /var/www/refresh/shared/tmp/cache /var/www/refresh/shared/tmp/sockets /var/www/refresh/shared/public/system /var/www/refresh/shared/public/assets
+  INFO [7719daf3] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [e0c0b7b1] Running [ -f /var/www/refresh/current/REVISION ] as refresh@freshair
+ DEBUG [e0c0b7b1] Command: [ -f /var/www/refresh/current/REVISION ]
+ DEBUG [e0c0b7b1] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [a8e40897] Running /usr/bin/env cat /var/www/refresh/current/REVISION 2>/dev/null as refresh@freshair
+ DEBUG [a8e40897] Command: /usr/bin/env cat /var/www/refresh/current/REVISION 2>/dev/null
+ DEBUG [a8e40897] 	c59e3095511774ced6494c6bcf9ed268b525bb21
+ DEBUG [a8e40897] Finished in 0.115 seconds with exit status 0 (successful).
+ DEBUG [be2e9e44] Running [ -f /var/www/refresh/repo/HEAD ] as refresh@freshair
+ DEBUG [be2e9e44] Command: [ -f /var/www/refresh/repo/HEAD ]
+ DEBUG [be2e9e44] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/refresh/repo
+ DEBUG [e6271618] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [e6271618] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [e6271618] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [2be5b62b] Running /usr/bin/env git remote set-url origin https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git as refresh@freshair
+ DEBUG [2be5b62b] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git remote set-url origin https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git )
+  INFO [2be5b62b] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [d71897c4] Running /usr/bin/env git remote update --prune as refresh@freshair
+ DEBUG [d71897c4] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [d71897c4] 	Fetching origin
+  INFO [d71897c4] Finished in 0.777 seconds with exit status 0 (successful).
+ DEBUG [1dca9c1b] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [1dca9c1b] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [1dca9c1b] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [c12e6703] Running /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401 as refresh@freshair
+ DEBUG [c12e6703] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401 )
+  INFO [c12e6703] Finished in 0.111 seconds with exit status 0 (successful).
+  INFO [16498557] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/refresh/releases/20170521161401 as refresh@freshair
+ DEBUG [16498557] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/refresh/releases/20170521161401 )
+  INFO [16498557] Finished in 0.489 seconds with exit status 0 (successful).
+ DEBUG [a22d30d1] Running if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi as refresh@freshair
+ DEBUG [a22d30d1] Command: if test ! -d /var/www/refresh/repo; then echo "Directory does not exist '/var/www/refresh/repo'" 1>&2; false; fi
+ DEBUG [a22d30d1] Finished in 0.113 seconds with exit status 0 (successful).
+ DEBUG [8c0c4083] Running /usr/bin/env git rev-list --max-count=1 master as refresh@freshair
+ DEBUG [8c0c4083] Command: cd /var/www/refresh/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [8c0c4083] 	c59e3095511774ced6494c6bcf9ed268b525bb21
+ DEBUG [8c0c4083] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [de627cfa] Running if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi as refresh@freshair
+ DEBUG [de627cfa] Command: if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi
+ DEBUG [de627cfa] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [6db83320] Running /usr/bin/env echo "c59e3095511774ced6494c6bcf9ed268b525bb21" >> REVISION as refresh@freshair
+ DEBUG [6db83320] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env echo "c59e3095511774ced6494c6bcf9ed268b525bb21" >> REVISION
+  INFO [6db83320] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [ae3a68a7] Running /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401 /var/www/refresh/releases/20170521161401/tmp /var/www/refresh/releases/20170521161401/public as refresh@freshair
+ DEBUG [ae3a68a7] Command: /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401 /var/www/refresh/releases/20170521161401/tmp /var/www/refresh/releases/20170521161401/public
+  INFO [ae3a68a7] Finished in 0.117 seconds with exit status 0 (successful).
+ DEBUG [e9fd7abb] Running [ -L /var/www/refresh/releases/20170521161401/log ] as refresh@freshair
+ DEBUG [e9fd7abb] Command: [ -L /var/www/refresh/releases/20170521161401/log ]
+ DEBUG [e9fd7abb] Finished in 0.117 seconds with exit status 1 (failed).
+ DEBUG [d5a8e883] Running [ -d /var/www/refresh/releases/20170521161401/log ] as refresh@freshair
+ DEBUG [d5a8e883] Command: [ -d /var/www/refresh/releases/20170521161401/log ]
+ DEBUG [d5a8e883] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [61b15f81] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521161401/log as refresh@freshair
+ DEBUG [61b15f81] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521161401/log
+  INFO [61b15f81] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [c17c2028] Running /usr/bin/env ln -s /var/www/refresh/shared/log /var/www/refresh/releases/20170521161401/log as refresh@freshair
+ DEBUG [c17c2028] Command: /usr/bin/env ln -s /var/www/refresh/shared/log /var/www/refresh/releases/20170521161401/log
+  INFO [c17c2028] Finished in 0.117 seconds with exit status 0 (successful).
+ DEBUG [f1742069] Running [ -L /var/www/refresh/releases/20170521161401/tmp/pids ] as refresh@freshair
+ DEBUG [f1742069] Command: [ -L /var/www/refresh/releases/20170521161401/tmp/pids ]
+ DEBUG [f1742069] Finished in 0.115 seconds with exit status 1 (failed).
+ DEBUG [ae02aab9] Running [ -d /var/www/refresh/releases/20170521161401/tmp/pids ] as refresh@freshair
+ DEBUG [ae02aab9] Command: [ -d /var/www/refresh/releases/20170521161401/tmp/pids ]
+ DEBUG [ae02aab9] Finished in 0.116 seconds with exit status 1 (failed).
+  INFO [cfe9be72] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/pids /var/www/refresh/releases/20170521161401/tmp/pids as refresh@freshair
+ DEBUG [cfe9be72] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/pids /var/www/refresh/releases/20170521161401/tmp/pids
+  INFO [cfe9be72] Finished in 0.156 seconds with exit status 0 (successful).
+ DEBUG [9c02408e] Running [ -L /var/www/refresh/releases/20170521161401/tmp/cache ] as refresh@freshair
+ DEBUG [9c02408e] Command: [ -L /var/www/refresh/releases/20170521161401/tmp/cache ]
+ DEBUG [9c02408e] Finished in 0.115 seconds with exit status 1 (failed).
+ DEBUG [60ce96c4] Running [ -d /var/www/refresh/releases/20170521161401/tmp/cache ] as refresh@freshair
+ DEBUG [60ce96c4] Command: [ -d /var/www/refresh/releases/20170521161401/tmp/cache ]
+ DEBUG [60ce96c4] Finished in 0.112 seconds with exit status 0 (successful).
+  INFO [cd31e9d2] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521161401/tmp/cache as refresh@freshair
+ DEBUG [cd31e9d2] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521161401/tmp/cache
+  INFO [cd31e9d2] Finished in 0.313 seconds with exit status 0 (successful).
+  INFO [28789875] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/cache /var/www/refresh/releases/20170521161401/tmp/cache as refresh@freshair
+ DEBUG [28789875] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/cache /var/www/refresh/releases/20170521161401/tmp/cache
+  INFO [28789875] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [c8ef288b] Running [ -L /var/www/refresh/releases/20170521161401/tmp/sockets ] as refresh@freshair
+ DEBUG [c8ef288b] Command: [ -L /var/www/refresh/releases/20170521161401/tmp/sockets ]
+ DEBUG [c8ef288b] Finished in 0.111 seconds with exit status 1 (failed).
+ DEBUG [e7bd17d6] Running [ -d /var/www/refresh/releases/20170521161401/tmp/sockets ] as refresh@freshair
+ DEBUG [e7bd17d6] Command: [ -d /var/www/refresh/releases/20170521161401/tmp/sockets ]
+ DEBUG [e7bd17d6] Finished in 0.112 seconds with exit status 1 (failed).
+  INFO [1c4f4698] Running /usr/bin/env ln -s /var/www/refresh/shared/tmp/sockets /var/www/refresh/releases/20170521161401/tmp/sockets as refresh@freshair
+ DEBUG [1c4f4698] Command: /usr/bin/env ln -s /var/www/refresh/shared/tmp/sockets /var/www/refresh/releases/20170521161401/tmp/sockets
+  INFO [1c4f4698] Finished in 0.116 seconds with exit status 0 (successful).
+ DEBUG [d6c0a766] Running [ -L /var/www/refresh/releases/20170521161401/public/system ] as refresh@freshair
+ DEBUG [d6c0a766] Command: [ -L /var/www/refresh/releases/20170521161401/public/system ]
+ DEBUG [d6c0a766] Finished in 0.115 seconds with exit status 1 (failed).
+ DEBUG [f5eb7963] Running [ -d /var/www/refresh/releases/20170521161401/public/system ] as refresh@freshair
+ DEBUG [f5eb7963] Command: [ -d /var/www/refresh/releases/20170521161401/public/system ]
+ DEBUG [f5eb7963] Finished in 0.115 seconds with exit status 1 (failed).
+  INFO [e422f4c4] Running /usr/bin/env ln -s /var/www/refresh/shared/public/system /var/www/refresh/releases/20170521161401/public/system as refresh@freshair
+ DEBUG [e422f4c4] Command: /usr/bin/env ln -s /var/www/refresh/shared/public/system /var/www/refresh/releases/20170521161401/public/system
+  INFO [e422f4c4] Finished in 0.120 seconds with exit status 0 (successful).
+ DEBUG [49114458] Running [ -L /var/www/refresh/releases/20170521161401/public/assets ] as refresh@freshair
+ DEBUG [49114458] Command: [ -L /var/www/refresh/releases/20170521161401/public/assets ]
+ DEBUG [49114458] Finished in 0.115 seconds with exit status 1 (failed).
+ DEBUG [bc6e97ca] Running [ -d /var/www/refresh/releases/20170521161401/public/assets ] as refresh@freshair
+ DEBUG [bc6e97ca] Command: [ -d /var/www/refresh/releases/20170521161401/public/assets ]
+ DEBUG [bc6e97ca] Finished in 0.111 seconds with exit status 1 (failed).
+  INFO [6e29f8ec] Running /usr/bin/env ln -s /var/www/refresh/shared/public/assets /var/www/refresh/releases/20170521161401/public/assets as refresh@freshair
+ DEBUG [6e29f8ec] Command: /usr/bin/env ln -s /var/www/refresh/shared/public/assets /var/www/refresh/releases/20170521161401/public/assets
+  INFO [6e29f8ec] Finished in 0.112 seconds with exit status 0 (successful).
+ DEBUG [63ac58d7] Running if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi as refresh@freshair
+ DEBUG [63ac58d7] Command: if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi
+ DEBUG [63ac58d7] Finished in 0.116 seconds with exit status 0 (successful).
+ DEBUG [cd6965d7] Running /usr/bin/env bundle check --path /var/www/refresh/shared/bundle as refresh@freshair
+ DEBUG [cd6965d7] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env bundle check --path /var/www/refresh/shared/bundle
+ DEBUG [cd6965d7] 	Warning: the running version of Bundler (1.14.5) is older than the version that created the lockfile (1.14.6). We suggest you upgrade to the latest version of Bundler by running `gem install bundler`.
+ DEBUG [cd6965d7] 	The following gems are missing
+ * net-ssh (4.1.0)
+ * net-scp (1.2.1)
+ * sshkit (1.13.1)
+ * airbrussh (1.2.0)
+ * bindex (0.5.0)
+ DEBUG [cd6965d7] 	 * byebug (9.0.6)
+ * capistrano (3.8.1)
+ * capistrano-bundler (1.2.0)
+ * capistrano-passenger (0.2.0)
+ DEBUG [cd6965d7] 	 * capistrano-rails (1.2.3)
+ * ffi (1.9.18)
+ * rb-fsevent (0.9.8)
+ * rb-inotify (0.9.8)
+ * listen (3.0.8)
+ * spring (2.0.1)
+ * spring-watcher-listen (2.0.1)
+ * web-console (3.5.1)
+Install missing gems with `bundle install`
+ DEBUG [cd6965d7] Finished in 0.312 seconds with exit status 1 (failed).
+  INFO [2a7ae041] Running /usr/bin/env bundle install --path /var/www/refresh/shared/bundle --without development test --deployment --quiet as refresh@freshair
+ DEBUG [2a7ae041] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env bundle install --path /var/www/refresh/shared/bundle --without development test --deployment --quiet
+  INFO [2a7ae041] Finished in 2.538 seconds with exit status 0 (successful).
+ DEBUG [5195db92] Running if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi as refresh@freshair
+ DEBUG [5195db92] Command: if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi
+ DEBUG [5195db92] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [0154de18] Running bundle exec rake assets:precompile as refresh@freshair
+ DEBUG [0154de18] Command: cd /var/www/refresh/releases/20170521161401 && ( export RAILS_ENV="production" ; bundle exec rake assets:precompile )
+  INFO [0154de18] Finished in 3.146 seconds with exit status 0 (successful).
+ DEBUG [39a9ddef] Running if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi as refresh@freshair
+ DEBUG [39a9ddef] Command: if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi
+ DEBUG [39a9ddef] Finished in 0.217 seconds with exit status 0 (successful).
+  INFO [f33043c5] Running /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401/assets_manifest_backup as refresh@freshair
+ DEBUG [f33043c5] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env mkdir -p /var/www/refresh/releases/20170521161401/assets_manifest_backup
+  INFO [f33043c5] Finished in 0.228 seconds with exit status 0 (successful).
+ DEBUG [febfe447] Running /usr/bin/env ls /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest* as refresh@freshair
+ DEBUG [febfe447] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env ls /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest*
+ DEBUG [febfe447] 	/var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest-fbee0ea7bd51254ce6986e06fa0d1894.json
+ DEBUG [febfe447] Finished in 0.114 seconds with exit status 0 (successful).
+ DEBUG [0fbad5c9] Running /usr/bin/env ls /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest* as refresh@freshair
+ DEBUG [0fbad5c9] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env ls /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest*
+ DEBUG [0fbad5c9] 	/var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest-fbee0ea7bd51254ce6986e06fa0d1894.json
+ DEBUG [0fbad5c9] Finished in 0.226 seconds with exit status 0 (successful).
+  INFO [38433633] Running /usr/bin/env cp /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest-fbee0ea7bd51254ce6986e06fa0d1894.json /var/www/refresh/releases/20170521161401/assets_manifest_backup as refresh@freshair
+ DEBUG [38433633] Command: cd /var/www/refresh/releases/20170521161401 && /usr/bin/env cp /var/www/refresh/releases/20170521161401/public/assets/.sprockets-manifest-fbee0ea7bd51254ce6986e06fa0d1894.json /var/www/refresh/releases/20170521161401/assets_manifest_backup
+  INFO [38433633] Finished in 0.114 seconds with exit status 0 (successful).
+  INFO [deploy:migrate] Run `rake db:migrate`
+ DEBUG [1766e524] Running if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi as refresh@freshair
+ DEBUG [1766e524] Command: if test ! -d /var/www/refresh/releases/20170521161401; then echo "Directory does not exist '/var/www/refresh/releases/20170521161401'" 1>&2; false; fi
+ DEBUG [1766e524] Finished in 0.199 seconds with exit status 0 (successful).
+  INFO [15e63ee0] Running bundle exec rake db:migrate as refresh@freshair
+ DEBUG [15e63ee0] Command: cd /var/www/refresh/releases/20170521161401 && ( export RAILS_ENV="production" ; bundle exec rake db:migrate )
+  INFO [15e63ee0] Finished in 2.826 seconds with exit status 0 (successful).
+  INFO [78d8aa38] Running /usr/bin/env ln -s /var/www/refresh/releases/20170521161401 /var/www/refresh/releases/current as refresh@freshair
+ DEBUG [78d8aa38] Command: /usr/bin/env ln -s /var/www/refresh/releases/20170521161401 /var/www/refresh/releases/current
+  INFO [78d8aa38] Finished in 0.115 seconds with exit status 0 (successful).
+  INFO [2f279f81] Running /usr/bin/env mv /var/www/refresh/releases/current /var/www/refresh as refresh@freshair
+ DEBUG [2f279f81] Command: /usr/bin/env mv /var/www/refresh/releases/current /var/www/refresh
+  INFO [2f279f81] Finished in 0.221 seconds with exit status 0 (successful).
+ DEBUG [43c5a0c8] Running /usr/bin/env ls -x /var/www/refresh/releases as refresh@freshair
+ DEBUG [43c5a0c8] Command: /usr/bin/env ls -x /var/www/refresh/releases
+ DEBUG [43c5a0c8] 	20170521152615	20170521152813	20170521153542	20170521154025	20170521154147
+20170521161401
+ DEBUG [43c5a0c8] Finished in 0.117 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on freshair
+  INFO [32bed7ac] Running /usr/bin/env rm -rf /var/www/refresh/releases/20170521152615 as refresh@freshair
+ DEBUG [32bed7ac] Command: /usr/bin/env rm -rf /var/www/refresh/releases/20170521152615
+  INFO [32bed7ac] Finished in 0.199 seconds with exit status 0 (successful).
+ DEBUG [7204b5d8] Running if test ! -d /var/www/refresh/releases; then echo "Directory does not exist '/var/www/refresh/releases'" 1>&2; false; fi as refresh@freshair
+ DEBUG [7204b5d8] Command: if test ! -d /var/www/refresh/releases; then echo "Directory does not exist '/var/www/refresh/releases'" 1>&2; false; fi
+ DEBUG [7204b5d8] Finished in 0.113 seconds with exit status 0 (successful).
+  INFO [651b1702] Running /usr/bin/env echo "Branch master (at c59e3095511774ced6494c6bcf9ed268b525bb21) deployed as release 20170521161401 by leo-mazz" >> /var/www/refresh/revisions.log as refresh@freshair
+ DEBUG [651b1702] Command: cd /var/www/refresh/releases && /usr/bin/env echo "Branch master (at c59e3095511774ced6494c6bcf9ed268b525bb21) deployed as release 20170521161401 by leo-mazz" >> /var/www/refresh/revisions.log
+  INFO [651b1702] Finished in 0.201 seconds with exit status 0 (successful).
