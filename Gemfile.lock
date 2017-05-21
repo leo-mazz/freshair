@@ -193,6 +193,7 @@ GEM
     minitest (5.10.2)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    mysql2 (0.4.5)
     naught (1.1.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -331,6 +332,7 @@ DEPENDENCIES
   just-datetime-picker
   listen (~> 3.0.5)
   mini_magick
+  mysql2
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails_autolink
