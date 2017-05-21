@@ -5,6 +5,11 @@ require "capistrano/setup"
 require "capistrano/deploy"
 
 # Load the SCM plugin appropriate to your project:
+# require 'capistrano/rails'
+
+# require 'capistrano/passenger'
+
+require 'capistrano/bundler'
 #
 # require "capistrano/scm/hg"
 # install_plugin Capistrano::SCM::Hg

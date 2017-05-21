@@ -2,12 +2,12 @@
 lock "3.8.1"
 
 set :application, "FreshAir.org.uk"
-set :repo_url, "git@bitbucket.org:freshair/refresh-website.git"
+set :repo_url, "https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :deploy_to, "/var/www/refresh-website"
+set :deploy_to, "/var/www/refresh"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -20,7 +20,7 @@ set :deploy_to, "/var/www/refresh-website"
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/secrets.yml", "config/application.yml"
+# append :linked_files, "config/database.yml", "config/secrets.yml", "config/application.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
