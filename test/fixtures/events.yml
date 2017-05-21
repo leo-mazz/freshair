@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  start: 2017-04-24 02:16:24
+  end: 2017-04-24 02:16:24
+  description: MyText
+  location: MyString
+  facebook_event: MyString
+  buy_tickets: MyString
+
+two:
+  name: MyString
+  start: 2017-04-24 02:16:24
+  end: 2017-04-24 02:16:24
+  description: MyText
+  location: MyString
+  facebook_event: MyString
+  buy_tickets: MyString

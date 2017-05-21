@@ -1,0 +1,39 @@
+<div class="issue">
+  <h1>Report an issue</h1>
+  <p>This website is brand-new and some bugs might be out there. Please, if you bump into one,
+    don't hesitate to report it!</p>
+
+    <p>Please be as accurate as possible in the description of the problem: information like
+      what went wrong exactly, under what conditions, and what browser you were using are crucial
+      to identify the cause of the issue. Your email address will be used if we need any
+      further clarification.</p>
+
+      <%= form_for :issue do |f| %>
+        <% if @issue.errors.any? %>
+          <%= render 'shared/messages', locals: {type: :alert} do %>
+            <h2>
+              <%= pluralize(@issue.errors.count, "error") %> prohibited
+              this issue from being submitted:
+            </h2>
+            <ul>
+              <% @issue.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+        <% end %>
+      <% end %>
+
+      <div class="field">
+        <%= f.text_area :description, placeholder: 'Description', autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :email, placeholder: 'Email' %>
+      </div>
+
+      <div>
+        <%= f.submit :Submit %>
+      </div>
+      <% end %>
+
+</div>

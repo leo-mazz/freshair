@@ -1,0 +1,56 @@
+<aside>
+  <label for="top-toggler" class="expand-top">
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
+  </label>
+  <%= link_to root_path do %>
+    <%= image_tag 'logo-white.png', class: 'logo-white' %>
+  <% end %>
+  <section class="on-air">
+    <%= image_tag @current_show.pic.resized.url %>
+    <div class="on-air-info">
+      <div>
+        <% if @on_air %>
+          <h4>On air</h4>
+        <% end %>
+        <p><%= @current_show.title %></p>
+        <%= link_to 'Details', show_path(@current_show)%>&nbsp;&nbsp;<%= link_to 'View shows', shows_path %><br>
+      </div>
+      <div>
+        <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent' %>
+        <span data-turbolinks-permanent id="audio-control" class="button button-blue">
+          <span id="play-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
+          <span id="audio-control-txt">Play now</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="events">
+    <% if events.size > 0 %>
+      <h2>Upcoming events.</h2>
+      <% events.each do |event| %>
+        <div class="event">
+          <%= link_to event.name, event_path(event) %>
+          <span class="date"><%= format_date_small event.start %></span>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+
+  <section class="twitter">
+    <h2>Twitter feed.</h2>
+    <%= render partial: 'shared/tweet', collection: tweets, as: :tweet %>
+  </section>
+
+  <section class="message-studio">
+    <h2>Message studio.</h2>
+    <form>
+      <div class="field">
+        <input type="text" name="" value="" placeholder="Type name, press enter">
+      </div>
+    </form>
+  </section>
+
+  <!-- <hr>
+  <div class="waverley-care-logo"><a href="#"><img src="waverley_care.jpg" alt="Waverley Care"></a></div> -->
+</aside>

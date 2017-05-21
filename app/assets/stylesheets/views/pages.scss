@@ -1,0 +1,20 @@
+.sub-page-box {
+  // margin: 0 7px;
+  padding: 0 14px 7px 0;
+  display: flex;
+  justify-content: center;
+  // text-decoration: underline;
+  align-items: center;
+
+  &:hover {
+    // background: $color-yellow;
+    // border-bottom: 3px solid $color-yellow;
+    // font-weight: bold;
+  }
+}
+
+.sub-pages {
+  margin-top: 10px;
+  font-size: 16px;
+
+}

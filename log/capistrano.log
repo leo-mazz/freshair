@@ -1,0 +1,91 @@
+# Logfile created on 2017-04-30 16:53:27 +0100 by logger.rb/v1.2.7
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 16:53:27 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cda8da62] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [cda8da62] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 17:10:46 +0100 cap production deploy BASTION_HOST=example.com
+  INFO ---------------------------------------------------------------------------
+  INFO [c2250039] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [c2250039] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 17:10:56 +0100 cap production deploy BASTION_HOST=example.com
+  INFO ---------------------------------------------------------------------------
+  INFO [8f83e5a7] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [8f83e5a7] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 20:35:27 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1767a4ae] Running /usr/bin/env mkdir -p /tmp as freshfeel@freshair
+ DEBUG [1767a4ae] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 20:39:07 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e2785396] Running /usr/bin/env mkdir -p /tmp as freshfeel@freshair
+ DEBUG [e2785396] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-30 20:40:14 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4ddd28cd] Running /usr/bin/env mkdir -p /tmp as freshair@freshair
+ DEBUG [4ddd28cd] Command: /usr/bin/env mkdir -p /tmp
+  INFO [4ddd28cd] Finished in 37.199 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 0.0%
+  INFO Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 100.0%
+  INFO [686e76be] Running /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh as freshair@freshair
+ DEBUG [686e76be] Command: /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh
+  INFO [686e76be] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [0e0306d2] Running /usr/bin/env git ls-remote git@example.com:me/my_repo.git HEAD as freshair@freshair
+ DEBUG [0e0306d2] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git ls-remote git@example.com:me/my_repo.git HEAD )
+ DEBUG [0e0306d2] 	ssh: connect to host example.com port 22: Network is unreachable
+ DEBUG [0e0306d2] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 12:59:18 +0100 cap staging git:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 12:59:20 +0100 cap staging git:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 12:59:26 +0100 cap staging git:check
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 13:51:56 +0100 cap production deplo
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 13:51:58 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c7f49995] Running /usr/bin/env mkdir -p /tmp as freshfeel@freshair
+ DEBUG [c7f49995] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 13:52:58 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4b534b58] Running /usr/bin/env mkdir -p /tmp as freshfeel@freshair
+ DEBUG [4b534b58] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 13:53:32 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f2b4f103] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [f2b4f103] Command: /usr/bin/env mkdir -p /tmp
+  INFO [f2b4f103] Finished in 6.025 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 0.0%
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-05-21 14:00:43 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [5efb042c] Running /usr/bin/env mkdir -p /tmp as refresh@freshair
+ DEBUG [5efb042c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [5efb042c] Finished in 6.112 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 0.0%
+  INFO Uploading /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh 100.0%
+  INFO [1deba7a3] Running /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh as refresh@freshair
+ DEBUG [1deba7a3] Command: /usr/bin/env chmod 700 /tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh
+  INFO [1deba7a3] Finished in 0.116 seconds with exit status 0 (successful).
+  INFO [d2ba2b37] Running /usr/bin/env git ls-remote git@bitbucket.org:freshair/refresh-website.git HEAD as refresh@freshair
+ DEBUG [d2ba2b37] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-FreshAir.org.uk-production-leo-mazz.sh" ; /usr/bin/env git ls-remote git@bitbucket.org:freshair/refresh-website.git HEAD )
+ DEBUG [d2ba2b37] 	ssh: connect to host bitbucket.org port 22: Network is unreachable
+ DEBUG [d2ba2b37] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.

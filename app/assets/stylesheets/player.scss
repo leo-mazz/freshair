@@ -1,0 +1,37 @@
+.player-wrapper {
+  background-color: $color-dark-grey;
+  color: $color-dirty-white;
+}
+
+.listen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.player {
+  display: flex;
+  img.cover {
+    margin-right: 10px;
+    height: 200px;
+    width: 200px;
+  }
+  width: 400px;
+
+  .on-air-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .button {
+    width: 100px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

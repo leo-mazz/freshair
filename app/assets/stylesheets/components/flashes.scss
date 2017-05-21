@@ -1,0 +1,51 @@
+.messages {
+  padding: 7px;
+  margin: 5px 0;
+  max-width: $form-width;
+  display: flex;
+  align-items: center;
+
+  .error-list {
+    margin-left: 5px;
+    padding-left: 5px;
+  }
+
+
+  h2 {
+    font-size: 15px;
+    margin: 0;
+  }
+
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fa-red {
+    color: $color-red;
+  }
+
+  .fa-blue {
+    color: $color-teal;
+  }
+
+  .fa-green {
+    color: $color-green;
+  }
+
+  &.messages-notice {
+    background: $color-teal-lighter;
+    color: $color-teal;
+  }
+
+  &.messages-success {
+    background: $color-green-lighter;
+    color: $color-green;
+  }
+
+  &.messages-alert {
+    background: $color-red-lighter;
+    color: $color-red;
+  }
+}

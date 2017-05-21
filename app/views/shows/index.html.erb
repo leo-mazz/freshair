@@ -1,0 +1,43 @@
+<% # No need to display navigation if there's no active show, or no show at all, or all shows are active %>
+<% unless @active_shows.count == 0 or (@active_shows.count == @all_shows.count) %>
+  <nav class="main-nav">
+    <ul>
+      <li class="<%= (not @display_all) ? 'selected' : '' %>">
+        <%= link_to 'Active', shows_path%>
+      </li>
+      <li class="<%= @display_all ? 'selected' : '' %>">
+        <%= link_to 'All shows', all_shows_path%>
+      </li>
+    </ul>
+  </nav>
+<% end %>
+
+
+<% if @shows.count == 0 %>
+  <p>Not a single show to display :(</p>
+<% else %>
+  <div class="boxes">
+    <% @shows.each do |show| %>
+      <%= link_to show_path(show), class: 'show-box' do %>
+        <%= image_tag show.pic.resized.url %>
+          <div class="details">
+            <div class="title-line">
+              <h2><%= show.title %></h2><i class="tag-line"><%= show.tag_line %></i>
+            </div>
+            <span class="show-description">
+              <%= truncate show.description, length: 110,  separator: ' ' %>
+            </span><br>
+            <% unless show.broadcast_times.nil? %>
+              <span class="time">
+                <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
+                 <%= show.broadcast_times[:day] %>
+                 <%= show.broadcast_times[:start] %> -
+                 <%= show.broadcast_times[:end] %>
+               </span>
+             <% end %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
+<% end %>

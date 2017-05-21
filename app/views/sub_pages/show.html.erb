@@ -1,0 +1,16 @@
+<nav class="main-nav">
+  <ul>
+    <li><%= link_to 'Home', root_path%></li>
+    <% @nav_pages.each do |page| %>
+    <li class="<%= page.slug == @sub_page.page.slug ? 'selected' : ''%>">
+      <%= link_to page.title, page_path(page) %>
+    </li>
+    <% end %>
+  </ul>
+</nav>
+<h1><%= @sub_page.title %></h1>
+
+<p>
+  <% # Important to sanitize! Will strip off unsafe code %>
+  <%= sanitize @sub_page.content.html_safe %>
+</p>

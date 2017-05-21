@@ -1,0 +1,33 @@
+nav.main-nav {
+  ul {
+    padding: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    list-style: none;
+    text-transform: uppercase;
+
+    li {
+      margin-right: 4px;
+      cursor: pointer;
+
+      &.selected {
+        color: $color-red;
+        font-weight: bold;
+
+        &:hover {
+          color: $color-red;
+        }
+      }
+
+      a {
+        text-decoration: none;
+
+      }
+
+      &:hover {
+        color: rgb(133, 133, 133);
+      }
+    }
+  }
+}

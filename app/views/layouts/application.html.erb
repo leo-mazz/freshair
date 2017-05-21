@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FreshAir.org.uk <% unless @title.nil?%> <%= '> ' + @title %><% end %></title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
+
+  <!-- TODO: download the font and put it in assets -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <input type="checkbox" id="top-toggler" value="">
+  <%= render partial: "shared/aside", locals: {events: @upcoming_events, tweets: @tweets} %>
+  <div id="main-body">
+    <header>
+      <%= link_to root_path do %>
+        <%= image_tag 'logo.png', class: 'logo', alt: 'FreshAir.org.uk'%>
+      <% end %>
+
+      <div class="welcome">
+        <div class="welcome-text">Welcome to FreshAir.org.uk, Edinburgh’s student radio station.</div>
+        <div class="small-icons">
+          <a href="https://www.facebook.com/FreshAirorguk-223159361033540/" target="_blank"><%= image_tag 'ext/facebook.png', alt: 'FreshAir'%></a>
+          <a href="https://twitter.com/FreshAirRadio" target="_blank"><%= image_tag 'ext/twitter.png', alt: 'FreshAir'%></a>
+          <a href="#"><%= image_tag 'ext/rss.png', alt: 'FreshAir'%></a>
+        </div>
+      </div>
+    </header>
+
+      <div id="content">
+        <%= yield %>
+      </div>
+      <footer>
+        <span>
+          FreshAir © <%= Date.today.year %> |
+          <% if signed_in? %>
+            <%= link_to 'Dashboard', admin_root_path %>
+            | <%= link_to 'Edit account', edit_user_registration_path %>
+          <% else %>
+            <%= link_to 'Members Access', admin_root_path %>
+          <% end %>
+        </span>
+        <span>
+          <%= link_to 'Join the techteam!', techteam_path %>&nbsp;&nbsp;&nbsp;
+          <%= link_to 'Report an issue', issue_path %>
+        </span>
+      </footer>
+
+  </div>
+</body>
+</html>

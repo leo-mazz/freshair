@@ -1,0 +1,106 @@
+aside {
+  z-index: 10;
+  color: $color-dirty-white;
+  background: $color-dark-grey;
+  width: $aside-width;
+  padding: 22px;
+  font-size: 17px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: auto;
+
+  .logo-white {
+    display: none;
+    width: 200px;
+    margin-bottom: 10px;
+  }
+
+  .expand-top {
+    display: none;
+  }
+
+  a {
+    color: $color-aside-link;
+    text-decoration: underline;
+  }
+
+  .event .date {
+    color: rgb(103, 103, 103);
+    font-size: 13px;
+    margin-left: 5px;
+  }
+
+  .on-air {
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+      width: 155px;
+      height: 155px;
+    }
+
+    .on-air-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    #play-icon {
+      line-height: 0;
+
+      .fa {
+        font-size: 8px;
+        margin-right: 5px;
+      }
+    }
+
+  }
+
+  .tweet {
+    margin-bottom: 5px;
+  }
+
+  form .field input {
+    background-color: rgb(66, 66, 66);
+    margin-top: 0;
+    width: 80%;
+    height: 30px;
+    color: $color-dirty-white;
+    font-size: 16px;
+  }
+
+  @media (max-width: $break-width) {
+    width: 100%;
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .logo-white {
+      display: block;
+    }
+
+    section {
+      width: 270px;
+      display: none;
+    }
+
+    section.on-air {
+      margin-top: 20px;
+      display: none;
+    }
+
+    .expand-top {
+      font-size: 25px;
+      display: block;
+      position: absolute;
+      top: 40px;
+      left: 10px;
+    }
+  }
+}

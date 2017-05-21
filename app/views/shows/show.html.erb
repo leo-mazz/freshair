@@ -1,0 +1,40 @@
+<div class="show">
+    <%= image_tag @show.pic.resized.url %>
+
+  <div class="show-body">
+    <div class="title-line">
+      <h1><%= @show.title %></h1>
+
+      <!-- Only display tag line if there is one (it's not mandatory) -->
+      <% unless @show.tag_line.empty?  %>
+      <i class="tag-line">
+        - <%= @show.tag_line %><br>
+      </i>
+      <% end %>
+    </div>
+
+
+    <% unless @show.broadcast_times.nil? %>
+    <span class="date-label">
+      <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
+      <%= @show.broadcast_times[:day] %>
+      <%= @show.broadcast_times[:start] %> -
+      <%= @show.broadcast_times[:end] %>
+    </span>
+    <% end %>
+    <div class="description">
+      <%= @show.description %>
+    </div>
+
+    <% unless @show.show_memberships.empty? %>
+      <div class="hosts">
+          Hosted by
+
+        <% @show.show_memberships.each_with_index do |membership, index| %>
+          <%= membership.user.name %><%= conjunction index, @show.show_memberships.size %>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

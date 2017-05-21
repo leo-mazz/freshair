@@ -1,0 +1,23 @@
+<h1><%= @event.name %></h1>
+<span class="date-label">
+  <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
+  <%= format_date  @event.start %> <%= format_time @event.start %>
+  <% if not @event.end.nil? %>
+  - <%= format_date @event.end %>
+  <% end %>
+</span>
+<br>
+<!-- TODO: YOU WANT DATES FOR MANY DAYS EVENTS AND SINGLE DAYS ONES TO BE DISPLAYED DIFFERENTLY -->
+<i>(<%= @event.location %>)</i>
+<br><br>
+<% # Sanitizing is crucial to protect against bad code! %>
+<p><%= sanitize @event.description.html_safe %></p>
+<br>
+<div class="event-links">
+  <% if not @event.facebook_event.empty? %>
+  <%= link_to 'Facebook event', @event.facebook_event, target: '_blank' %> <br>
+  <% end %>
+  <% if not @event.link_to_tickets.empty? %>
+  <%= link_to 'Get tickets', @event.link_to_tickets, target: '_blank' %>
+  <% end %>
+</div>

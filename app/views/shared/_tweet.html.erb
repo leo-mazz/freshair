@@ -1,0 +1,10 @@
+<p class="tweet">
+  <small>
+    <%= auto_link_tweet(tweet) %>
+    <span class="tweet-date">
+      <%= link_to "https://twitter.com/statuses/#{tweet.id}", target: "_blank" do %>
+        <%  format_date_time(tweet.created_at) if tweet.created_at %>
+      <% end %>
+    </span>
+  </small>
+</p>

@@ -1,0 +1,7 @@
+I"<(function() {
+  var ciao;
+
+  ciao = 5;
+
+}).call(this);
+:ET

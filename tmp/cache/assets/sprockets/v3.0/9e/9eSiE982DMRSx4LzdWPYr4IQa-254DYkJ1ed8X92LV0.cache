@@ -1,0 +1,25 @@
+I"X(function() {
+  var ctrl, ctrl_txt, play_icon;
+
+  ctrl = document.getElementById('audio-control');
+
+  ctrl_txt = document.getElementById('audio-control-txt');
+
+  play_icon = document.getElementById('play-icon');
+
+  console.log(ctrl);
+
+  ctrl.onclick = function() {
+    if (radio.paused) {
+      radio.play();
+      ctrl_txt.innerHTML = 'Pause';
+      play_icon.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+    } else {
+      radio.pause();
+      ctrl_txt.innerHTML = 'Play now';
+      play_icon.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+    }
+  };
+
+}).call(this);
+:ET

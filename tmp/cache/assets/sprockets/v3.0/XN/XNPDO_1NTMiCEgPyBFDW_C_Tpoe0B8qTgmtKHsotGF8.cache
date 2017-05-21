@@ -1,0 +1,23 @@
+I"o(function() {
+  this.ctrl = document.getElementById('audio-control');
+
+  console.log('ciao');
+
+  this.ctrl_txt = document.getElementById('audio-control-txt');
+
+  this.play_icon = document.getElementById('play-icon');
+
+  this.ctrl.onclick = function() {
+    if (this.radio.paused) {
+      this.radio.play();
+      this.ctrl_txt.innerHTML = 'Pause';
+      this.play_icon.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+    } else {
+      this.radio.pause();
+      this.ctrl_txt.innerHTML = 'Play now';
+      this.play_icon.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+    }
+  };
+
+}).call(this);
+:ET

@@ -1,0 +1,63 @@
+<%# TODO: this view is shit. Fix %>
+<% unless locals[:type].nil? %>
+  <%
+      case locals[:type]
+      when :alert
+        messages_class = "messages-alert"
+        icon       = "fa-exclamation-triangle fa-red"
+      when :success
+        messages_class = "messages-success"
+        icon       = "fa-check fa-green"
+      when :notice
+        messages_class = "messages-notice"
+        icon       = "fa-info-circle fa-blue"
+      end
+  %>
+
+    <div class="messages <%= messages_class %>">
+      <i class="fa <%= icon %> aria-hidden="true""></i>
+      <div class="error-list">
+        <%= yield %>
+      </div>
+    </div>
+
+<% else %>
+  <%
+    alert_messages = locals[:messages]["alert"]
+    success_messages = locals[:messages]["success"]
+    notice_messages = locals[:messages]["notice"]
+  %>
+  <% unless alert_messages.nil? %>
+    <div class="messages messages-alert">
+      <i class="fa fa-exclamation-triangle fa-red" aria-hidden="true"></i>
+      <div class="error-list">
+        <ul>
+          <li><%= alert_messages %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <% unless success_messages.nil? %>
+    <div class="messages messages-success">
+      <i class="fa fa-check fa-green" aria-hidden="true"></i>
+      <div class="error-list">
+        <ul>
+          <li><%= success_messages %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <% unless notice_messages.nil? %>
+    <div class="messages messages-notice">
+      <i class="fa fa-info-circle fa-blue" aria-hidden="true"></i>
+      <div class="error-list">
+        <ul>
+          <li><%= notice_messages %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
