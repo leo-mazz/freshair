@@ -1,0 +1,41 @@
+# Linux
+*~
+
+# Rails
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/spec/tmp
+*.orig
+rerun.txt
+pickle-email-*.html
+/.bundle
+/.bundle/
+/lib/bundler/man/
+/vendor/bundle
+.rvmrc
+.byebug_history
+/public/uploads/ # carrierwave
+
+
+# Ruby
+*.gem
+/.config
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+
+# Ignore secrets config
+# /config/application.yml
+# /config/secrets.yml
