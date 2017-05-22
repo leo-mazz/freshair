@@ -8,9 +8,10 @@ with inspiration from a previous project (Project FreshFeel) by
 
 ## Quick Start
 ### Requirements
-To run this application, you will need Ruby 2 and Rails 5. For comprehensive
-instructions on how to install these on your system, please check their respective
-documentations.
+To run this application, you will need Ruby 2 and Rails 5.
+You will also need ImageMagick to make the gem 'MiniMagick' work.
+For comprehensive instructions on how to install these on your system, please
+check their respective documentations.
 
 ### Build
 To install all dependencies
@@ -23,17 +24,17 @@ You can launch a development server with
 You can launch an interactive Rails console with
 `rails c`
 
+In production, you should prefix the above two commands with
+`RAILS_ENV=production`
+
 You can create a first admin user through the console. You want to skip email confirmation and
 registration approval.
 ```
 user = User.new(email: 'jsmith@example.com', first_name: 'John', last_name: 'Smith', :password => 'safe_password', :password_confirmation => 'safe_password', approved: true)
-
-user.skip_confirmation!
-
-user.add_role :admin
-
-user.save
 ```
+`user.skip_confirmation!`
+`user.add_role :admin`
+`user.save`
 
 For bug-fixing, during development, you can place the following line
 `byebug`
@@ -49,6 +50,10 @@ Since we need to use the server 'Tardis Fez' as a bastion host to our Virtual
 Machine, you will need to login with a user on Tardis. To request one, get in
 touch with the Tardis guys, they are sweet and meet weekly. For more info, check
 their [wiki](http://tardis.ed.ac.uk).
+
+After deploying changes with Capistrano, at the moment, you will need to
+restart apache on the Virtual Machine, with
+`sudo service apache2 restart`
 
 
 ## Extended documentation
