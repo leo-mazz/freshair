@@ -9,8 +9,8 @@ capybara-*.html
 /tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/public/system
-/public/uploads # carrierwave
+/public/system/
+/public/uploads/ # carrierwave
 /coverage/
 /spec/tmp
 *.orig
