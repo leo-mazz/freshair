@@ -31,10 +31,13 @@ You can create a first admin user through the console. You want to skip email co
 registration approval.
 ```
 user = User.new(email: 'jsmith@example.com', first_name: 'John', last_name: 'Smith', :password => 'safe_password', :password_confirmation => 'safe_password', approved: true)
+
+user.skip_confirmation!
+
+user.add_role :admin
+
+user.save
 ```
-`user.skip_confirmation!`
-`user.add_role :admin`
-`user.save`
 
 For bug-fixing, during development, you can place the following line
 `byebug`
