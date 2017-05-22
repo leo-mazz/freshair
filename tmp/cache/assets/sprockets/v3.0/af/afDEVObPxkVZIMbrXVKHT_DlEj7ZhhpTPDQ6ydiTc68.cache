@@ -1,7 +1,0 @@
-I"r(function() {
-  var radio;
-
-  radio = new Audio('http://studio.freshair.org.uk:8000/radio');
-
-}).call(this);
-:ET

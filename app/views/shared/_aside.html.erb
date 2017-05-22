@@ -6,7 +6,11 @@
     <%= image_tag 'logo-white.png', class: 'logo-white' %>
   <% end %>
   <section class="on-air">
-    <%= image_tag @current_show.pic.resized.url %>
+    <% if @current_show.pic.resized.url.nil? %>
+      <%= image_tag 'default-cover.png' %>
+    <% else %>
+      <%= image_tag @current_show.pic.resized.url %>
+    <% end %>
     <div class="on-air-info">
       <div>
         <% if @on_air %>

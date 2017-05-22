@@ -19,7 +19,11 @@
   <div class="boxes">
     <% @shows.each do |show| %>
       <%= link_to show_path(show), class: 'show-box' do %>
-        <%= image_tag show.pic.resized.url %>
+        <% if show.pic.resized.url.nil? %>
+          <%= image_tag 'default-cover-grey.png' %>
+        <% else %>
+          <%= image_tag show.pic.resized.url %>
+        <% end %>
           <div class="details">
             <div class="title-line">
               <h2><%= show.title %></h2><i class="tag-line"><%= show.tag_line %></i>

@@ -1,7 +1,0 @@
-I"=(function() {
-  var ciao;
-
-  ciao = 12;
-
-}).call(this);
-:ET

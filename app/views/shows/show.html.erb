@@ -1,12 +1,16 @@
 <div class="show">
+  <% if @show.pic.resized.url.nil? %>
+    <%= image_tag 'default-cover-grey.png' %>
+  <% else %>
     <%= image_tag @show.pic.resized.url %>
+  <% end %>
 
   <div class="show-body">
     <div class="title-line">
       <h1><%= @show.title %></h1>
 
       <!-- Only display tag line if there is one (it's not mandatory) -->
-      <% unless @show.tag_line.empty?  %>
+      <% unless @show.tag_line.nil? or @show.tag_line.empty?  %>
       <i class="tag-line">
         - <%= @show.tag_line %><br>
       </i>

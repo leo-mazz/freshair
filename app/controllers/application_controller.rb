@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
     @static_pages = Page.all.order(priority: :desc)
     # TODO: change these
     @on_air = true
-    @current_show = Show.first
+    @current_show = Show.last
   end
 end
