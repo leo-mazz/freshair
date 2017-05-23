@@ -1,9 +1,13 @@
 class ApiController < ActionController::Base
 
   def shows
-    @shows = User.find_by_email(params[:email]).shows
-
-    render json: @shows, only: [:slug, :title, :tag_line, :description]
+    @user = User.find_by_email(params[:email])
+    if @user.nil?
+      render json: nil
+    else
+      @shows = @user.shows
+      render json: @shows, only: [:slug, :title, :tag_line, :description]
+    end
   end
 
   def current_schedule
@@ -11,7 +15,7 @@ class ApiController < ActionController::Base
 
     if @current.nil?
 
-      render json: 'null'
+      render json: nil
     else
       @response = {}
       WeekService.days_dic.each do |day, integer|
