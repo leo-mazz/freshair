@@ -46,11 +46,8 @@ Rails.application.routes.draw do
 
 
   scope 'api' do
-    #get 'shows', to: 'home#index'
-    # TODO: you want an api capable of
-    # - retrieving titles of all the shows associated to a user
-    # - retrieving current schedule, with days
-    #                                       time, show slug (or -1 if nothing)
+    get 'users/:email/shows', to: 'api#shows', :constraints => { email: /[a-zA-Z0-9]+\@[a-zA-Z0-9]+\.[a-zA-Z]+/ }
+    get 'schedules/current', to: 'api#current_schedule'
   end
 
   # OpenID

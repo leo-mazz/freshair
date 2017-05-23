@@ -35,4 +35,8 @@ class ScheduleAssignment < ApplicationRecord
     true
   end
 
+  def show_slug
+    Show.find(self.show_id).slug
+  end
+
 end
