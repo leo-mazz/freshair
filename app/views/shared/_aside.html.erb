@@ -12,7 +12,7 @@
       <div>
         <h4 id="player-status">FreshSounds</h4>
         <p id="player-title">Best music from FreshAir</p>
-        <%= link_to 'Details', show_path(@current_show), id: 'player-details'%>&nbsp;&nbsp;
+        <%= link_to 'Details', show_path(@current_show), id: 'player-details', style: 'display:none;'%> <span id="player-space" style="display:none;">&nbsp;&nbsp;</span>
         <%= link_to 'View shows', shows_path %><br>
       </div>
       <div>

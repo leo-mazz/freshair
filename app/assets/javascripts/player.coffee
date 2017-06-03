@@ -2,6 +2,7 @@ fetchBroadcastInfo = ->
   statusElement = document.getElementById('player-status')
   titleElement = document.getElementById('player-title')
   detailsElement = document.getElementById('player-details')
+  spaceElement = document.getElementById('player-space')
   pictureElement = document.getElementById('player-picture')
   defaultPictureElement = document.getElementById('player-default-picture')
 
@@ -13,8 +14,11 @@ fetchBroadcastInfo = ->
     titleElement.innerHTML = request.response.title
     if request.response.link == null
       detailsElement.style.display = 'none'
+      spaceElement.style.display = 'none'
     else
       detailsElement.href = request.response.link
+      detailsElement.style.display = 'inline'
+      spaceElement.style.display = 'inline'
 
     if request.response.pic != null
       dafaultPictureElement.style.display = 'none'
