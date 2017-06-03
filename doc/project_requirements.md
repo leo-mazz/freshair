@@ -1,28 +1,6 @@
 # Refresh Project
 ## Discussion
 ### Main points
-- Nominet being nasty
-- Renovate domain. Who pays?
-- New broadcast controls
-- Prerecordings
-- New website
-- Fringe?
-
-### People to be addressed in discussion
-- Manager
-- Assistant Manager
-- Head of Programming
-- Various heads of teams
-- Social Secretary
-- Head of Design
-
-Also, anyone that might have a cool idea/suggestion/requirement about the website, please come.
-
-### Keep in mind while discussing
-Might the requirements possibly change in the future? Has it always been like this in the past?
-Some questions might seem dumb but they all are fundamental for me to build an effective entities model.
-
-### Main points
 #### Broadcast
 **Introduction:**  I want to implement system to allow player to know with more precision what show is on air (if any), regardless of switches and people not showing up, ignoring current schedule. I also want to notify Head of Programming of differences between current schedule and reality. I want to do so by forcing hosts to login and pick one of their show before going on air.
 I want to consider finding a way of automatically cutting off a show that goes off time to make sure this system does not break.
@@ -105,25 +83,16 @@ I will  assign a dynamic page per team and they will have freedom in what the co
 - Do you agree with my permissions schema?
 - Any suggestion?
 
-### Result of discussion
-Chat with dj (durham, bristol)
-Automatic instagram uploads
-
-
-
 
 ## Roadmap
 - Associations of users to shows
-- Figure out VOIP
 - Posts, playlists, dynamic pages, etc.
 - Bookings and free schedules
-- Change of Broadcast Controls and communication Tardis <> Megatron
-- Create git repository
-- Deployment through Capistrano
+- Broadcast through SSL
+- Move git repository
 - Podcasts
 - Authentication through openID
 - Prerecords
-- Upload of media in production
 - Create proper Admin Dashboard
 - Refine mobile version
 - Security
