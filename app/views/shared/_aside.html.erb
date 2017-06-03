@@ -6,18 +6,14 @@
     <%= image_tag 'logo-white.png', class: 'logo-white' %>
   <% end %>
   <section class="on-air">
-    <% if @current_show.pic.resized.url.nil? %>
-      <%= image_tag 'default-cover.png' %>
-    <% else %>
-      <%= image_tag @current_show.pic.resized.url %>
-    <% end %>
+    <%= image_tag 'default-cover.png', class: 'player-pic'%>
+
     <div class="on-air-info">
       <div>
-        <% if @on_air %>
-          <h4>On air</h4>
-        <% end %>
-        <p><%= @current_show.title %></p>
-        <%= link_to 'Details', show_path(@current_show)%>&nbsp;&nbsp;<%= link_to 'View shows', shows_path %><br>
+        <h4 id="player-status">FreshSounds</h4>
+        <p id="player-title">Best music from FreshAir</p>
+        <%= link_to 'Details', show_path(@current_show), class: 'player-details'%>&nbsp;&nbsp;
+        <%= link_to 'View shows', shows_path %><br>
       </div>
       <div>
         <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent' %>

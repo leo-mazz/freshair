@@ -46,8 +46,9 @@ Rails.application.routes.draw do
 
 
   scope 'api' do
-    get 'users/:email/shows', to: 'api#shows', :constraints => { email: /[a-zA-Z0-9]+\@[a-zA-Z0-9]+\.[a-zA-Z]+/ }
+    get 'users/:email/shows', to: 'api#shows_for_user', :constraints => { email: /[a-zA-Z0-9]+\@[a-zA-Z0-9]+\.[a-zA-Z]+/ }
     get 'schedules/current', to: 'api#current_schedule'
+    get 'shows/:slug', to: 'api#show_by_slug'
   end
 
   # OpenID

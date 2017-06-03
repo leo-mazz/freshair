@@ -1,3 +1,5 @@
+include Rails.application.routes.url_helpers
+
 class Show < ApplicationRecord
 
   mount_uploader :pic, ShowPicUploader
@@ -57,6 +59,10 @@ class Show < ApplicationRecord
     end
 
     active
+  end
+
+  def link
+    Rails.root.join(shows_path(self))
   end
 
 end

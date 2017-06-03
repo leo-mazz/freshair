@@ -1,4 +1,41 @@
+fetchBroadcastInfo = ->
+  statusElement = document.getElementById('player-status')
+  titleElement = document.getElementById('player-title')
+  detailsElement = document.getElementById('player-details')
+  pictureElement = document.getElementById('player-picture')
+  defaultPictureElement = document.getElementById('player-default-picture')
+
+  # https://www.sitepoint.com/guide-vanilla-ajax-without-jquery/
+  request = new XMLHttpRequest
+
+  request.onload = ->
+    statusElement.innerHTML = request.response.status
+    titleElement.innerHTML = request.response.title
+    if request.response.link == null
+      detailsElement.style.display = 'none'
+    else
+      detailsElement.href = request.response.link
+
+    if request.response.pic != null
+      dafaultPictureElement.style.display = 'none'
+      pictureElement.src = request.response.pic
+      dafaultPictureElement.style.display = 'block'
+    else
+      dafaultPictureElement.style.display = 'block'
+      dafaultPictureElement.style.display = 'none'
+    return
+
+  bustCache = '?' + (new Date).getTime()
+  request.open 'GET', 'http://old.studio.freshair.org.uk/api/broadcast_info/' + bustCache, true
+  request.responseType = 'json'
+  request.send()
+  return
+
+
 initializePlayer = ->
+
+  fetchBroadcastInfo()
+
   # https://github.com/turbolinks/turbolinks/issues/157
   radio = new Audio('http://studio.freshair.org.uk:8000/radio')
 
@@ -18,4 +55,9 @@ initializePlayer = ->
       play_icon.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>'
     return
 
-$(document).ready(initializePlayer)
+$(document).ready(initializePlayer);
+
+setInterval (->
+  fetchBroadcastInfo()
+  return
+), 3000

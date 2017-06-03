@@ -1,12 +1,12 @@
 class ApiController < ActionController::Base
 
-  def shows
+  def shows_for_user
     @user = User.find_by_email(params[:email])
     if @user.nil?
       render json: nil
     else
       @shows = @user.shows
-      render json: @shows, only: [:slug, :title, :tag_line, :description]
+      render json: @shows, only: [:slug, :title, :tag_line, :description, :pic], methods: [:link]
     end
   end
 
@@ -23,6 +23,15 @@ class ApiController < ActionController::Base
       end
       # TODO: still doesn't work for free schedules
       render json: @response
+    end
+  end
+
+  def show_by_slug
+    @show = Show.find_by_slug(params[:slug])
+    if @show.nil?
+      render json: nil
+    else
+      render json: @show, only: [:title, :tag_line, :description, :pic], methods: [:link]
     end
   end
 
