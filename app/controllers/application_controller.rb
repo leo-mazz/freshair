@@ -11,8 +11,5 @@ class ApplicationController < ActionController::Base
     @upcoming_events = Event.all_upcoming
     @tweets = TwitterService.get_timeline
     @static_pages = Page.all.order(priority: :desc)
-    # TODO: change these
-    @on_air = true
-    @current_show = Show.last
   end
 end
