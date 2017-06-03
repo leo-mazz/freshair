@@ -1,6 +1,5 @@
-include Rails.application.routes.url_helpers
-
 class Show < ApplicationRecord
+  include Rails.application.routes.url_helpers
 
   mount_uploader :pic, ShowPicUploader
 
