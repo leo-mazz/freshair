@@ -26,7 +26,7 @@ fetchBroadcastInfo = ->
     return
 
   bustCache = '?' + (new Date).getTime()
-  request.open 'GET', 'http://old.studio.freshair.org.uk/api/broadcast_info/' + bustCache, true
+  request.open 'GET', 'https://studio.freshair.org.uk/api/broadcast_info/' + bustCache, true
   request.responseType = 'json'
   request.send()
   return
@@ -37,7 +37,7 @@ initializePlayer = ->
   fetchBroadcastInfo()
 
   # https://github.com/turbolinks/turbolinks/issues/157
-  radio = new Audio('http://studio.freshair.org.uk:8000/radio')
+  radio = new Audio('https://studio.freshair.org.uk:8000/radio')
 
   ctrl = document.getElementById('audio-control')
   ctrl_txt = document.getElementById('audio-control-txt')
