@@ -5,26 +5,27 @@ form {
     display: flex;
     align-items: center;
 
-    input, textarea {
-      padding: 6px 12px;
-      background: transparent;
-      // border-radius: 3px;
-      border: 1px solid transparent;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-      // width: 200px;
-      font-size: 18px;
-      margin: 3px;
-      margin-left: 0;
-      // box-shadow: 0px 0px 5px rgb(22, 109, 210);
-      transition: all 0.2s;
-
-      &:focus {
-        border: 1px solid $color-teal;
-
-      }
-    }
   }
 
+  input, textarea {
+    padding: 6px 12px;
+    background: transparent;
+    // border-radius: 3px;
+    border: 1px solid transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    // width: 200px;
+    font-size: 18px;
+    margin: 3px;
+    margin-left: 0;
+    // box-shadow: 0px 0px 5px rgb(22, 109, 210);
+    transition: all 0.2s;
+
+    &:focus {
+      border: 1px solid $color-teal;
+
+    }
+  }
+  
   input[type="submit"] {
     cursor: pointer;
     background: rgba(166, 166, 166, 0.1);
