@@ -42,7 +42,7 @@ initializeMessageStudio = ->
       request = new XMLHttpRequest
       request.open 'POST', 'https://old.studio.freshair.org.uk/api/messages/submit', true
       request.setRequestHeader 'Content-Type', 'application/json; charset=UTF-8'
-      request.send message
+      request.send JSON.stringify(message)
       e.preventDefault()
     return
 
