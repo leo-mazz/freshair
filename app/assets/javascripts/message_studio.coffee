@@ -40,9 +40,10 @@ initializeMessageStudio = ->
       messageInfo.style.display = 'block'
 
       request = new XMLHttpRequest
-      request.open 'POST', 'https://old.studio.freshair.org.uk/api/messages/submit', true
-      request.setRequestHeader 'Content-Type', 'application/json; charset=UTF-8'
-      request.send JSON.stringify(message)
+      request.open 'POST', 'https://studio.freshair.org.uk/api/messages/submit', true
+      request.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
+
+      request.send 'author='+ message.author + '&content=' + message.content + '&time=' + message.time
       e.preventDefault()
     return
 
