@@ -1,0 +1,11 @@
+<h2><%= link_to @podcast.show do %>
+    <%= @podcast.show.title %>
+  <% end %>
+</h2>
+<h1><%= format_date_small @podcast.broadcast_date %>
+  <% unless @podcast.title.empty? || @podcast.title.nil? %>
+  - <%= @podcast.title %>
+  <% end %>
+</h1>
+<p><%= @podcast.description %></p>
+<%= mixcloud(@podcast.uri).html_safe %>

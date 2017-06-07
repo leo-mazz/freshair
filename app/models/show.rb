@@ -6,6 +6,7 @@ class Show < ApplicationRecord
   resourcify
 
   # has_and_belongs_to_many :users, join_table: :hosts_shows
+  has_many :podcasts
   has_many :show_memberships
   has_many :users, through: :show_memberships
 
@@ -62,6 +63,10 @@ class Show < ApplicationRecord
 
   def link
     Rails.root.join(shows_path(self))
+  end
+
+  def self.of_user(user)
+    ShowMembership.where(user_id: user.id).map(&:show)
   end
 
 end

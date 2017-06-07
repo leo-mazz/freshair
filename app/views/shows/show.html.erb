@@ -42,3 +42,17 @@
 
   </div>
 </div>
+<br>
+<% unless @show.podcasts.empty? %>
+  <h2>Podcasts.</h2>
+  <% @show.podcasts.each do |podcast| %>
+    <div class="podcast-link">
+    <%= link_to url_for([@show, podcast]) do %>
+      <%= format_date_small podcast.broadcast_date %>
+      <% unless podcast.title.empty? || podcast.title.nil? %>
+      - <%= podcast.title %>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+<% end %>

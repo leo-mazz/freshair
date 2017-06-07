@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   resources :shows, only: ['show', 'index'] do
     # /shows/all will also display shows not in schedule
     get 'all', on: :collection
+    resources :podcasts, only: ['show']
   end
 
   # Techteam page

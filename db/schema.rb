@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518153246) do
+ActiveRecord::Schema.define(version: 20170607112123) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 20170518153246) do
     t.text    "content"
     t.string  "slug"
     t.integer "priority"
+  end
+
+  create_table "podcasts", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "uri"
+    t.integer  "show_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.date     "broadcast_date"
+    t.index ["show_id"], name: "index_podcasts_on_show_id"
   end
 
   create_table "posts_tags", force: :cascade do |t|

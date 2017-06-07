@@ -2,9 +2,8 @@ class RolesService
 
   def self.public_roles
     {
-      show_manager: 'Host or Producer',
       committee: 'Committee Member',
-      publisher: 'Content Publisher',
+      publisher: 'External Content Publisher',
       music_team: 'Music Team Member',
       programming: 'Head of Programming'
     }
