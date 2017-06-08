@@ -10,6 +10,7 @@ fetchBroadcastInfo = ->
   request = new XMLHttpRequest
 
   request.onload = ->
+    console.log request.response
     statusElement.innerHTML = request.response.status
     titleElement.innerHTML = request.response.title
     if request.response.link == null
