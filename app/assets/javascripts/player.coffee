@@ -10,20 +10,21 @@ fetchBroadcastInfo = ->
   request = new XMLHttpRequest
 
   request.onload = ->
-    console.log request.response
-    statusElement.innerHTML = request.response.status
-    titleElement.innerHTML = request.response.title
-    if request.response.link == null
+    info = JSON.parse(request.response)
+    console.log info
+    statusElement.innerHTML = info.status
+    titleElement.innerHTML = info.title
+    if info.link == null
       detailsElement.style.display = 'none'
       spaceElement.style.display = 'none'
     else
-      detailsElement.href = request.response.link
+      detailsElement.href = info.link
       detailsElement.style.display = 'inline'
       spaceElement.style.display = 'inline'
 
-    if request.response.pic != null
+    if info.pic != null
       defaultPictureElement.style.display = 'none'
-      pictureElement.src = request.response.pic
+      pictureElement.src = info.pic
       defaultPictureElement.style.display = 'block'
     else
       defaultPictureElement.style.display = 'block'
