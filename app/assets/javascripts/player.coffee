@@ -30,7 +30,7 @@ fetchBroadcastInfo = ->
     return
 
   bustCache = '?' + (new Date).getTime()
-  request.open 'GET', 'https://studio.freshair.org.uk/api/broadcast_info/' + bustCache, true
+  request.open 'GET', 'https://old.studio.freshair.org.uk/api/broadcast_info/' + bustCache, true
   request.responseType = 'json'
   request.send()
   return
