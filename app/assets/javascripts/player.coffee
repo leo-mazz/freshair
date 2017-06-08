@@ -23,10 +23,10 @@ fetchBroadcastInfo = ->
     if request.response.pic != null
       dafaultPictureElement.style.display = 'none'
       pictureElement.src = request.response.pic
-      dafaultPictureElement.style.display = 'block'
+      defaultPictureElement.style.display = 'block'
     else
-      dafaultPictureElement.style.display = 'block'
-      dafaultPictureElement.style.display = 'none'
+      defaultPictureElement.style.display = 'block'
+      defaultPictureElement.style.display = 'none'
     return
 
   bustCache = '?' + (new Date).getTime()
