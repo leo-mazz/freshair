@@ -27,7 +27,7 @@
   </div>
 
   <fieldset>
-   <legend>Who are you?</legend>
+   <legend>Select your roles</legend>
      <% RolesService.public_roles.each do |role, description|%>
      <div class="field">
        <%= check_box_tag 'user[_roles][]', role, false %>

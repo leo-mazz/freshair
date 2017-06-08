@@ -3,8 +3,10 @@ class RolesService
   def self.public_roles
     {
       committee: 'Committee Member',
-      publisher: 'External Content Publisher',
       music_team: 'Music Team Member',
+      art_team: 'Arts Team Member',
+      news_team: 'News Team Member',
+      sport_team: 'Sport Team Member',
       programming: 'Head of Programming'
     }
   end
