@@ -21,7 +21,7 @@ fetchBroadcastInfo = ->
       spaceElement.style.display = 'inline'
 
     if request.response.pic != null
-      dafaultPictureElement.style.display = 'none'
+      defaultPictureElement.style.display = 'none'
       pictureElement.src = request.response.pic
       defaultPictureElement.style.display = 'block'
     else
