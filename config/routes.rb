@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   }
   get '/users', to: redirect('/users/sign_in')
 
-  get 'auth', to: 'auth#test'
-
   # Admin Dashboard
   ActiveAdmin.routes(self)
 
