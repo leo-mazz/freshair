@@ -1,18 +1,18 @@
 # FreshAir.org.uk IT: a simple guide for users
 [[toc]]
 ## Head of Programming
-As the Head of Programming, you'll need to sign up for a user account on the website and to be assigned the role 'Head of Programming'.
+As the Head of Programming, you'll need to sign up for a user account on the website and request the role 'Head of Programming'.
 
 ### Routine
 Ideally, before each broadcast cycle you should gather a list of all the users that need to be given access as hosts or producers and e-mail the list to the webmaster. All of them will need to sign up for a user account on the website and request to be given access as Hosts or Producers. You should provide them with indications on how to do so. They will also need to activate their account by clicking a link that should be automatically e-mailed to them. After they create their accounts and the webmaster approves them, you can go on creating shows, and then schedules.
 
 ###  Shows
-You should be able to create, delete and edit all shows.
+You should be able to create, delete and edit all shows on the website from Admin Dashboard > Programming >Shows
 
 Shows need to have a title and a description. The title must be unique. Shows can have a tag line if desired by their hosts. Ideally, you would upload a show picture; if you don't, a default one will be used for the show. Shows should be assigned hosts and producers. They should be able to update the details of the shows you assign them to through the Admin Dashboard.
 
 ### Schedules
-You should be able to create, delete and edit schedules.
+You should be able to create, delete and edit schedules on the website from Admin Dashboard > Programming > Schedules.
 
 Before creating a schedule you should create all the shows you want to add to it.
 To create a new schedule, pick a descriptive name (e.g. 'Semester1 2017'), set an end date and add *assignments*. Each assignment will consist of a show, a day of the week, a start time and an end time.
@@ -28,28 +28,40 @@ A current schedule whose end date becomes past will automatically be set as 'not
 - Edit the current schedule that's about to expire and set as the attribute 'Next schedule' the successor schedule you previously created. Then, after the end date passes, the successor schedule will automatically be set as current.
 
 ## Hosts and Producers
-As a host or producer you'll need to sign up for a user account on the website and to be assigned the role 'Host or Producer'.
+As a host or producer you'll need to sign up for a user account on the website and to be assigned to a show.
 
 ### Shows
-You should be able to edit your show details (like the title, description and picture) in the website Admin Dashboard.
+You should be able to edit your show details (like the title, description and picture) on the website from Admin Dashboard > Programming > Shows.
+
+
+### Show recordings
+If you are not a System Administrator, you can only access recordings from the studio.
+To access recordings, go to studio.freshair.org.uk (where Broadcast Controls are) and click 'Recordings'.
+
+### Podcasts
+You should be able to manage your podcasts and create new ones from Admin Dashboard > Contents > Podcasts. To create a new podcast, you should first upload it on MixCloud, as you will need a MixCloud URL to create a new podcast. After this is done, get the newly uploaded podcast's URL (for example by clicking on the 'share' button in the player on MixCloud). 
 
 ### Broadcasting
 #### Live shows
 In the studio, in order to go on air,  you need to have a user account on the website and to be assigned the role 'Host or Producer'.
 In the Main Studio, just follow these steps:
-1. On PC1, open studio.freshair.org.uk in a browser window and click 'Log in'
-2. Enter your username and confirm
+1. On PC1, open studio.freshair.org.uk in a browser window
+2. Enter your email
 3. Select the show you're about to broadcast from the list and confirm
 4. Click on the 'off air' button. When it becomes red and displays 'on air', well you're on air
 
 #### Pre-recorded shows
+Currently you can only upload prerecorded shows from the studio:
+1. On PC1, open studio.freshair.org.uk in a browser window
+2. Enter your email
+3. Select the show you want to upload a pre-record for
+4. [ documentation incomplete]
 
 ### Bookings
 From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case).
 
-### Uploading podcasts
 ## Committee members
-If you are a member of the committee you should sign up for a user account on the website and be assigned the role 'Committee Member'.
+If you are a member of the committee you should sign up for a user account on the website and request the role 'Committee Member'.
 
 ### Events
 You should be able to manage events throgh the Admin Dashboard of the website.
@@ -70,13 +82,8 @@ You should be able to manage playlists through the Admin Dashboard of the websit
 A playlist will need to have a title. You can add tracks to the playlist by specifying a track title, an artist, an album, and embed data. Remember to add the relevant tags to your playlist! The most recent playlist with the tag 'weekly music team playlist' will be displayed in TODO.
 Newly published playlists will be displayed in the 'Latest posts' section in the website.
 
-
-## Show recordings
-To access show recordings, you need to have a user account on the website.
-You can find recordings at studio.freshair.org.uk/recordings. You will need your username and password to authenticate.
-
 ## Other help
-If you need a new user account, a new role, or have any other query, you can get in touch with webmaster@freshair.org.uk.
+If you need revised roles  or have any other query, you can get in touch with webmaster@freshair.org.uk.
 
 ---------------------------------------------
 
