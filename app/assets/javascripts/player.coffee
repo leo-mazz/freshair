@@ -11,7 +11,6 @@ fetchBroadcastInfo = ->
 
   request.onload = ->
     info = JSON.parse(request.response)
-    console.log info
     statusElement.innerHTML = info.status
     titleElement.innerHTML = info.title
     if info.link == null
@@ -25,10 +24,10 @@ fetchBroadcastInfo = ->
     if info.pic != null
       defaultPictureElement.style.display = 'none'
       pictureElement.src = info.pic
-      defaultPictureElement.style.display = 'block'
+      pictureElement.style.display = 'block'
     else
+      pictureElement.style.display = 'none'
       defaultPictureElement.style.display = 'block'
-      defaultPictureElement.style.display = 'none'
     return
 
   bustCache = '?' + (new Date).getTime()
