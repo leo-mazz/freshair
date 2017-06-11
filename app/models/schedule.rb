@@ -66,11 +66,11 @@ class Schedule < ApplicationRecord
   def show_valid_for_time?(show, start_time, end_time)
 
     # Select schedule assignments on same week day corresponding to start time for show
-    assignments = self.assignments.where(day_of_week: Time.at(1493674229).to_date.cwday)
+    assignments = self.assignments.where(day_of_week: Time.at(start_time).to_date.cwday)
 
     # Select schedule assignments with start time of show equal to start time of assignments
     assignments = assignments.select do
-      |a| a.start_time.strftime( "%H%M%S%N" ) == Time.at(1493674229).to_time.strftime( "%H%M%S%N" )
+      |a| a.start_time.strftime( "%H%M%S%N" ) == Time.at(start_time).to_time.strftime( "%H%M%S%N" )
     end
 
     # Select end_times such that they don't come before the show's end time
