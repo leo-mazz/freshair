@@ -58,6 +58,25 @@ After deploying changes with Capistrano, at the moment, you will need to
 restart apache on the Virtual Machine, with
 `sudo service apache2 restart`
 
+### Testing
+Run tests with `rails test`
+
+You **should not** deploy if some test fails.
+
+People working on this project are expected to be volunteers and busy students,
+thus, writing a complete test suite is unfeasible (even though that's the goal
+to aspire to).
+
+You **should**, on the other hand, write tests for code sections that use
+complicated logic or if you're a little bit hazy on what you want to implement
+(please, in the best spirit of
+[TDD](https://en.wikipedia.org/wiki/Test-driven_development), write your tests
+first).
+
+Please, always keep the fixtures up to date when creating new models and change
+existig ones.
+
+More info [here](http://guides.rubyonrails.org/testing.html)
 
 ## Extended documentation
 The website is relatively simple. It allows post publishing and highlighting, it
@@ -81,8 +100,8 @@ security threats. Secrets should not be in the repository.
 scope and domain. Interaction with other modules (like the Broadcast Controls)
 should happen through the API.
 - The website should require minimal maintenance from the webmaster.
-- The code should be well-tested. Try to write tests first before implementing
-a new feature. Views and stylesheets should be tested manually and on different
+- The code should be well-tested.
+Views and stylesheets should also be tested manually and on different
 browsers and devices.
 - The code should be heavily documented, both with comments in the code itself
 and as external documentation (like this README file). The documentation should
