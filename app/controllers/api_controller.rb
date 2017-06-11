@@ -35,4 +35,20 @@ class ApiController < ActionController::Base
     end
   end
 
+  def check_broadcast_time
+    @show = Show.find_by_slug(params[:slug])
+    start_time = params[:start].to_i
+
+    if @show.nil?
+      response =  'No show matching slug'
+    elsif params[:end].nil?
+      response = @show.check_broadcast_time(start_time)
+    else
+      end_time = params[:end].to_i
+      response = @show.check_broadcast_time(start_time, end_time)
+    end
+
+    render plain: response
+  end
+
 end

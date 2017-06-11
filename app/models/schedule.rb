@@ -59,11 +59,54 @@ class Schedule < ApplicationRecord
     self.assignments.where(day_of_week: day)
   end
 
+  # Assumption 1: the schedule won't change between the start_time and end_time
+  # The following function will reject (show, start_time, end_time) triplets
+  # where the start time and end time are in different schedules because of how
+  # schedules are modelled
+  def show_valid_for_time?(show, start_time, end_time)
+
+    # Select schedule assignments on same week day corresponding to start time for show
+    assignments = self.assignments.where(day_of_week: Time.at(1493674229).to_date.cwday)
+
+    # Select schedule assignments with start time of show equal to start time of assignments
+    assignments = assignments.select do
+      |a| a.start_time.strftime( "%H%M%S%N" ) == Time.at(1493674229).to_time.strftime( "%H%M%S%N" )
+    end
+
+    # Select end_times such that they don't come before the show's end time
+    valid_times = assignments.map(&:endtime).map(&:to_i).select { |time| time >=  end_time}
+
+    valid_times.empty?
+  end
+
+  def ends_after_time?(time)
+    self.end_date > Time.at(time).to_date
+  end
+
+  def self.for_time(time)
+    schedule = Schedule.current
+
+    if schedule.nil?
+      return nil
+    end
+
+    until schedule.ends_after_time?(time) || schedule.successor.nil?
+      schedule = schedule.successor
+    end
+
+    if schedule.valid_for_time(time)
+      return schedule
+    else
+      return nil
+    end
+
+  end
+
 
   private
 
     def default_to_non_current
       self.is_current = false if self.is_current.nil?
     end
-    
+
 end

@@ -69,4 +69,19 @@ class Show < ApplicationRecord
     ShowMembership.where(user_id: user.id).map(&:show)
   end
 
+  def check_broadcast_time(start_time, end_time=nil)
+    schedule = Schedule.for_time(start_time).nil?
+
+    if schedule.nil?
+      'No schedule information for this date'
+    end
+
+    unless schedule.show_valid_for_time?(self, start_time, end_time)
+      'The show has not been allocated this time'
+    else
+      'ok'
+    end
+
+  end
+
 end

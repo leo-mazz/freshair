@@ -21,6 +21,12 @@ module Website
     config.action_view.field_error_proc = Proc.new { |html_tag, instance|
       html_tag
     }
+
+    # Allow for CORS
+    config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://studio.freshair.org.uk',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
   end
 
 end
