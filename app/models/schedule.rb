@@ -7,7 +7,7 @@ class Schedule < ApplicationRecord
   validates :end_date, presence: true
   validates_with ScheduleValidator
 
-  has_one :next_schedule, class_name: 'Schedule'
+  belongs_to :next_schedule, class_name: 'Schedule', foreign_key: 'next_schedule_id'
   has_many :assignments, class_name: 'ScheduleAssignment', dependent: :delete_all
 
   accepts_nested_attributes_for :assignments, :allow_destroy => true

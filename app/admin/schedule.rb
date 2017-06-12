@@ -112,7 +112,7 @@ ActiveAdmin.register Schedule do
     f.inputs name: 'Basic details' do
       f.input :name
       f.input :end_date, as: :datepicker
-      f.input :next_schedule
+      f.input :next_schedule, collection: Schedule.where.not(id: f.object.id)
     end
     # TODO: display better, at least order by date and time :(
     f.inputs name: 'Show assignments' do
@@ -129,8 +129,7 @@ ActiveAdmin.register Schedule do
     f.actions
   end
 
-  # TODO: porcheria chiamare next schedule as just schedule
-  permit_params :name, :end_date, :schedule_id, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
+  permit_params :name, :end_date, :next_schedule_id, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
 
 
 end
