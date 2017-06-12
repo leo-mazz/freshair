@@ -154,6 +154,11 @@ class ScheduleTest < ActiveSupport::TestCase
 
 
   # test_Schedule_for_time
+  test 'Schedule.for_time returns nil when given a time that is not future' do
+    schedules(:one).set_non_current
+    assert_nil Schedule.for_time(Time.now)
+  end
+
   test 'Schedule.for_time returns nil when no schedule is current' do
     schedules(:one).set_non_current
     assert_nil Schedule.for_time(Time.now)
@@ -164,7 +169,7 @@ class ScheduleTest < ActiveSupport::TestCase
     schedule = Schedule.create(end_date: tomorrow, name: 'Ethernal schedule')
     schedule.set_current
 
-    assert_not_nil Schedule.for_time(Time.now)
+    assert_not_nil Schedule.for_time(Time.now + 1)
   end
 
   test 'Schedule.for_time returns nil when current schedule does not work and has no successor' do

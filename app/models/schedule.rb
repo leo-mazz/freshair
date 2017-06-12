@@ -89,6 +89,10 @@ class Schedule < ApplicationRecord
   end
 
   def self.for_time(time)
+    if Time.now >= time
+      return nil
+    end
+
     schedule = Schedule.current
 
     if schedule.nil?

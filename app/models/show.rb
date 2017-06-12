@@ -70,10 +70,18 @@ class Show < ApplicationRecord
   end
 
   def check_broadcast_time(start_time, end_time=nil)
-    schedule = Schedule.for_time(start_time).nil?
 
+    if (not end_time.nil?) and (end_time <= start_time)
+      return 'The end time should come after the start time'
+    end
+
+    if Time.now.to_i >= start_time
+      return 'The past is past. Please enquiry about the future'
+    end
+
+    schedule = Schedule.for_time(start_time)
     if schedule.nil?
-      'No schedule information for this date'
+      return 'No schedule information for this date'
     end
 
     unless schedule.show_valid_for_time?(self, start_time, end_time)
