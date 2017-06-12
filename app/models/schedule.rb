@@ -59,24 +59,29 @@ class Schedule < ApplicationRecord
     self.assignments.where(day_of_week: day)
   end
 
-  # Assumption 1: the schedule won't change between the start_time and end_time
+  # Assumption: the schedule won't change between the start_time and end_time
   # The following function will reject (show, start_time, end_time) triplets
   # where the start time and end time are in different schedules because of how
   # schedules are modelled
-  def show_valid_for_time?(show, start_time, end_time)
-
+  def show_valid_for_time?(show, start_time, end_time=nil)
     # Select schedule assignments on same week day corresponding to start time for show
     assignments = self.assignments_on(Time.at(start_time).to_date.cwday)
 
+    # Select assignments involving passed show
+    assignments = assignments.where(show: show)
+
     # Select schedule assignments with start time of show equal to start time of assignments
     assignments = assignments.select do
-      |a| a.start_time.strftime( "%H%M%S%N" ) == Time.at(start_time).to_time.strftime( "%H%M%S%N" )
+      |a| a.start_time.utc.strftime( "%H:%M:%S" ) == Time.at(start_time).utc.strftime( "%H:%M:%S" )
     end
 
-    # Select end_times such that they don't come before the show's end time
-    valid_times = assignments.map(&:endtime).map(&:to_i).select { |time| time >=  end_time}
 
-    valid_times.empty?
+    return (not assignments.empty?) if end_time == nil
+
+    # Select end_times such that they don't come before the show's end time
+    valid_times = assignments.map(&:end_time).select { |time| time.utc.strftime( "%H:%M:%S" ) >=  Time.at(end_time).utc.strftime( "%H:%M:%S" )}
+
+    not valid_times.empty?
   end
 
   def ends_after_time?(time)
@@ -90,11 +95,11 @@ class Schedule < ApplicationRecord
       return nil
     end
 
-    until schedule.ends_after_time?(time) || schedule.successor.nil?
-      schedule = schedule.successor
+    until schedule.ends_after_time?(time) || schedule.next_schedule.nil?
+      schedule = schedule.next_schedule
     end
 
-    if schedule.valid_for_time(time)
+    if schedule.ends_after_time?(time)
       return schedule
     else
       return nil
