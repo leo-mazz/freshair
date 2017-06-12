@@ -155,7 +155,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_Schedule_for_time
   test 'Schedule.for_time returns nil when given a time that is not future' do
-    schedules(:one).set_non_current
+    schedules(:one).set_current
     assert_nil Schedule.for_time(Time.now)
   end
 
