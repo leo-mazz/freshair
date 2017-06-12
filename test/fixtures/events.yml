@@ -1,19 +1,28 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
+  name: Bump n' Grind
   start: 2017-04-24 02:16:24
   end: 2017-04-24 02:16:24
-  description: MyText
-  location: MyString
-  facebook_event: MyString
-  buy_tickets: MyString
+  description: Cool event
+  location: Teviot
+  facebook_event: nil
+  link_to_tickets: nil
 
 two:
-  name: MyString
+  name: Media Ball
+  start: 2017-04-24 21:00:00
+  end: 2017-04-25 02:00:00
+  description: A chance to mock The Student's music writers
+  location: Balmoral Hotel
+  facebook_event: nil
+  link_to_tickets: nil
+
+three:
+  name: FreshAir Fest
   start: 2017-04-24 02:16:24
-  end: 2017-04-24 02:16:24
-  description: MyText
-  location: MyString
-  facebook_event: MyString
-  buy_tickets: MyString
+  end: 2017-07-24 10:16:24
+  description: Loads of fun
+  location: Potterow
+  facebook_event: http://facebook.com/something
+  link_to_tickets: http://ticketone.com/something
+
+# TODO: test and validate links (gotta start with http:// or http://)

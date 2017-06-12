@@ -1,0 +1,8 @@
+one:
+  name: UK general elections
+  slug: uk-general-elections
+
+two:
+  name: Six nations
+  slug: six-nations
+# TODO: in instructions, tell people to write date when periodic event is past

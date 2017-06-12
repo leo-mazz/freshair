@@ -1,9 +1,31 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: 
-  content: MyText
+  title: Waverley Care
+  page: one
+  slug: waverley-care
 
 two:
-  title: 
-  content: MyText
+  title: FAQs
+  page: two
+  slug: faqs
+  priority: 1
+  content: <div>
+    <p><strong>Q. I can’t make my show this week. What should I do?</strong><br>
+    A. Contact your producer and Head of Programming. Please do this with plenty of notice and for good reason!</p>
+
+    <p><strong>Q. How many people are listening to my show?</strong><br>
+    A. We don’t make listening figures available because we believe that
+    student radio should be about creativity and gaining experience, not
+    ego! But bear in mind that your show is going out in union buildings
+    which see a huge amount of students through the doors. </p>
+
+    <p><strong>Q. I need DJs for an event. Can anyone at FreshAir do it?</strong><br>
+    A. Speak to our Head of Events who has a DJ roster and can spread the
+    word on your event to get appropriate DJs based on availability, genre
+    etc. </p>
+
+    <p><strong>Q. I really want to go to this training event but I’m not sure I can afford it. Can FreshAir help?</strong><br>
+    A. FreshAir has a discretionary fund available to fund members looking
+    to go to training events that have been publicised by the station. We
+    can’t give you the whole amount and funding is at the discretion of
+    treasurer and manager based on a number of factors, but we might be able
+    to help you out. Check out the relevant page in this members section.</p></div>

@@ -1,9 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  description: MyText
-  email: MyString
+  description: I get a 500 server error when attempting to save my show
+  email: john.smith@example.com
+  solved: false
 
 two:
-  description: MyText
-  email: MyString
+  description: This website sucks I liked the previous one better
+  email: hayden@haydenball.me.uk
+  solved: true
+
+# TODO: check whether we validate email, maybe test it

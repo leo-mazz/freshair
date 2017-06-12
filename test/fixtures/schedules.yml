@@ -1,11 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  name: MyString
-  current: false
-  end_date: 2017-04-17
+  name: 2018
+  is_current: true
+  end_date: 2018-08-17
+  next_schedule: two
 
 two:
-  name: MyString
-  current: false
+  name: After2018
+  is_current: false
+  end_date: 2022-08-17
+
+three:
+  name: Past
+  is_current: false
   end_date: 2017-04-17

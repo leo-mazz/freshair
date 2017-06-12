@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  title: Kickstart
+  description: First episode
+  uri: https://mixcloud.com/something
+  show: one
+  broadcast_date: 2017-06-07
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the '{}' from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+two:
+  uri: https://mixcloud.com/something-else
+  show_id: two
+  broadcast_date: 2017-04-24
