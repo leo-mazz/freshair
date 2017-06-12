@@ -24,9 +24,12 @@ module Website
 
     # Allow for CORS
     config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'https://studio.freshair.org.uk',
-    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
-  }
+      'Access-Control-Allow-Origin' => 'https://studio.freshair.org.uk',
+      'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+    }
+
+    # Get rid of deprecation warnings
+    config.active_record.time_zone_aware_types = [:datetime, :time]
   end
 
 end
