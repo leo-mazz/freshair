@@ -24,5 +24,3 @@ three:
   location: Potterow
   facebook_event: http://facebook.com/something
   link_to_tickets: http://ticketone.com/something
-
-# TODO: test and validate links (gotta start with http:// or http://)

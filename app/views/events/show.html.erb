@@ -14,10 +14,10 @@
 <p><%= sanitize @event.description.html_safe %></p>
 <br>
 <div class="event-links">
-  <% if not @event.facebook_event.empty? %>
+  <% if not @event.facebook_event.blank? %>
   <%= link_to 'Facebook event', @event.facebook_event, target: '_blank' %> <br>
   <% end %>
-  <% if not @event.link_to_tickets.empty? %>
+  <% if not @event.link_to_tickets.blank? %>
   <%= link_to 'Get tickets', @event.link_to_tickets, target: '_blank' %>
   <% end %>
 </div>

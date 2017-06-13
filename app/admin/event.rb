@@ -1,5 +1,5 @@
 ActiveAdmin.register Event do
-  
+
   config.sort_order = 'start_desc'
   index do
     selectable_column
@@ -37,12 +37,12 @@ ActiveAdmin.register Event do
           sanitize event.description.html_safe
         end
         row :facebook_event do
-          unless event.facebook_event.empty?
+          unless event.facebook_event.blank?
             link_to event.facebook_event, event.facebook_event
           end
         end
         row :link_to_tickets do
-          unless event.link_to_tickets.empty?
+          unless event.link_to_tickets.blank?
             link_to event.link_to_tickets, event.link_to_tickets
           end
         end

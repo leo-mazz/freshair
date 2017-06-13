@@ -10,7 +10,7 @@
       <h1><%= @show.title %></h1>
 
       <!-- Only display tag line if there is one (it's not mandatory) -->
-      <% unless @show.tag_line.nil? or @show.tag_line.empty?  %>
+      <% unless @show.blank?  %>
       <i class="tag-line">
         - <%= @show.tag_line %><br>
       </i>
@@ -30,7 +30,7 @@
       <%= @show.description %>
     </div>
 
-    <% unless @show.show_memberships.empty? %>
+    <% unless @show.show_memberships.blank? %>
       <div class="hosts">
           Hosted by
 
@@ -43,13 +43,13 @@
   </div>
 </div>
 <br>
-<% unless @show.podcasts.empty? %>
+<% unless @show.podcasts.blank? %>
   <h2>Podcasts.</h2>
   <% @show.podcasts.each do |podcast| %>
     <div class="podcast-link">
     <%= link_to url_for([@show, podcast]) do %>
       <%= format_date_small podcast.broadcast_date %>
-      <% unless podcast.title.empty? || podcast.title.nil? %>
+      <% unless podcast.title.blank? %>
       - <%= podcast.title %>
       <% end %>
     <% end %>

@@ -3,7 +3,7 @@
   <% end %>
 </h2>
 <h1><%= format_date_small @podcast.broadcast_date %>
-  <% unless @podcast.title.empty? || @podcast.title.nil? %>
+  <% unless @podcast.title.blank? %>
   - <%= @podcast.title %>
   <% end %>
 </h1>
