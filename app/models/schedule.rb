@@ -93,6 +93,7 @@ class Schedule < ApplicationRecord
       return nil
     end
 
+    Schedule.check_current
     schedule = Schedule.current
 
     if schedule.nil?
