@@ -13,7 +13,6 @@ class ScheduleAssignment < ApplicationRecord
     WeekService.days_dic_reverse[day] unless (day < 1) or (day > 7)
   end
 
-  # TODO: test carefully clash_with
   def clash_with?(assignment)
     # Two assignments clash if they're on the same day
     (self.day_of_week == assignment.day_of_week) and
