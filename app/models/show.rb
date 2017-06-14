@@ -61,8 +61,15 @@ class Show < ApplicationRecord
     active
   end
 
+# TODO: I don't expect following two methods to work in production
   def link
-    Rails.root.join(shows_path(self))
+    Rails.root.join(shows_path(self)).to_s
+  end
+
+  def pic_uri
+    unless self.pic.url.nil?
+      Rails.root.join(self.pic.resized.url).to_s
+    end
   end
 
   def self.of_user(user)

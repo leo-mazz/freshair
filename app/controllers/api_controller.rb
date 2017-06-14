@@ -6,7 +6,11 @@ class ApiController < ActionController::Base
       render json: nil
     else
       @shows = @user.shows
-      render json: @shows, only: [:slug, :title, :tag_line, :description, :pic], methods: [:link]
+      @shows = @shows.map do |s|
+        {slug: s.slug, title: s.title, tag_line: s.tag_line, description: s.description, link: s.link, pic: s.pic_uri}
+      end
+
+      render json: @shows
     end
   end
 
@@ -31,7 +35,7 @@ class ApiController < ActionController::Base
     if @show.nil?
       render json: nil
     else
-      render json: @show, only: [:title, :tag_line, :description, :pic], methods: [:link]
+      render json: {title: @show.title, tag_line: @show.tag_line, description: @show.description, link: @show.link, pic: @show.pic_uri}
     end
   end
 
