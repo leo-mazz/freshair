@@ -2,6 +2,79 @@ require 'test_helper'
 
 class ScheduleTest < ActiveSupport::TestCase
 
+  # test_Schedule.check_current
+  test 'Schedule.check_current leaves it current if it is ok' do
+    schedule = Schedule.create(name: 'Current', end_date: Date.tomorrow)
+    schedule.set_current
+
+    Schedule.check_current
+
+    assert_equal Schedule.where(is_current: true).count, 1
+    assert schedule.is_current
+  end
+
+  test 'Schedule.check_current sets as non current if it is not ok' do
+    schedule = Schedule.create(name: 'Past', end_date: Date.yesterday)
+    Schedule.current.update(is_current: false)
+    schedule.update(is_current: true)
+    assert_equal Schedule.where(is_current: true).count, 1
+
+    Schedule.check_current
+
+    assert_equal Schedule.where(is_current: true).count, 0
+  end
+
+  test 'Schedule.check_current sets as current a successor if it can' do
+    schedule3 = Schedule.create(end_date: Date.today, name: 'Three')
+    schedule2 = Schedule.create(end_date: Date.today - 1, name: 'Two', next_schedule: schedule3)
+    schedule1 = Schedule.create(end_date: Date.today - 2, name: 'One', next_schedule: schedule2)
+    Schedule.current.update(is_current:false)
+    schedule1.update(is_current:true)
+
+    Schedule.check_current
+
+    assert_equal Schedule.current, schedule3
+  end
+
+  test 'Schedule.check_current sets as non current all successors if has to' do
+    schedule3 = Schedule.create(end_date: Date.today - 2, name: 'Three')
+    schedule2 = Schedule.create(end_date: Date.today - 3, name: 'Two', next_schedule: schedule3)
+    schedule1 = Schedule.create(end_date: Date.today - 4, name: 'One', next_schedule: schedule2)
+    Schedule.current.update(is_current:false)
+    schedule1.update(is_current:true)
+
+    Schedule.check_current
+
+    assert_nil Schedule.current
+  end
+
+
+
+  # test_set_current
+  test 'set_current works' do
+    schedule = schedules(:one)
+    assert schedule.is_current
+
+    schedule2 = Schedule.create(name: 'New current', end_date: Date.tomorrow)
+    assert_not schedule2.is_current
+    schedule2.set_current
+
+    assert_equal Schedule.current, schedule2
+  end
+
+
+
+  # test_set_non_current
+  test 'set_non_current works' do
+    schedule = schedules(:one)
+    assert schedule.is_current
+
+    schedule.set_non_current
+    assert_not schedule.is_current
+  end
+
+
+
   # test_show_valid_for_time?
   test 'show_valid_for_time? returns false if show is not in schedule' do
     schedule = schedules(:two)

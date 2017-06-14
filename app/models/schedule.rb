@@ -21,22 +21,23 @@ class Schedule < ApplicationRecord
   end
 
   def self.check_current
-    current_schedule = Schedule.current
-    return if current_schedule.nil?
+    schedule = Schedule.current
+    return if schedule.nil?
 
-    if current_schedule.past?
-      next_schedule = current_schedule.next_schedule
-      unless next_schedule.nil? or next_schedule.past?
-        next_schedule.set_current
-      else
-        current_schedule.set_non_current
-      end
+    until (not schedule.past?) || (schedule.next_schedule.nil?)
+      schedule.set_non_current
+      schedule = schedule.next_schedule
+    end
+
+    if schedule.past?
+      schedule.set_non_current
+    elsif not schedule.is_current
+      schedule.set_current
     end
   end
 
   def set_non_current
-    self.is_current = false
-    self.save
+    self.update(is_current: false)
   end
 
   def set_current
@@ -50,8 +51,7 @@ class Schedule < ApplicationRecord
       previous_current.set_non_current
     end
 
-    self.is_current = true
-    self.save
+    self.update(is_current: true)
   end
 
   def assignments_on(day)
