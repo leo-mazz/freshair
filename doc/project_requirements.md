@@ -45,7 +45,7 @@ I want to consider finding a way of automatically cutting off a show that goes o
 I will  assign a dynamic page per team and they will have freedom in what the content on it should be.
 
 - What do we want posts to be?
-- (current approach: no) Closely related to above: Does a rigid division of **Posts** by **Team** still make sense? RIght now only people in teams are allowed to publish. 
+- (current approach: no) Closely related to above: Does a rigid division of **Posts** by **Team** still make sense? RIght now only people in teams are allowed to publish.
 - What's media team?
 - I will introduce a dynamic page for each team and discuss with the heads what they want on them. Simplest case: just posts written by members of that team and recent tags
 - What requirements do posts have? What kind of content is posted?
@@ -88,8 +88,6 @@ I will  assign a dynamic page per team and they will have freedom in what the co
 - Associations of users to shows
 - Posts, playlists, dynamic pages, etc.
 - Bookings and free schedules
-- Move git repository
-- Podcasts
 - Authentication through openID
 - Prerecords
 - Create proper Admin Dashboard

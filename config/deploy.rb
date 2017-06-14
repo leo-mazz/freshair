@@ -2,8 +2,7 @@
 lock "3.8.1"
 
 set :application, "FreshAir.org.uk"
-# TODO: change the following
-set :repo_url, "https://leo-mazz:nonSAPREIproprio12@github.com/leo-mazz/refresh-website.git"
+set :repo_url, "https://leo-mazz:ACCIDENTI1209@bitbucket.org/freshair/refresh-website.git"
 set :deploy_to, "/var/www/refresh"
 
 # Default value for :linked_files is []
