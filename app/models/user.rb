@@ -3,8 +3,9 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name
   rolify
   # has_and_belongs_to_many :shows, join_table: :hosts_shows
-  has_many :show_memberships
+  has_many :show_memberships, dependent: :delete_all
   has_many :shows, through: :show_memberships
+  has_many :bookings, dependent: :delete_all
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable, :lockable
 

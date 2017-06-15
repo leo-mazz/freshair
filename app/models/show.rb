@@ -6,8 +6,8 @@ class Show < ApplicationRecord
   resourcify
 
   # has_and_belongs_to_many :users, join_table: :hosts_shows
-  has_many :podcasts
-  has_many :show_memberships
+  has_many :podcasts, dependent: :delete_all
+  has_many :show_memberships, dependent: :delete_all
   has_many :users, through: :show_memberships
 
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
@@ -47,10 +47,6 @@ class Show < ApplicationRecord
 
 
   def self.active
-    # TODO: remove this line and make this a daily task
-    Schedule.check_current
-
-    # TODO: Make this query less hideous
     all = Show.all
     active = []
 
