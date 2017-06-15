@@ -1,55 +1,27 @@
 <div class="listen">
-  <div class="player">
-    <%= image_tag @current_show.pic.resized.url, class:'cover'%>
-    <div class="on-air-info">
-      <div>
-        <%= image_tag 'logo-white.png', width: '200px'%><br>
-        <% if @on_air %>
-        <h4>On air</h4>
-        <% end %>
-        <p><%= @current_show.title %></p>
-        <%= link_to 'Details', show_path(@current_show), target: '_blank'%>&nbsp;&nbsp;
-        <%= link_to 'View shows', shows_path, target: '_blank'%><br>
+  <div id="player" data-autoplay>
+    <section class="on-air">
+      <%= image_tag 'default-cover.png', id: 'player-default-picture'%>
+      <img src="" style="display:none;" id="player-picture">
+
+      <div class="on-air-info">
+        <div>
+          <h4 id="player-status">FreshSounds</h4>
+          <p id="player-title">Best music from FreshAir</p>
+          <a href="#" id="player-details" style="display:none;">Details</a>
+          <span id="player-space" style="display:none;">&nbsp;&nbsp;</span>
+          <%= link_to 'View shows', shows_path, target: '_blank' %><br>
+        </div>
+        <div>
+          <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent', target: '_blank' %>
+          <span id="audio-control" class="button button-blue">
+            <span id="play-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
+            <span id="audio-control-txt">Play now</span>
+          </span>
+        </div>
       </div>
-      <div class="buttons">
-        <audio id="freshair-broadcast" <%= @autoplay.nil? ? '' : 'autoplay' %>>
-          <source type="audio/mpeg" src="http://studio.freshair.org.uk:8000/radio" />
-        </audio>
-        <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent', target: '_blank'%>
-        <a href="#" id="audio-control" class="button button-blue">
-
-          <span id="play-icon"><i class="fa fa-pause" aria-hidden="true"></i></span>
-          <span id="audio-control-txt">Pause</span>
-
-
-        </a>
-      </div>
-    </div>
-
-    <script type="text/javascript">
-    // TODO: maybe move somewhere else? Maybe write in coffeescript?
-    var broadcast = document.getElementById('freshair-broadcast'),
-    ctrl = document.getElementById('audio-control');
-    ctrl_txt = document.getElementById('audio-control-txt');
-    play_icon = document.getElementById('play-icon');
-    var playin = true;
-
-    ctrl.onclick = function() {
-      playin = !playin;
-
-      // Update the Button
-      ctrl_txt.innerHTML = playin ? 'Pause' : 'Play now';
-      play_icon.innerHTML = playin ? '<i class="fa fa-pause" aria-hidden="true"></i>'
-      : '<i class="fa fa-play" aria-hidden="true"></i>';
-
-      // Update the Audio
-      var method = playin ? 'play' : 'pause';
-      broadcast[method]();
-
-      // Prevent Default Action
-      return false;
-    };
-    </script>
-  </div>
+    </section>
 
   </div>
+</div>
+<!-- TODO: complete listen page -->

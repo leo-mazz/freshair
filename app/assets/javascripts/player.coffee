@@ -44,6 +44,9 @@ initializePlayer = ->
   # https://github.com/turbolinks/turbolinks/issues/157
   radio = new Audio('https://studio.freshair.org.uk:8443/radio')
 
+  player = document.getElementById('player')
+  autoplay = player.hasAttribute('data-autoplay')
+
   ctrl = document.getElementById('audio-control')
   ctrl_txt = document.getElementById('audio-control-txt')
   play_icon = document.getElementById('play-icon')
@@ -59,6 +62,10 @@ initializePlayer = ->
       ctrl_txt.innerHTML = 'Play now'
       play_icon.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>'
     return
+
+  if autoplay
+    ctrl.click()
+
 
 $(document).ready(initializePlayer);
 

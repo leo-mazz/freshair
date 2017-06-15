@@ -5,27 +5,29 @@
   <%= link_to root_path do %>
     <%= image_tag 'logo-white.png', class: 'logo-white' %>
   <% end %>
-  <section class="on-air">
-    <%= image_tag 'default-cover.png', id: 'player-default-picture'%>
-    <img src="" style="display:none;" id="player-picture">
+  <div id="player">
+    <section class="on-air">
+      <%= image_tag 'default-cover.png', id: 'player-default-picture'%>
+      <img src="" style="display:none;" id="player-picture">
 
-    <div class="on-air-info">
-      <div>
-        <h4 id="player-status">FreshSounds</h4>
-        <p id="player-title">Best music from FreshAir</p>
-        <a href="#" id="player-details" style="display:none;">Details</a>
-        <span id="player-space" style="display:none;">&nbsp;&nbsp;</span>
-        <%= link_to 'View shows', shows_path %><br>
+      <div class="on-air-info">
+        <div>
+          <h4 id="player-status">FreshSounds</h4>
+          <p id="player-title">Best music from FreshAir</p>
+          <a href="#" id="player-details" style="display:none;">Details</a>
+          <span id="player-space" style="display:none;">&nbsp;&nbsp;</span>
+          <%= link_to 'View shows', shows_path %><br>
+        </div>
+        <div>
+          <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent' %>
+          <span data-turbolinks-permanent id="audio-control" class="button button-blue">
+            <span id="play-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
+            <span id="audio-control-txt">Play now</span>
+          </span>
+        </div>
       </div>
-      <div>
-        <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent' %>
-        <span data-turbolinks-permanent id="audio-control" class="button button-blue">
-          <span id="play-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
-          <span id="audio-control-txt">Play now</span>
-        </span>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <section class="events">
     <% if events.size > 0 %>
