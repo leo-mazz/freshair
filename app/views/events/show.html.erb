@@ -1,13 +1,18 @@
 <h1><%= @event.name %></h1>
 <span class="date-label">
   <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
-  <%= format_date  @event.start %> <%= format_time @event.start %>
-  <% if not @event.end.nil? %>
-  - <%= format_date @event.end %>
+  <% if @event.single_day? %>
+    <%= format_date  @event.start %> <%= format_time @event.start %>
+    <% if not @event.end.nil? %>
+      - <%= format_time @event.end %>
+    <% end %>
+  <% else %>
+    <%= format_date  @event.start %> <%= format_time @event.start %>
+    - <%= format_date @event.end %> <%= format_time @event.start %>
   <% end %>
 </span>
 <br>
-<!-- TODO: YOU WANT DATES FOR MANY DAYS EVENTS AND SINGLE DAYS ONES TO BE DISPLAYED DIFFERENTLY -->
+
 <i>(<%= @event.location %>)</i>
 <br><br>
 <% # Sanitizing is crucial to protect against bad code! %>
