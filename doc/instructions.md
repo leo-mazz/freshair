@@ -1,5 +1,9 @@
 # FreshAir.org.uk IT: a simple guide for users
 [[toc]]
+## Publishing posts
+### Tags
+Please assign the appropriate existing tags (and/or create new) before publishing a post. When there is a tag related to an event, and the event becomes past, please add a temporal identifier to the name of the tag (e.g. change 'General Elections' to 'General Elections 2017').
+
 ## Head of Programming
 As the Head of Programming, you'll need to sign up for a user account on the website and request the role 'Head of Programming'.
 
@@ -67,6 +71,7 @@ If you are a member of the committee you should sign up for a user account on th
 You should be able to manage events throgh the Admin Dashboard of the website.
 Events will need to have a title, location and start date and time. Optionally, you can add a description (which you can format), an end date and time, a link to a facebook event, and a link to the tickets.
 Upcoming events will be displayed in the left sidebar of the website. Newly published events will be displayed in the 'Latest posts' section in the website.
+Please only add events relevant to the whole station (a team meeting should not be worth of a website event. You can instead publicize it using the top section in your team's page).
 
 ### Highlights
 You can highlight a playlist, event, review, interview, podcast, generic post or tag. An highlighted content will be displayed in the top section of the homepage. You should **only** highlight something very important to the station, not just some content you wrote you want to give visibility to, and you should seek the committee approval.
