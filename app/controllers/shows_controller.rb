@@ -31,7 +31,6 @@ class ShowsController < ApplicationController
   def set_shows
     @all_shows = Show.order(:title)
     @active_shows = Show.active
-    #TODO: change above
   end
 
 end
