@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def set_globals
     # We need to set these globally so that the sidebar and main menu can access
     # them from anywhere
-    @upcoming_events = Event.all_upcoming
+    @upcoming_events = Event.upcoming
     @tweets = TwitterService.get_timeline
     @static_pages = Page.all.order(priority: :desc)
   end

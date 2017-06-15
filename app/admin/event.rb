@@ -1,5 +1,7 @@
 ActiveAdmin.register Event do
 
+  scope :upcoming
+
   config.sort_order = 'start_desc'
   index do
     selectable_column
@@ -20,7 +22,6 @@ ActiveAdmin.register Event do
   filter :description
   filter :created_at
   filter :updated_at
-  # TODO: create new filter for upcoming events
 
   show do |event|
     panel 'Event Details' do

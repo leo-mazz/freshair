@@ -7,7 +7,7 @@ class Event < ApplicationRecord
     self.start >= Time.now
   end
 
-  def self.all_upcoming
+  def self.upcoming
     Event.where("start >= ?", Time.now)
   end
 
