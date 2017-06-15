@@ -10,7 +10,7 @@
   height: 100vh;
 }
 
-#player {
+#player.standalone {
   display: flex;
   img.cover {
     margin-right: 10px;
@@ -18,7 +18,12 @@
     width: 200px;
   }
 
+  img {
+    box-shadow: 7px 7px 15px rgba(0,0,0,0.4);
+  }
+
   .on-air-info {
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
   }
