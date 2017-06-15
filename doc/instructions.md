@@ -43,7 +43,7 @@ If you are not a System Administrator, you can only access recordings from the s
 To access recordings, go to studio.freshair.org.uk (where Broadcast Controls are) and click 'Recordings'.
 
 ### Podcasts
-You should be able to manage your podcasts and create new ones from Admin Dashboard > Contents > Podcasts. To create a new podcast, you should first upload it on MixCloud, as you will need a MixCloud URL to create a new podcast. After this is done, get the newly uploaded podcast's URL (for example by clicking on the 'share' button in the player on MixCloud). 
+You should be able to manage your podcasts and create new ones from Admin Dashboard > Contents > Podcasts. To create a new podcast, you should first upload it on MixCloud, as you will need a MixCloud URL to create a new podcast. After this is done, get the newly uploaded podcast's URL (for example by clicking on the 'share' button in the player on MixCloud).
 
 ### Broadcasting
 #### Live shows
@@ -62,7 +62,9 @@ Currently you can only upload prerecorded shows from the studio:
 4. [ documentation incomplete]
 
 ### Bookings
-From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case).
+From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case). In general, please make sure that the period and time you're booking for is bookable. You can't, for example, book the Recording Studio for July the 17th and expect to be granted access.
+
+For your convenience, if you're looking for a bookable time, click on the 'future' scope above the Bookings list. You should see a list of bookings for the future, ordered by booking date and time. You can also filter by location and restrict to a specific period by using the sidebar on the right.
 
 ## Committee members
 If you are a member of the committee you should sign up for a user account on the website and request the role 'Committee Member'.
@@ -105,7 +107,3 @@ Newly published interviews will be displayed in the 'Latest posts' section in th
 Please only write a generic post if the content you want to create does not fall into the above categories.
 In order to write and edit your posts, you need to have a user account on the website and to be assigned the role 'publisher'.
 Remember to add the relevant tags to your post (e.g. for some event you're covering)!
-
-
-
-

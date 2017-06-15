@@ -36,4 +36,4 @@ pickle-email-*.html
 
 
 # Ignore secrets config
- /config/application.yml
+/config/application.yml

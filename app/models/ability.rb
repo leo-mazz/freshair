@@ -5,14 +5,17 @@ class Ability
 
   def initialize(user)
 
-    # Everyone
-    can :read, ActiveAdmin::Page, name: "Dashboard"
-
     # System Administrators
     if user.has_role? :admin
       can :manage, :all
       return
     end
+
+    # Everyone
+    can :read, ActiveAdmin::Page, name: "Dashboard"
+    can :read, Booking
+    can :create, Booking
+    can :manage, Booking, :user_id => user.id
 
     # Head of programming
     if user.has_role? :programming
@@ -37,7 +40,6 @@ class Ability
     can [:read, :update, :destroy], Podcast, :id => Podcast.of_user(user).map(&:id)
     can :create, Podcast
 
-    # TODO: create permissions for posts
   end
 
 end
