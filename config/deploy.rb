@@ -6,7 +6,7 @@ set :repo_url, "https://leo-mazz:ACCIDENTI1209@bitbucket.org/freshair/refresh-we
 set :deploy_to, "/var/www/refresh"
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml", "config/secrets.yml", "config/application.yml"
+append :linked_files, "config/application.yml"
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads", "vendor/bundle"
