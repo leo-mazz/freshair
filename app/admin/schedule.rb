@@ -116,7 +116,7 @@ ActiveAdmin.register Schedule do
     end
     # TODO: display better, at least order by date and time :(
     f.inputs name: 'Show assignments' do
-      f.has_many :assignments, order: :day_of_week, allow_destroy: true do |sf|
+      f.has_many :assignments, allow_destroy: true do |sf|
         sf.input :start_time
         sf.input :end_time
         sf.input :day_of_week, as: :select, collection: WeekService.days_dic

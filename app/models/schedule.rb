@@ -17,12 +17,9 @@ class Schedule < ApplicationRecord
   end
 
   def self.current
-    self.find_by_is_current true
-  end
+    schedule = self.find_by_is_current true
 
-  def self.check_current
-    schedule = Schedule.current
-    return if schedule.nil?
+    return nil if schedule.nil?
 
     until (not schedule.past?) || (schedule.next_schedule.nil?)
       schedule.set_non_current
@@ -31,9 +28,12 @@ class Schedule < ApplicationRecord
 
     if schedule.past?
       schedule.set_non_current
+      return nil
     elsif not schedule.is_current
       schedule.set_current
     end
+
+    return schedule
   end
 
   def set_non_current
@@ -93,7 +93,6 @@ class Schedule < ApplicationRecord
       return nil
     end
 
-    Schedule.check_current
     schedule = Schedule.current
 
     if schedule.nil?
