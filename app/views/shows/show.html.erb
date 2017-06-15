@@ -10,7 +10,7 @@
       <h1><%= @show.title %></h1>
 
       <!-- Only display tag line if there is one (it's not mandatory) -->
-      <% unless @show.blank?  %>
+      <% unless @show.tag_line.blank?  %>
       <i class="tag-line">
         - <%= @show.tag_line %><br>
       </i>
