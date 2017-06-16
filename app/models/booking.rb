@@ -8,6 +8,15 @@ class Booking < ApplicationRecord
     Booking.where("start >= ?", Time.now).order(:start)
   end
 
+  def self.recording_studio_next_7_days
+    Booking.where(
+      "start >= ? AND start <= ? AND location = ?",
+      Time.now,
+      Time.now + (60*60*24*7),
+      2
+      ).order(:start)
+  end
+
   def clash_with?(booking)
     # Two bookings clash if they are in the same place and
     (self.location == booking.location) &&

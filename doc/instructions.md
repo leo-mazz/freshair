@@ -64,7 +64,7 @@ Currently you can only upload prerecorded shows from the studio:
 ### Bookings
 From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case). In general, please make sure that the period and time you're booking for is bookable. You can't, for example, book the Recording Studio for July the 17th and expect to be granted access.
 
-For your convenience, if you're looking for a bookable time, click on the 'future' scope above the Bookings list. You should see a list of bookings for the future, ordered by booking date and time. You can also filter by location and restrict to a specific period by using the sidebar on the right.
+For your convenience, if you're looking for a bookable time, click on the 'Future' scope above the Bookings list, or on the 'Recording Studio Next 7 Days' scope. You should see a corresponding list of bookings, ordered by booking date and time. You can also make a more specific query by using the 'Filter' sidebar on the right.
 
 ## Committee members
 If you are a member of the committee you should sign up for a user account on the website and request the role 'Committee Member'.

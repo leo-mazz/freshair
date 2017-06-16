@@ -1,6 +1,7 @@
 ActiveAdmin.register Booking do
 
   scope :future
+  scope :recording_studio_next_7_days
 
   permit_params :user, :start, :end, :location
 
