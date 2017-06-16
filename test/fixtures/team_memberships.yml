@@ -1,0 +1,9 @@
+one:
+  team: one
+  user: one
+  is_manager: true
+
+two:
+  team: one
+  user: two
+  is_manager: false

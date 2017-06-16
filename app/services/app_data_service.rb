@@ -24,10 +24,10 @@ class AppDataService
 
   def self.teams
     {
-      'Music' => 1,
-      'News' => 2,
-      'Sport' => 3,
-      'Arts' => 4
+      'music' => 1,
+      'news' => 2,
+      'sport' => 3,
+      'arts' => 4
     }
   end
 

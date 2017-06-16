@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   }
   get '/users', to: redirect('/users/sign_in')
 
+  # Teams
+
   # Admin Dashboard
   ActiveAdmin.routes(self)
 

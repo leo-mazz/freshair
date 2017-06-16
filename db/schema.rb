@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614184701) do
+ActiveRecord::Schema.define(version: 20170616153328) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -144,6 +144,22 @@ ActiveRecord::Schema.define(version: 20170614184701) do
     t.string   "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "team_memberships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "team_id"
+    t.boolean "is_manager"
+    t.index ["team_id"], name: "index_team_memberships_on_team_id"
+    t.index ["user_id"], name: "index_team_memberships_on_user_id"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.text     "body"
+    t.integer  "display_order"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|
