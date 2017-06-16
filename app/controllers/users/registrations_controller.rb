@@ -17,8 +17,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         resource.add_role role
       end
       @show = params['user']['_show']
+      @is_manager = params['user']['team_manager?'] || false
       if @show != 'nil'
-        @show_membership = ShowMembership.create(user:resource, show:Show.find(@show))
+        @show_membership = ShowMembership.create(user: resource, show: Show.find(@show), is_manager: @is_manager)
       end
 
       @team = params['user']['_team']

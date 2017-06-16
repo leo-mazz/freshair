@@ -55,9 +55,11 @@
         ) +
           options_from_collection_for_select(Team.all, "id", "name")
     %>
+    <%= check_box_tag 'user[team_manager?]', 'true', false %>
+    <%= f.label 'Head of that team?' %>
   </div><br>
 
-    <p class="messages messages-notice" style="width:500px; font-size:16px;">The account email will need to be confirmed and the account approved by the webmaster before you're allowed access. If you need any further privileges after you sign up, please get in touch with the webmaster.</p>
+    <div class="messages messages-notice inline" >The account email will need to be confirmed and the account approved by the webmaster before you're allowed access. If you need any further privileges after you sign up, please get in touch with the webmaster.</div>
 
 
 

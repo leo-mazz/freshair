@@ -37,6 +37,10 @@
   &.messages-notice {
     background: $color-teal-lighter;
     color: $color-teal-darker;
+
+    &.inline {
+      font-size: 16px;
+    }
   }
 
   &.messages-success {
@@ -48,4 +52,6 @@
     background: $color-red-lighter;
     color: $color-red;
   }
+
+
 }
