@@ -1,4 +1,4 @@
-class RolesService
+class AppDataService
 
   def self.public_roles
     {
@@ -13,6 +13,22 @@ class RolesService
 
   def self.roles
     public_roles.merge({admin: 'System Administrator'})
+  end
+
+  def self.locations
+    {
+      'Main Studio' => 1,
+      'Recording Studio' => 2
+    }
+  end
+
+  def self.teams
+    {
+      'Music' => 1,
+      'News' => 2,
+      'Sport' => 3,
+      'Arts' => 4
+    }
   end
 
 end

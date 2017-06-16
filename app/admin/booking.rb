@@ -16,7 +16,7 @@ ActiveAdmin.register Booking do
     selectable_column
 
     column :location do |booking|
-      LocationsService.bookable.key(booking.location)
+      AppDataService.locations.key(booking.location)
     end
     column :user
     column :start
@@ -27,7 +27,7 @@ ActiveAdmin.register Booking do
 
   form do |f|
     f.inputs do
-      f.input :location, as: :select, collection: LocationsService.bookable
+      f.input :location, as: :select, collection: AppDataService.locations
       f.input :start
       f.input :end
     end
