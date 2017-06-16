@@ -16,6 +16,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params['user']['_roles'].each do |role|
         resource.add_role role
       end
+      @show = params['user']['_show']
+      if @show != 'nil'
+        @show_membership = ShowMembership.create(user:resource, show:Show.find(@show))
+      end
+
+      @team = params['user']['_team']
+      if @team != 'nil'
+        @team_membership = TeamMembership.create(user:resource, team:Team.find(@team))
+      end
 
       # Notify webmaster there's a user to approve
       if resource.errors.empty?
@@ -52,15 +61,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
 
-  # TODO: it appeats that everything works also without the following. Why?
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys:
-      [:first_name, :last_name, :email, :password, :password_confirmation, :_roles]
+      [:first_name, :last_name, :email, :password, :password_confirmation]
     )
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:sign_up, keys:
+    devise_parameter_sanitizer.permit(:account_update, keys:
       ([:first_name, :last_name, :email, :password, :password_confirmation])
     )
   end

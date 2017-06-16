@@ -1,6 +1,7 @@
 // Colors
 $color-yellow: rgb(229, 255, 80);
-$color-teal: rgb(55, 174, 181); // buttons, text of notice message
+$color-teal: rgb(55, 174, 181); // buttons
+$color-teal-darker: rgb(44, 132, 138); //text of notice message
 $color-teal-lighter: rgba(55, 174, 181, 0.1); // background of notice message
 $color-red: rgba(200, 60, 60,0.8);
 $color-red-lighter: rgba(255, 0, 0, 0.2); // background of alert message
@@ -14,6 +15,6 @@ $color-aside-link: #337ab7;
 
 // Sizes
 $aside-width: 330px;
-$form-width: 600px;
+$form-width: 500px;
 $breaking-width: 1060px;
 $break-width: 800px;

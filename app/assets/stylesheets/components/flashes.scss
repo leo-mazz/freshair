@@ -27,7 +27,7 @@
   }
 
   .fa-blue {
-    color: $color-teal;
+    color: $color-teal-darker;
   }
 
   .fa-green {
@@ -36,7 +36,7 @@
 
   &.messages-notice {
     background: $color-teal-lighter;
-    color: $color-teal;
+    color: $color-teal-darker;
   }
 
   &.messages-success {

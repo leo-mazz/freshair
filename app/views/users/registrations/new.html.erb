@@ -27,14 +27,41 @@
   </div>
 
   <fieldset>
-   <legend>Select your roles</legend>
-     <% Role.public_roles.each do |role, description|%>
-     <div class="field">
-       <%= check_box_tag 'user[_roles][]', role, false %>
-       <%= f.label description %>
-     </div>
-    <% end %>
-   </fieldset>
+    <legend>Select your roles</legend>
+      <% Role.public_roles.each do |role, description|%>
+        <div class="field">
+          <%= check_box_tag 'user[_roles][]', role, false %>
+          <%= f.label description %>
+        </div>
+      <% end %>
+  </fieldset>
+  <br>
+  <div class="field">
+    <%=
+      select_tag 'user[_show]',
+        content_tag(
+          :option,
+          'Select a show (if you\'re in one)',
+          value: 'nil'
+        ) +
+          options_from_collection_for_select(Show.all, "id", "title")
+    %>
+    <%=
+      select_tag 'user[_team]',
+        content_tag(
+          :option,
+          'Select a team (if you\'re in one)',
+          value: 'nil'
+        ) +
+          options_from_collection_for_select(Team.all, "id", "name")
+    %>
+  </div><br>
+
+    <p class="messages messages-notice" style="width:500px; font-size:16px;">The account email will need to be confirmed and the account approved by the webmaster before you're allowed access. If you need any further privileges after you sign up, please get in touch with the webmaster.</p>
+
+
+
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

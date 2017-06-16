@@ -25,7 +25,7 @@ form {
 
     }
   }
-  
+
   input[type="submit"] {
     cursor: pointer;
     background: rgba(166, 166, 166, 0.1);
@@ -40,6 +40,11 @@ form {
     &:hover {
       background: rgba(200,200,200,0.1);
     }
+  }
+
+  select {
+    font-size: 16px;
+    margin-right: 10px;
   }
 
   fieldset {
