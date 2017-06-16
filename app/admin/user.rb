@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 
   menu :parent => "Site Admin"
 
-  permit_params :first_name, :last_name, :email, :password, :password_confirmation, role_ids: []
+  permit_params :first_name, :last_name, :email, :password, :password_confirmation, role_ids: [], show_memberships_attributes: [:id, :show_id, :user_id, :_destroy], team_memberships_attributes: [:id, :team_id, :user_id, :_destroy]
 
   scope :to_approve
 
@@ -58,7 +58,6 @@ ActiveAdmin.register User do
 
 
   index do
-    selectable_column
     column :first_name
     column :last_name
     column :email
@@ -68,6 +67,25 @@ ActiveAdmin.register User do
       end
       ''
     end
+
+    column :shows do |user|
+      user.shows.each do |show|
+        li show.title
+      end
+      ''
+    end
+
+    column :teams do |user|
+      user.team_memberships.each do |tm|
+        if tm.is_manager
+          li tm.team.name + '(Manager)'
+        else
+          li tm.team.name
+        end
+      end
+      ''
+    end
+
     column(:email_confirmed) do |user|
       user.confirmed? ? status_tag( "yes", :ok ) : status_tag( "no" )
     end
@@ -108,6 +126,25 @@ ActiveAdmin.register User do
           end
           ''
         end
+
+        row :shows do |user|
+          user.shows.each do |show|
+            li show.title
+          end
+          ''
+        end
+
+        row :teams do
+          user.team_memberships.each do |tm|
+            if tm.is_manager
+              li tm.team.name + '(Manager)'
+            else
+              li tm.team.name
+            end
+          end
+          ''
+        end
+
         row :approved
         row :approval do |user|
 
@@ -149,9 +186,22 @@ ActiveAdmin.register User do
       f.input :password, placeholder: 'Leave blank to remain unchanged'
       f.input :password_confirmation
       # Common users should not be able to edit their profile through Active Admin!
-      f.input :roles, as: :check_boxes, collection: Role.global
-
+      f.input :roles, as: :check_boxes, collection: Role.roles
     end
+
+    f.inputs name: 'Show assignments' do
+      f.has_many :show_memberships, :allow_destroy => true do |tmf|
+        tmf.input :show, collection: Show.all
+      end
+    end
+
+    f.inputs name: 'Team assignments' do
+      f.has_many :team_memberships, :allow_destroy => true do |tmf|
+        tmf.input :team, collection: Team.all
+        tmf.input :is_manager
+      end
+    end
+
     f.actions
   end
 

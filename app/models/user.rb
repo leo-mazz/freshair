@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :delete_all
 
+  accepts_nested_attributes_for :show_memberships, :allow_destroy => true
+  accepts_nested_attributes_for :team_memberships, :allow_destroy => true
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable, :lockable
 
   scope :to_approve, -> { where(approved: false) }
