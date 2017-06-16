@@ -36,4 +36,11 @@ class Booking < ApplicationRecord
       false
   end
 
+  def self.locations
+    {
+      'Main Studio' => 1,
+      'Recording Studio' => 2
+    }
+  end
+
 end

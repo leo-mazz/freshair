@@ -28,7 +28,7 @@
 
   <fieldset>
    <legend>Select your roles</legend>
-     <% AppDataService.public_roles.each do |role, description|%>
+     <% Role.public_roles.each do |role, description|%>
      <div class="field">
        <%= check_box_tag 'user[_roles][]', role, false %>
        <%= f.label description %>

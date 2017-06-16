@@ -11,5 +11,16 @@ class Role < ApplicationRecord
             :allow_nil => true
 
   scopify
-  
+
+  def self.public_roles
+    {
+      committee: 'Committee Member',
+      programming: 'Head of Programming'
+    }
+  end
+
+  def self.roles
+    public_roles.merge({admin: 'System Administrator'})
+  end
+
 end
