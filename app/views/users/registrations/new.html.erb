@@ -44,7 +44,7 @@
           'Select a show (if you\'re in one)',
           value: 'nil'
         ) +
-          options_from_collection_for_select(Show.all, "id", "title")
+          options_from_collection_for_select(Show.by_title, "id", "title")
     %>
     <%=
       select_tag 'user[_team]',

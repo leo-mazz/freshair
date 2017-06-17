@@ -1,0 +1,15 @@
+one:
+  title: MyString
+  short_body: MyString
+  content: MyText
+  author: :one
+  is_published: false
+
+two:
+  title: MyString
+  short_body: MyString
+  content: MyText
+  author: :one
+  is_published: true
+  team: one
+  show: one

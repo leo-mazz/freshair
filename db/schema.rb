@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616153328) do
+ActiveRecord::Schema.define(version: 20170617124055) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -74,9 +74,36 @@ ActiveRecord::Schema.define(version: 20170616153328) do
     t.index ["show_id"], name: "index_podcasts_on_show_id"
   end
 
+  create_table "post_metadata", force: :cascade do |t|
+    t.string   "key"
+    t.string   "value"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_metadata_on_post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.string   "short_body"
+    t.text     "content"
+    t.integer  "author_id"
+    t.boolean  "is_published"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "slug"
+    t.integer  "team_id"
+    t.integer  "show_id"
+    t.index ["show_id"], name: "index_posts_on_show_id"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
+    t.index ["team_id"], name: "index_posts_on_team_id"
+  end
+
   create_table "posts_tags", force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"
+    t.index ["post_id"], name: "index_posts_tags_on_post_id"
+    t.index ["tag_id"], name: "index_posts_tags_on_tag_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -142,8 +169,9 @@ ActiveRecord::Schema.define(version: 20170616153328) do
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.boolean  "is_post_type"
   end
 
   create_table "team_memberships", force: :cascade do |t|

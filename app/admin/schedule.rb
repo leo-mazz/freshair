@@ -120,7 +120,7 @@ ActiveAdmin.register Schedule do
         sf.input :start_time
         sf.input :end_time
         sf.input :day_of_week, as: :select, collection: WeekService.days_dic
-        sf.input :show_id, :label => 'Show', as: :select, :collection => Show.all
+        sf.input :show_id, :label => 'Show', as: :select, :collection => Show.by_title
       end
 
 

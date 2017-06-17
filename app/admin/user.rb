@@ -110,7 +110,7 @@ ActiveAdmin.register User do
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
-  filter :roles, collection: Role.global
+  filter :roles, collection: Role.existing_roles
   filter :approved
   filter :confirmed_at, as: :string
 
@@ -186,12 +186,12 @@ ActiveAdmin.register User do
       f.input :password, placeholder: 'Leave blank to remain unchanged'
       f.input :password_confirmation
       # Common users should not be able to edit their profile through Active Admin!
-      f.input :roles, as: :check_boxes, collection: Role.roles
+      f.input :roles, as: :check_boxes, collection: Role.existing_roles
     end
 
     f.inputs name: 'Show assignments' do
       f.has_many :show_memberships, :allow_destroy => true do |tmf|
-        tmf.input :show, collection: Show.all
+        tmf.input :show, collection: Show.by_title
       end
     end
 

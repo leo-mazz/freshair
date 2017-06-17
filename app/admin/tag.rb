@@ -1,6 +1,6 @@
 ActiveAdmin.register Tag do
 
-  menu :parent => "Posts"
+  menu :parent => "Content"
 
   permit_params :name
 

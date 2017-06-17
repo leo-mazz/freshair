@@ -3,12 +3,12 @@ class Show < ApplicationRecord
 
   mount_uploader :pic, ShowPicUploader
 
-  resourcify
-
   # has_and_belongs_to_many :users, join_table: :hosts_shows
   has_many :podcasts, dependent: :delete_all
   has_many :show_memberships, dependent: :delete_all
   has_many :users, through: :show_memberships
+  has_many :show_scopes, dependent: :delete_all
+  has_many :posts
 
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
 
@@ -20,6 +20,7 @@ class Show < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  scope :by_title, -> { order(:title) }
 
   def broadcast_times
     day_times = []
@@ -66,10 +67,6 @@ class Show < ApplicationRecord
     unless self.pic.url.nil?
       Rails.root.join(self.pic.resized.url).to_s
     end
-  end
-
-  def self.of_user(user)
-    ShowMembership.where(user_id: user.id).map(&:show)
   end
 
   def check_broadcast_time(start_time, end_time=nil)

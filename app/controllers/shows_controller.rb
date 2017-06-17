@@ -29,7 +29,7 @@ class ShowsController < ApplicationController
   private
 
   def set_shows
-    @all_shows = Show.order(:title)
+    @all_shows = Show.by_title
     @active_shows = Show.active
   end
 

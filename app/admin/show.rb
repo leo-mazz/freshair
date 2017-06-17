@@ -67,9 +67,6 @@ ActiveAdmin.register Show do
 
 
     f.inputs "People involved" do
-
-
-
       f.has_many :show_memberships, :allow_destroy => true do |tmf|
         tmf.input :user, collection: User.valid
         # tmf.input :roles, collection: Show.roles_list, as: :check_boxes

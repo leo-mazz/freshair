@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :bookings, dependent: :delete_all
 
+  has_many :podcasts, through: :shows
+
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
   accepts_nested_attributes_for :team_memberships, :allow_destroy => true
 
@@ -19,6 +21,7 @@ class User < ApplicationRecord
 
   scope :to_approve, -> { where(approved: false) }
   scope :valid, -> { where("approved = ? AND confirmed_at IS NOT NULL", true ) }
+  scope :by_first_name, -> { order(:first_name) }
 
   def name
     "#{first_name} #{last_name}"

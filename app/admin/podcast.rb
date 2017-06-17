@@ -1,6 +1,6 @@
 ActiveAdmin.register Podcast do
 
-  menu :parent => "Posts"
+  menu :parent => "Content"
 
   permit_params :title, :description, :uri, :broadcast_date, :show_id
 
@@ -12,7 +12,7 @@ ActiveAdmin.register Podcast do
     actions
   end
 
-  filter :show, as: :select, collection: proc { Show.of_user(current_user) }
+  filter :show, as: :select, collection: proc { current_user.shows }
   filter :broadcast_date
   filter :title
   filter :description
@@ -22,7 +22,7 @@ ActiveAdmin.register Podcast do
 
   form do |f|
     f.inputs do
-      f.input :show, collection: Show.of_user(current_user)
+      f.input :show, collection: current_user.shows
       f.input :broadcast_date
       f.input :uri, label: 'Mixcloud URL'
       f.input :title

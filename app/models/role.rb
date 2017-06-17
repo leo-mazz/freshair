@@ -23,4 +23,8 @@ class Role < ApplicationRecord
     public_roles.merge({admin: 'System Administrator'})
   end
 
+  def self.existing_roles
+    Role.global.select { |role| Role.roles.keys.include?(role.name.to_sym) }
+  end
+
 end
