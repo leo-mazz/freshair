@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617124055) do
+ActiveRecord::Schema.define(version: 20170617132339) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20170617124055) do
     t.string   "slug"
     t.integer  "team_id"
     t.integer  "show_id"
+    t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["show_id"], name: "index_posts_on_show_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
     t.index ["team_id"], name: "index_posts_on_team_id"
