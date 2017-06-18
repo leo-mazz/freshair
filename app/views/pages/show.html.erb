@@ -1,7 +1,12 @@
 <nav class="main-nav">
   <ul>
     <li><%= link_to 'Home', root_path%></li>
-    <% @nav_pages.each do |page| %>
+    <% @global_teams.each do |team| %>
+      <li class="<%= team == @team ? 'selected' : ''%>">
+        <%= link_to team.name, team%>
+      </li>
+    <% end %>
+    <% @global_pages.each do |page| %>
     <li class="<%= page.slug == @page.slug ? 'selected' : ''%>">
       <%= link_to page.title, page_path(page) %>
     </li>

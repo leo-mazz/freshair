@@ -2,4 +2,59 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+  }
+}
+
+
+.posts {
+
+  .post {
+    display: flex;
+    height: 120px;
+
+    .post-details {
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      background: rgba(227, 227, 227, 0.5);
+      border-top: 1px solid rgba(227, 227, 227, 1);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .post-info {
+      padding-left: 10px;
+      position: relative;
+      width: 100%;
+    }
+
+    .post-title {
+      font-weight: bold;
+      display: inline;
+      font-size: 20px;
+    }
+
+    .post-caption {
+      font-size: 14px;
+    }
+
+  }
+
+
+  a {
+    width: 360px;
+    margin: 10px;
+    flex-basis: 289px;
+    flex-grow: 1;
+
+    &:hover .post-title {
+      background: $color-yellow;
+    }
+  }
 }

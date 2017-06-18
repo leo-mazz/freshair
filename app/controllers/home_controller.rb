@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
-  
+
   def index
-    @nav_pages = @static_pages
+    @latest_posts = Post.order(created_at: :desc)
   end
 
 end

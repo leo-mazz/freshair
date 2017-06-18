@@ -29,6 +29,12 @@ Rails.application.routes.draw do
   # TODO: the above was written by prev. webmaster. Check whether it's true
   match 'listen', to: 'player#listen', as: "listen", via: [:get, :post]
 
+  # Posts
+  resources :posts, only: ['show']
+
+  # Teams
+  resources :teams, only: ['show']
+
   # Events
   resources :events, only: ['show']
 
