@@ -118,4 +118,13 @@
 
   }
 
+  .show-content {
+    display: flex;
+
+    .podcasts {
+      width: 150px;
+      margin-right: 20px;
+    }
+  }
+
 }

@@ -11,6 +11,10 @@ class Team < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  def should_generate_new_friendly_id?
+    slug.blank? || name_changed?
+  end
+
   accepts_nested_attributes_for :team_memberships, allow_destroy: true
 
 end

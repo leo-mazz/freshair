@@ -1,0 +1,28 @@
+<% unless posts.empty? %>
+  <div class="boxes posts">
+    <% posts.each do |post| %>
+      <%= link_to post do %>
+        <div class="post">
+          <div class="post-info">
+            <div class="post-title">
+              <%= post.title %>
+            </div>
+            <div class="post-caption">
+              <%= post.short_body %>
+            </div>
+            <div class="post-details">
+              <div>
+                <%= format_date_small post.created_at %>
+              </div>
+              <div>
+                <%= post.author.name %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end%>
+    <% end %>
+  </div>
+<% else %>
+  <em>No post here</em>
+<% end %>

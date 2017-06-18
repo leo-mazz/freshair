@@ -14,9 +14,9 @@ class PostMetadatum < ApplicationRecord
     PostMetadatum.allowed_keys.include?(key)
   end
 
-  def self.number_or_nil(string)
-    num = string.to_i
-    num if num.to_s == string
+  def self.number_or_nil(value)
+    num = value.to_i
+    num if num.to_s == value.to_s
   end
 
   def self.valid_rating?(rating)

@@ -18,6 +18,18 @@ class Post < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
+  end
+
+  def has_meta?(key)
+    self.post_metadata.map(&:key).include? key
+  end
+
+  def get_meta(key)
+    self.post_metadata.find_by_key(key).value
+  end
+
   private
 
     def default_to_not_published

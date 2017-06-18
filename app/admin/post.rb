@@ -36,7 +36,10 @@ ActiveAdmin.register Post do
       attributes_table_for post do
         row :title
         row :short_body
-        row :content
+        row :content do
+          # REMEMBER TO SANITIZE!! We don't want unsafe code to be put here
+          sanitize post.content.html_safe
+        end
         row :author
         row :is_published
         row :created_at
@@ -80,7 +83,7 @@ ActiveAdmin.register Post do
       end
 
       f.input :short_body
-      f.input :content
+      f.input :content, as: :html_editor
       f.input :tags, as: :check_boxes
 
       if current_user.has_role? :admin

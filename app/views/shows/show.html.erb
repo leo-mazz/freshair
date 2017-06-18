@@ -43,16 +43,34 @@
   </div>
 </div>
 <br>
-<% unless @show.podcasts.blank? %>
-  <h2>Podcasts.</h2>
-  <% @show.podcasts.each do |podcast| %>
-    <div class="podcast-link">
-    <%= link_to url_for([@show, podcast]) do %>
-      <%= format_date_small podcast.broadcast_date %>
-      <% unless podcast.title.blank? %>
-      - <%= podcast.title %>
-      <% end %>
+<div class="show-content">
+  <% unless @show.podcasts.blank? %>
+    <section class="podcasts">
+      <h2>Podcasts.</h2>
+      <% @show.podcasts.each do |podcast| %>
+      <div class="podcast-link">
+        <%= link_to url_for([@show, podcast]) do %>
+          <%= format_date_small podcast.broadcast_date %>
+          <% unless podcast.title.blank? %>
+            - <%= podcast.title %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-    </div>
+  </section>
   <% end %>
-<% end %>
+
+  <% unless @show_posts.blank? %>
+    <section>
+      <h2>Posts.</h2>
+      <% @show_posts.each do |post| %>
+        <div class="podcast-link">
+          <%= link_to post do %>
+            <%= format_date_small post.created_at %>
+              <%= post.title %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  <% end %>
+</div>

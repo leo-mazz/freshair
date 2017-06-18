@@ -24,28 +24,5 @@
     <div>Tag: <a href="#">Interview</a> | <a href="#">Event</a> | <a href="#">Review</a> | <a href="#">Playlist</a>
     </div>
   </div>
-  <div class="boxes posts">
-    <% @latest_posts.each do |post| %>
-      <%= link_to post do %>
-        <div class="post">
-          <div class="post-info">
-            <div class="post-title">
-              <%= post.title %>
-            </div>
-            <div class="post-caption">
-              <%= post.short_body %>
-            </div>
-            <div class="post-details">
-              <div>
-                <%= post.created_at %>
-              </div>
-              <div>
-                <%= post.author.name %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end%>
-    <% end %>
-  </div>
+  <%= render partial: "shared/posts", locals: {posts: @latest_posts} %>
 </section>

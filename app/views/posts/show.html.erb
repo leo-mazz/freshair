@@ -1,2 +1,44 @@
-<h1><%= @post.title %></h1>
-<%= @post.content %>
+<div class="post-wrapper">
+  <div class="post-info-column">
+    <div class="post-info">
+      <% unless @post.team.blank? %>
+        <%= link_to @post.team, class: 'post-team'  do %>
+          <%= @post.team.name %> team
+        <% end %><br>
+      <% end %>
+      <h2 class="post-title"><%= @post.title %></h2>
+      <div class="post-details">
+        <% if @post.has_meta?('rating') %>
+          <%= rating(@post.get_meta('rating')).html_safe %>
+        <% end %>
+        <% unless @post.show.blank? %>
+          <%= link_to @post.show, class: 'post-show'  do %>
+            <%= @post.show.title.capitalize %>
+          <% end %><br>
+        <% end %>
+        <% unless @post.team.blank? && @post.show.blank? %>
+          <br>
+        <% end %>
+
+        <div class="post-detail">
+          <i class="fa fa-user" aria-hidden="true"></i> <%= @post.author.name %>
+        </div>
+        <div class="post-detail">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i> <%= format_date @post.created_at %>
+        </div>
+        <% unless @post.tags.blank? %>
+        <div class="post-detail">
+          <i class="fa fa-tags" aria-hidden="true"></i>
+          <% @post.tags.each do |tag| %>
+          <%= tag.name %>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="post-body">
+    <% # Important to sanitize! Will strip off unsafe code %>
+    <%= sanitize @post.content.html_safe %>
+  </div>
+</div>

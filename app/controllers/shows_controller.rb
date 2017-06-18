@@ -23,6 +23,7 @@ class ShowsController < ApplicationController
   def show
     @show = Show.friendly.find(params[:id])
     @title = 'Shows > ' + @show.title
+    @show_posts = @show.posts.order(created_at: :desc)
   end
 
 

@@ -1,0 +1,59 @@
+.post-wrapper {
+
+  margin-top: 20px;
+  display: flex;
+
+  .post-body {
+  }
+
+  .post-info {
+    width: 250px;
+    position: -webkit-sticky;  // required for Safari
+    position: sticky;
+    top: 10px; // required as well.
+
+    .post-title {
+      background: $color-yellow;
+      display: inline;
+    }
+
+    .rating {
+      margin-bottom: 8px;
+
+      .fa {
+        margin-left: 1px;
+      }
+    }
+
+    .post-team {
+      color: $color-red;
+      font-weight: bold;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .post-details {
+      margin-top: 5px;
+      font-size: 15px;
+      margin-left: 2px;
+      // color: $color-red;
+
+      .post-detail {
+        margin-bottom: 7px;
+
+        .fa {
+          margin-right: 3px;
+        }
+      }
+
+    }
+  }
+
+    @media (max-width: $breaking-width) {
+      flex-direction: column;
+
+      .post-info-column {
+        margin-bottom: 20px;
+      }
+    }
+}
