@@ -4,7 +4,7 @@ ActiveAdmin.register Post do
 
   config.sort_order = 'created_at_desc'
 
-  permit_params :title, :short_body, :content, :author_id, :is_published, :team_id, :show_id, post_metadata_attributes: [:id, :post_id, :key, :value, :_destroy]
+  permit_params :title, :short_body, :content, :author_id, :is_published, :team_id, :show_id, tag_ids: [], post_metadata_attributes: [:id, :post_id, :key, :value, :_destroy]
 
   index do
     selectable_column
@@ -14,7 +14,12 @@ ActiveAdmin.register Post do
     column :is_published
     column :show
     column :team
-
+    column :tags do |post|
+      post.tags.each do |tag|
+        li tag.name
+      end
+      ''
+    end
     actions
   end
 
@@ -24,6 +29,39 @@ ActiveAdmin.register Post do
   filter :updated_at
   filter :is_published
   filter :short_body
+  filter :tags
+
+  show do |post|
+    panel 'Post details' do
+      attributes_table_for post do
+        row :title
+        row :short_body
+        row :content
+        row :author
+        row :is_published
+        row :created_at
+        row :updated_at
+        row :team
+        row :show
+        row :tags do
+          post.tags.each do |tag|
+            li tag.name
+          end
+          ''
+        end
+        row :metadata do
+          post.post_metadata.each do |md|
+            li do
+              strong md.key
+              span ': ' + md.value
+            end
+          end
+          ''
+        end
+      end
+    end
+  end
+
 
   form do |f|
     f.inputs do
@@ -58,7 +96,7 @@ ActiveAdmin.register Post do
     f.inputs "Post metadata" do
       div 'If you\'re writing a review, the website will display a rating (with stars) if you add a metadatum with key \'rating \' and your rating (numeric, on a scale from 0 to 10) as the value',  style:'margin-left:15px;'
       f.has_many :post_metadata, :allow_destroy => true do |tmf|
-        tmf.input :key
+        tmf.input :key, as: :select, collection: PostMetadatum.allowed_keys
         tmf.input :value
       end
     end

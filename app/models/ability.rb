@@ -30,6 +30,7 @@ class Ability
 
     # Heads of team
     can :manage, Post, :team_id => user.teams.map(&:id)
+    can [:read, :update], Team, :id => user.teams.map(&:id)
 
     # Committee members
     if user.has_role? :committee
@@ -39,11 +40,7 @@ class Ability
       can :manage, Event
     end
 
-    if user.has_role? :publisher
-      can :manage, Tag
-    end
-
-    # Hosts (their role is implicit)
+    # Hosts
     can [:read, :update], Show, :id => user.shows.map(&:id)
     can :manage, Podcast, :id => user.podcasts.map(&:id)
     can :create, Podcast

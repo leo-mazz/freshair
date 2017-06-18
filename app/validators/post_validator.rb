@@ -12,6 +12,10 @@ class PostValidator < ActiveModel::Validator
         record.errors[:team_id] << "You can't associate a team you're not part of"
       end
     end
+
+    if record.is_published && record.content.blank?
+      record.errors[:content] << "You can't publish a post with no content"
+    end
   end
 
 end

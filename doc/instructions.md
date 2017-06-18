@@ -4,6 +4,15 @@
 ### Tags
 Please assign the appropriate existing tags (and/or create new) before publishing a post. When there is a tag related to an event, and the event becomes past, please add a temporal identifier to the name of the tag (e.g. change 'General Elections' to 'General Elections 2017').
 
+### Posts
+If you are in a show, you can assign a show to your post. It will then be displayed in your show's page.
+If you're in a team, you can assign a team to your post. It will then be displayed in your team's page.
+In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked.
+Please write a short body for your post, it will be displayed in the multiple posts view.
+
+### Reviews
+If your post is a review, you can add a rating to it (it will be appropriately represented by the website with a 0 to 5 stars graphic). To do so, before publishing a post, add 'Post Metadata' to it, selecting the type 'rating' and inserting a numeric score from 0 to 10.
+
 ## Head of Programming
 As the Head of Programming, you'll need to sign up for a user account on the website and request the role 'Head of Programming'.
 
@@ -11,7 +20,7 @@ As the Head of Programming, you'll need to sign up for a user account on the web
 Ideally, before each broadcast cycle you should gather a list of all the users that need to be given access as hosts or producers and e-mail the list to the webmaster. All of them will need to sign up for a user account on the website and request to be given access as Hosts or Producers. You should provide them with indications on how to do so. They will also need to activate their account by clicking a link that should be automatically e-mailed to them. After they create their accounts and the webmaster approves them, you can go on creating shows, and then schedules.
 
 ###  Shows
-You should be able to create, delete and edit all shows on the website from Admin Dashboard > Programming >Shows
+You should be able to create, delete and edit all shows on the website from Admin Dashboard > Programming > Shows
 
 Shows need to have a title and a description. The title must be unique. Shows can have a tag line if desired by their hosts. Ideally, you would upload a show picture; if you don't, a default one will be used for the show. Shows should be assigned hosts and producers. They should be able to update the details of the shows you assign them to through the Admin Dashboard.
 
@@ -37,7 +46,6 @@ As a host or producer you'll need to sign up for a user account on the website a
 ### Shows
 You should be able to edit your show details (like the title, description and picture) on the website from Admin Dashboard > Programming > Shows.
 
-
 ### Show recordings
 If you are not a System Administrator, you can only access recordings from the studio.
 To access recordings, go to studio.freshair.org.uk (where Broadcast Controls are) and click 'Recordings'.
@@ -45,9 +53,12 @@ To access recordings, go to studio.freshair.org.uk (where Broadcast Controls are
 ### Podcasts
 You should be able to manage your podcasts and create new ones from Admin Dashboard > Contents > Podcasts. To create a new podcast, you should first upload it on MixCloud, as you will need a MixCloud URL to create a new podcast. After this is done, get the newly uploaded podcast's URL (for example by clicking on the 'share' button in the player on MixCloud).
 
+### Moderating posts
+You have the ability of editing and deleting all posts associated to your show, even you're not the author. Use this power wisely.
+
 ### Broadcasting
 #### Live shows
-In the studio, in order to go on air,  you need to have a user account on the website and to be assigned the role 'Host or Producer'.
+In the studio, in order to go on air,  you need to have a user account on the website and to be assigned to a show.
 In the Main Studio, just follow these steps:
 1. On PC1, open studio.freshair.org.uk in a browser window
 2. Enter your email
@@ -57,14 +68,30 @@ In the Main Studio, just follow these steps:
 #### Pre-recorded shows
 Currently you can only upload prerecorded shows from the studio:
 1. On PC1, open studio.freshair.org.uk in a browser window
-2. Enter your email
-3. Select the show you want to upload a pre-record for
-4. [ documentation incomplete]
+2. Click on 'Upload Prerecording'
+3. Enter your email
+4. Select the show you want to upload a pre-record for, click confirm
+5. Select the time and date you want to broadcast on. Make sure that you have been allocated that time and that the file you're uploading is not too long. 
+6. Select a file on your computer, click upload
+
+If everything worked out, you will read a comforting 'Upload successful'. To make sure your prerecording goes on air, please upload it at least 24 hours in advance. You should upload an mp3 file. There are other indications on how to export your file on the 'Upload Prerecord', to obtain the best results, on the 'Upload prerecording' page.
 
 ### Bookings
 From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case). In general, please make sure that the period and time you're booking for is bookable. You can't, for example, book the Recording Studio for July the 17th and expect to be granted access.
 
 For your convenience, if you're looking for a bookable time, click on the 'Future' scope above the Bookings list, or on the 'Recording Studio Next 7 Days' scope. You should see a corresponding list of bookings, ordered by booking date and time. You can also make a more specific query by using the 'Filter' sidebar on the right.
+
+## Heads of team
+If you are the head of a team, you should sign up for a user account on the website, select your team, and check 'Head of that team'.
+
+### Members
+You should instruct all the members of the team on how to sign up for a user account on the website and be assigned to a team. If they fail to assign themselves to teams or need to be added to one after they sign up, you can do so by clicking on 'Teams' on the top menu the Admin Dashboard. You'll see a list of teams you are a head of. Click on 'edit' for the appropriate one. You'll be able to add new team members. When you're done, simply click 'Update Team'.
+
+### Team pages
+Each team has a dedicated page on the website. You can personalize the top content of your teams' pages. Following the procedure described in the previous paragraph, click 'edit' on your chosen team, and just edit its 'body' field. Then, click 'Update Team'.
+
+### Moderating posts
+You have the ability of editing and deleting all the posts associated to the teams you're a head of. Use this power wisely.
 
 ## Committee members
 If you are a member of the committee you should sign up for a user account on the website and request the role 'Committee Member'.
@@ -83,27 +110,14 @@ You should be able, through the Admin Dashboard of the website, to edit existing
 
 
 ## Music Team
-If you're a member of the Music Team, you should sign up for a user account on the website and be assigned the role 'Music Team Member'
+If you're a member of the Music Team, you should sign up for a user account on the website and select 'Music Team' as your team.
 ### Playlists
 You should be able to manage playlists through the Admin Dashboard of the website.
 A playlist will need to have a title. You can add tracks to the playlist by specifying a track title, an artist, an album, and embed data. Remember to add the relevant tags to your playlist! The most recent playlist with the tag 'weekly music team playlist' will be displayed in TODO.
 Newly published playlists will be displayed in the 'Latest posts' section in the website.
 
+## Reporting issues
+If you experience an issue while using the website (or the Broadcast Controls), please report it through the 'Report an issue' link, at the bottom of the website.
+
 ## Other help
 If you need revised roles  or have any other query, you can get in touch with webmaster@freshair.org.uk.
-
----------------------------------------------
-
-#### Reviews
-In order to create and edit your reviews, you'll need to have a user account on the website and to be assigned the role 'publisher'.
-Reviews will need to have a title, a rating (1-5 with a 0.5 interval) and a content (which can be formatted). Your title should be what you're reviewing. You shouldn't write 'review' in your title, as the website will automatically display the review in the format 'Review: <your title>'. Remember to add the relevant tags to your post (e.g. for some event you're covering)!
-Newly published reviews will be displayed in the 'Latest posts' section in the website.
-
-#### Interviews
-In order to create and edit your interviews, you'll need to have a user account on the website and to be assigned the role 'publisher'. Your title should be who you're interviewing. You shouldn't write 'interview' in your title, as the website will automatically display the interview in the format 'Interview: <your title>'. Remember to add the relevant tags to your interview (e.g. for some event you're covering)!
-Newly published interviews will be displayed in the 'Latest posts' section in the website.
-
-#### Generic posts
-Please only write a generic post if the content you want to create does not fall into the above categories.
-In order to write and edit your posts, you need to have a user account on the website and to be assigned the role 'publisher'.
-Remember to add the relevant tags to your post (e.g. for some event you're covering)!

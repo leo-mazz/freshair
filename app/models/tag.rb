@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
   after_initialize :default_to_non_post_type
 
   validates_presence_of :name
-  validates :title, uniqueness: true
+  validates :name, uniqueness: true
   validates :slug, uniqueness: true
 
   has_and_belongs_to_many :posts
