@@ -9,6 +9,7 @@ If you are in a show, you can assign a show to your post. It will then be displa
 If you're in a team, you can assign a team to your post. It will then be displayed in your team's page.
 In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked.
 Please write a short body for your post, it will be displayed in the multiple posts view.
+To embed content (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own pictures by using the 'Image' button.
 
 ### Reviews
 If your post is a review, you can add a rating to it (it will be appropriately represented by the website with a 0 to 5 stars graphic). To do so, before publishing a post, add 'Post Metadata' to it, selecting the type 'rating' and inserting a numeric score from 0 to 10.
@@ -71,7 +72,7 @@ Currently you can only upload prerecorded shows from the studio:
 2. Click on 'Upload Prerecording'
 3. Enter your email
 4. Select the show you want to upload a pre-record for, click confirm
-5. Select the time and date you want to broadcast on. Make sure that you have been allocated that time and that the file you're uploading is not too long. 
+5. Select the time and date you want to broadcast on. Make sure that you have been allocated that time and that the file you're uploading is not too long.
 6. Select a file on your computer, click upload
 
 If everything worked out, you will read a comforting 'Upload successful'. To make sure your prerecording goes on air, please upload it at least 24 hours in advance. You should upload an mp3 file. There are other indications on how to export your file on the 'Upload Prerecord', to obtain the best results, on the 'Upload prerecording' page.
@@ -101,13 +102,14 @@ You should be able to manage events throgh the Admin Dashboard of the website.
 Events will need to have a title, location and start date and time. Optionally, you can add a description (which you can format), an end date and time, a link to a facebook event, and a link to the tickets.
 Upcoming events will be displayed in the left sidebar of the website. Newly published events will be displayed in the 'Latest posts' section in the website.
 Please only add events relevant to the whole station (a team meeting should not be worth of a website event. You can instead publicize it using the top section in your team's page).
+To embed content in the description (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own picture by using the 'Image' button.
 
 ### Highlights
 You can highlight a playlist, event, review, interview, podcast, generic post or tag. An highlighted content will be displayed in the top section of the homepage. You should **only** highlight something very important to the station, not just some content you wrote you want to give visibility to, and you should seek the committee approval.
 
 ### Pages
 You should be able, through the Admin Dashboard of the website, to edit existing main pages and to create, destroy and edit sub pages.
-
+To embed content (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own pictures by using the 'Image' button.
 
 ## Music Team
 If you're a member of the Music Team, you should sign up for a user account on the website and select 'Music Team' as your team.

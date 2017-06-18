@@ -16,7 +16,7 @@
 
 <h1><%= @page.title %></h1>
 <%# IMPORTANT TO SANITIZE to prevent bad code injections %>
-<p><%= sanitize @page.content.html_safe %></p>
+<p><%= sanitize @page.content.html_safe, tags: accepted_tags, attributes: accepted_attributes %></p>
 <div class="boxes sub-pages">
   <% @sub_pages.each do |sub_page| %>
     <%= link_to url_for([@page, sub_page]) do %>

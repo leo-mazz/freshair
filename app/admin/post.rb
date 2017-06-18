@@ -83,7 +83,7 @@ ActiveAdmin.register Post do
       end
 
       f.input :short_body
-      f.input :content, as: :html_editor
+      f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
       f.input :tags, as: :check_boxes
 
       if current_user.has_role? :admin

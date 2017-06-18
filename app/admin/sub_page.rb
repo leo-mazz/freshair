@@ -1,5 +1,5 @@
 ActiveAdmin.register SubPage do
-  
+
   menu :parent => "Pages"
 
   config.sort_order = 'page_desc'
@@ -21,7 +21,7 @@ ActiveAdmin.register SubPage do
     f.inputs do
       f.input :page, label: 'Parent page'
       f.input :title
-      f.input :content, as: :html_editor
+      f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
       f.input :priority
     end
     f.actions

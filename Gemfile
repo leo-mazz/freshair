@@ -38,7 +38,7 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'validates_email_format_of'
 
 gem 'activeadmin', github: 'activeadmin'
-gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+gem 'ckeditor'
 gem 'just-datetime-picker'
 
 gem 'font-awesome-rails'

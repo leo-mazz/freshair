@@ -190,7 +190,7 @@ thumbnails
 slug instead of their id and automatically generates slugs
 - **Capistrano** for deployment and to automate tasks on the server
 - **Active Admin** for an admin interface
-- **Active Admin Editor**, WYSIWYG editor for posts and pages
+- **CKeditor**, WYSIWYG editor
 - **Font Awesome** for sweet inline icons
 - **Twitter** helper, for the Twitter feed
 - **Autolink** to automatically generate 'a' tags from links
@@ -252,3 +252,5 @@ In development, when changing an Active Admin model, and loading an admin page,
 we encounter an Error 500, caused by
 `ArgumentError (A copy of ApplicationController has been removed from the module tree but is still active!):`
 An extra refresh should fix.
+
+If you use Ckeditor for a new field, its layout will be broken (which sucks). You'll have to use a hack: edit the file `app/assets/stylesheets/active_admin.scss` and add a new selector like the ones already there (use your browser's code inspector to find the right one).

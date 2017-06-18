@@ -1,4 +1,4 @@
-module PostHelper
+module ContentHelper
 
   def rating(score)
     score = score.to_i
@@ -26,6 +26,16 @@ module PostHelper
       result += '</div>'
     end
     result
+  end
+
+  def accepted_tags
+    %w(strong em b i p code pre tt samp kbd var sub
+    sup dfn cite big small address hr br div span h1 h2 h3 h4 h5 h6 ul ol li dl dt dd abbr
+    acronym a img blockquote del ins iframe table tr th td)
+  end
+
+  def accepted_attributes
+    %w(href src width height alt cite datetime title class name xml:lang abbr style border cellpadding cellspacing)
   end
 
 end

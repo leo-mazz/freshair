@@ -58,7 +58,7 @@ ActiveAdmin.register Event do
       f.input :name
       f.input :start
       f.input :end
-      f.input :description, as: :html_editor
+      f.input :description, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
       f.input :location
       f.input :facebook_event
       f.input :link_to_tickets

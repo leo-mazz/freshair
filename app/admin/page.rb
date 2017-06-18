@@ -18,7 +18,7 @@ ActiveAdmin.register Page, as: 'Main Page' do
     f.inputs do
       f.input :title
       f.input :slug
-      f.input :content, as: :html_editor
+      f.input :content, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
       f.input :priority
     end
     f.actions

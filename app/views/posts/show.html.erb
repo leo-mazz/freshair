@@ -38,7 +38,7 @@
     </div>
   </div>
   <div class="post-body">
-    <% # Important to sanitize! Will strip off unsafe code %>
-    <%= sanitize @post.content.html_safe %>
+    <%# Important to sanitize! Will strip off unsafe code %>
+    <%= sanitize @post.content.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
   </div>
 </div>

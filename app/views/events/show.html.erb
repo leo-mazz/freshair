@@ -16,7 +16,7 @@
 <i>(<%= @event.location %>)</i>
 <br><br>
 <% # Sanitizing is crucial to protect against bad code! %>
-<p><%= sanitize @event.description.html_safe %></p>
+<p><%= sanitize @event.description.html_safe, tags: accepted_tags, attributes: accepted_attributes %></p>
 <br>
 <div class="event-links">
   <% if not @event.facebook_event.blank? %>
