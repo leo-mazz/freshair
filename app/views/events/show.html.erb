@@ -1,28 +1,41 @@
-<h1><%= @event.name %></h1>
-<span class="date-label">
-  <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
-  <% if @event.single_day? %>
-    <%= format_date  @event.start %> <%= format_time @event.start %>
-    <% if not @event.end.nil? %>
-      - <%= format_time @event.end %>
-    <% end %>
-  <% else %>
-    <%= format_date  @event.start %> <%= format_time @event.start %>
-    - <%= format_date @event.end %> <%= format_time @event.start %>
-  <% end %>
-</span>
-<br>
-
-<i>(<%= @event.location %>)</i>
-<br><br>
-<% # Sanitizing is crucial to protect against bad code! %>
-<p><%= sanitize @event.description.html_safe, tags: accepted_tags, attributes: accepted_attributes %></p>
-<br>
-<div class="event-links">
-  <% if not @event.facebook_event.blank? %>
-  <%= link_to 'Facebook event', @event.facebook_event, target: '_blank' %> <br>
-  <% end %>
-  <% if not @event.link_to_tickets.blank? %>
-  <%= link_to 'Get tickets', @event.link_to_tickets, target: '_blank' %>
-  <% end %>
+<div class="post-wrapper">
+  <div class="post-info-column">
+    <div class="post-info">
+      <div class="post-details">
+        <div class="post-detail">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @event.location %>
+        </div>
+        <div class="post-detail">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <% if @event.single_day? %>
+            <%= format_date  @event.start %> <%= format_time @event.start %>
+            <% if not @event.end.nil? %>
+              - <%= format_time @event.end %>
+            <% end %>
+          <% else %>
+            From <%= format_date  @event.start %> <%= format_time @event.start %>
+            <i class="fa fa-calendar-o" aria-hidden="true" style="visibility:hidden;"></i>
+            to <%= format_date @event.end %> <%= format_time @event.start %>
+          <% end %>
+        </div>
+        <% if not @event.facebook_event.blank? %>
+          <div class="post-detail">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>
+            <%= link_to 'Facebook event', @event.facebook_event, target: '_blank' %> <br>
+          </div>
+        <% end %>
+        <% if not @event.link_to_tickets.blank? %>
+        <div class="post-detail">
+          <i class="fa fa-ticket" aria-hidden="true"></i>
+          <%= link_to 'Get tickets', @event.link_to_tickets, target: '_blank' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="post-body event-body">
+    <h2 class="post-tistle"><%= @event.name %></h2>
+    <%# Important to sanitize! Will strip off unsafe code %>
+    <%= sanitize @event.description.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
+  </div>
 </div>

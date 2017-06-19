@@ -6,21 +6,24 @@
   .post-body {
     position: relative;
 
+    &.event-body {
+      margin-top: -10px;
+    }
+
     img {
       max-width: 100%;
     }
   }
 
+  .post-title {
+    background: $color-yellow;
+    display: inline;
+  }
   .post-info {
     width: 200px;
     position: sticky;
     padding-right: 10px;
     top: 10px;
-
-    .post-title {
-      background: $color-yellow;
-      display: inline;
-    }
 
     .rating {
       margin-bottom: 8px;

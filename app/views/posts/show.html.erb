@@ -30,7 +30,7 @@
         <div class="post-detail">
           <i class="fa fa-tags" aria-hidden="true"></i>
           <% @post.tags.each_with_index do |tag, index| %>
-          <%= link_to tag.name, tag %> 
+          <%= link_to tag.name, tag %>
           <%= conjunction(index, @post.tags.count) %>
           <% end %>
         </div>
