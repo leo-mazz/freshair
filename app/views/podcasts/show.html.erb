@@ -1,11 +1,37 @@
-<h2><%= link_to @podcast.show do %>
-    <%= @podcast.show.title %>
-  <% end %>
-</h2>
-<h1><%= format_date_small @podcast.broadcast_date %>
-  <% unless @podcast.title.blank? %>
-  - <%= @podcast.title %>
-  <% end %>
-</h1>
-<p><%= @podcast.description %></p>
-<%= mixcloud(@podcast.uri).html_safe %>
+
+
+
+
+
+
+<div class="post-wrapper">
+  <div class="post-info-column">
+    <div class="post-info podcast-info">
+      <div class="post-details">
+        <%= link_to @podcast.show, class: 'post-show'  do %>
+          <%= @podcast.show.title.capitalize %>
+        <% end %><br><br>
+        <div class="post-detail">
+          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+          <%= format_date_small @podcast.broadcast_date %>
+        </div>
+        <% if not @podcast.title.blank? %>
+          <div class="post-detail">
+            <i class="fa fa-headphones" aria-hidden="true"></i>
+            <%= @podcast.title %>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="post-body podcast-body">
+    <%# Important to sanitize! Will strip off unsafe code %>
+    <% if not @podcast.description.blank? %>
+      <%= sanitize @podcast.description.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
+    <% end %>
+    <div class="podcast">
+      <%= mixcloud(@podcast.uri).html_safe %>
+    </div>
+  </div>
+</div>

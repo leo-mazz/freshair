@@ -16,9 +16,7 @@
             <%= @post.show.title.capitalize %>
           <% end %><br>
         <% end %>
-        <% unless @post.team.blank? && @post.show.blank? %>
-          <br>
-        <% end %>
+        <br>
 
         <div class="post-detail">
           <i class="fa fa-user" aria-hidden="true"></i> <%= @post.author.name %>

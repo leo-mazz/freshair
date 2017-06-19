@@ -32,7 +32,9 @@ section {
 }
 
 .error-message {
+  display: inline-block;
   margin-top: 10px;
+  background: $color-yellow;
 }
 
 #top-toggler {
@@ -47,6 +49,10 @@ section {
   section.on-air {
     display: flex;
   }
+}
+
+h1, h2 {
+  margin-top: 7px;
 }
 
 #main-body {
@@ -65,10 +71,6 @@ section {
     p {
       margin-bottom: 7px;
       font-size: 18px;
-    }
-
-    h1, h2 {
-      margin-top: 7px;
     }
 
     .no-content-warning {

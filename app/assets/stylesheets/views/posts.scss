@@ -10,8 +10,17 @@
       margin-top: -10px;
     }
 
+    &.podcast-body {
+      width: 100%;
+
+      .podcast {
+        margin-top:10px;
+      }
+    }
+
     img {
-      max-width: 100%;
+      height: auto !important;
+      max-width: 84% !important;
     }
   }
 
@@ -24,6 +33,10 @@
     position: sticky;
     padding-right: 10px;
     top: 10px;
+
+    &.podcast-info {
+      width: 150px;
+    }
 
     .rating {
       margin-bottom: 8px;
