@@ -29,8 +29,9 @@
         <% unless @post.tags.blank? %>
         <div class="post-detail">
           <i class="fa fa-tags" aria-hidden="true"></i>
-          <% @post.tags.each do |tag| %>
-          <%= tag.name %>
+          <% @post.tags.each_with_index do |tag, index| %>
+          <%= link_to tag.name, tag %> 
+          <%= conjunction(index, @post.tags.count) %>
           <% end %>
         </div>
         <% end %>

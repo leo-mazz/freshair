@@ -21,7 +21,11 @@
 <section>
   <div class="latest-posts-line">
     <h2>Latest posts.</h2>
-    <div>Tag: <a href="#">Interview</a> | <a href="#">Event</a> | <a href="#">Review</a> | <a href="#">Playlist</a>
+    <div>Tag:
+      <% @post_types.each_with_index do |type, index| %>
+        <%= link_to type.name, type %>
+        <%= bar_separator(index, @post_types.count) %>
+      <% end %>
     </div>
   </div>
   <%= render partial: "shared/posts", locals: {posts: @latest_posts} %>

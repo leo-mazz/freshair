@@ -41,7 +41,14 @@
       margin-top: 5px;
       font-size: 15px;
       margin-left: 2px;
-      // color: $color-red;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
       .post-detail {
         margin-bottom: 7px;

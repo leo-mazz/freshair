@@ -18,7 +18,7 @@
 <% if @shows.count == 0 %>
   <p>Not a single show to display :(</p>
 <% else %>
-  <div class="boxes">
+  <div class="boxes shows">
     <% @shows.each do |show| %>
       <%= link_to show_path(show), class: 'show-box' do %>
         <% if show.pic.resized.url.nil? %>

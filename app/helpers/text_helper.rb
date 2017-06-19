@@ -6,4 +6,9 @@ module TextHelper
     return ''
   end
 
+  def bar_separator(index, length)
+    return ' | ' if index < length - 1
+    return ''
+  end
+
 end

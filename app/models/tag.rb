@@ -16,6 +16,10 @@ class Tag < ApplicationRecord
     slug.blank? || name_changed?
   end
 
+  def self.post_types
+    Tag.where(is_post_type: true)
+  end
+
   private
 
     def default_to_non_post_type

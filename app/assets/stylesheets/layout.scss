@@ -67,8 +67,15 @@ section {
       font-size: 18px;
     }
 
-    .distanced {
+    h1, h2 {
+      margin-top: 7px;
+    }
+
+    .no-content-warning {
+      font-style: italic;
       margin-top: 10px;
+      margin-left: 10px;
+      display: block;
     }
   }
 

@@ -17,7 +17,7 @@
     <% @days_of_week.each do |day, i| %>
       <div id="<%= day %>" class="tabcontent">
         <% if @schedule.assignments_on(i).empty? %>
-        <em>Nothing scheduled</em>
+        <em class="no-content-warning">Nothing scheduled</em>
         <% end %>
         <% @schedule.assignments_on(i).order(start_time: :asc).each do |assignment| %>
         <div> (

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   }
   get '/users', to: redirect('/users/sign_in')
 
-  # Teams
 
   # Admin Dashboard
   ActiveAdmin.routes(self)
@@ -39,6 +38,9 @@ Rails.application.routes.draw do
 
   # Events
   resources :events, only: ['show']
+
+  # Tags
+  resources :tags, only: ['show']
 
   # Shows
   resources :shows, only: ['show', 'index'] do
