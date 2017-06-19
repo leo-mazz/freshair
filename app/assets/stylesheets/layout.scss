@@ -62,6 +62,14 @@ section {
     .distanced {
       margin-top: 10px;
     }
+
+    ul, ol {
+      // margin-left: 5px;
+      padding-left: 25px;
+
+      li {
+      }
+    }
   }
 
   @media (max-width: $break-width) {

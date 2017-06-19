@@ -7,10 +7,10 @@
   }
 
   .post-info {
-    width: 250px;
-    position: -webkit-sticky;  // required for Safari
+    width: 200px;
     position: sticky;
-    top: 10px; // required as well.
+    padding-right: 10px;
+    top: 10px;
 
     .post-title {
       background: $color-yellow;
