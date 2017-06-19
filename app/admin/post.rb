@@ -4,6 +4,12 @@ ActiveAdmin.register Post do
 
   config.sort_order = 'created_at_desc'
 
+  controller do
+    def scoped_collection
+      Post.unscoped
+    end
+  end
+
   permit_params :title, :short_body, :content, :author_id, :is_published, :team_id, :show_id, tag_ids: [], post_metadata_attributes: [:id, :post_id, :key, :value, :_destroy]
 
   index do

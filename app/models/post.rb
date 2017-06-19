@@ -22,6 +22,8 @@ class Post < ApplicationRecord
     slug.blank? || title_changed?
   end
 
+  default_scope { where(is_published: true) }
+
   def has_meta?(key)
     self.post_metadata.map(&:key).include? key
   end
