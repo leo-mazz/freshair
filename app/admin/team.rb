@@ -23,7 +23,9 @@ ActiveAdmin.register Team do
     panel 'Team Details' do
       attributes_table_for team do
         row :name
-        row :body
+        row :body do
+          sanitize team.body.html_safe
+        end
         if current_user.has_role? :admin
           row :display_order
         end
@@ -44,7 +46,7 @@ ActiveAdmin.register Team do
         f.input :name
         f.input :display_order
       end
-      f.input :body
+      f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
     end
 
     f.inputs "Members" do

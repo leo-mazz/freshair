@@ -90,6 +90,7 @@ You should instruct all the members of the team on how to sign up for a user acc
 
 ### Team pages
 Each team has a dedicated page on the website. You can personalize the top content of your teams' pages. Following the procedure described in the previous paragraph, click 'edit' on your chosen team, and just edit its 'body' field. Then, click 'Update Team'.
+**Please**: before doing anything adventourous with your team's body, like embedding content, get in touch with the webmaster.
 
 ### Moderating posts
 You have the ability of editing and deleting all the posts associated to the teams you're a head of. Use this power wisely.

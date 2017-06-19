@@ -4,6 +4,11 @@
   display: flex;
 
   .post-body {
+    position: relative;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   .post-info {

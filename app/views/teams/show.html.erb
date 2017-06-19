@@ -12,6 +12,14 @@
   </ul>
 </nav>
 
+  <% unless @team.body.blank? %>
+    <section>
+      <%# Crucial to sanitize %>
+      <%= sanitize @team.body.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
+    </section>
+  <% end %>
+
 <section>
+  <h2>Latest posts.</h2>
   <%= render partial: "shared/posts", locals: {posts: @team_posts} %>
 </section>
