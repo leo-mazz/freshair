@@ -18,14 +18,15 @@
 
 
 
-<section>
+<section class="latest-posts">
   <div class="latest-posts-line">
     <h2>Latest posts.</h2>
-    <div>Tag:
+    <div>
       <% @post_types.each_with_index do |type, index| %>
-        <%= link_to type.name, type %>
+        <%= link_to type.name, type, class: 'post-type' %>
         <%= bar_separator(index, @post_types.count) %>
       <% end %>
+      <i class="fa fa-tags" aria-hidden="true"></i>
     </div>
   </div>
   <%= render partial: "shared/posts", locals: {posts: @latest_posts} %>

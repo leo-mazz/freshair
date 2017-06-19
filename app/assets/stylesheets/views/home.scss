@@ -1,4 +1,22 @@
-.latest-posts-line {
-  display: flex;
-  justify-content: space-between;
+
+.latest-posts {
+  .post-type {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .fa {
+    font-size: 15px;
+    margin-left: 5px;
+    color: $color-almost-black;
+  }
+
+
+  .latest-posts-line {
+    display: flex;
+    justify-content: space-between;
+  }
 }

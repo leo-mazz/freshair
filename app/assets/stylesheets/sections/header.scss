@@ -1,18 +1,12 @@
 header {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   height:80px;
   box-shadow: 0 1px 0 rgba(12,13,14,0.15);
   background-color: rgba(256,256,256, 0.7);
 
-  .header-content {
-    position: initial;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
-  }
 
   img.logo {
     width: 250px;
@@ -20,21 +14,63 @@ header {
   }
 
   .welcome {
-    width: 380px;
-    font-size: 16px;
-    margin-top: -15px;
-    margin-left: 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 570px;
   }
 
-  .small-icons img{
-    width: 15px;
-    border-radius: 4px;
+  .welcome-text {
+    margin-left: -230px;
+    font-size: 15px;
+    margin-top: -15px;
+  }
+
+  .social {
+    margin-right: 8px;
+
+    .feed img {
+      border-radius: 6px;
+      height: 19px;
+    }
+
+    img {
+      height: 20px;
+    }
+  }
+
+  .sponsor {
+    border-left: 1px solid rgba(0,0,0,0.1);
+    padding-left: 8px;
+
+    img {
+      width: 100px;
+    }
+  }
+
+  .ext {
+    display: flex;
+    align-items: center;
+    margin-top: -10px;
+
+    .fa {
+      margin: 1px;
+      font-size: 6px;
+      color: rgba(0,0,0,0);
+    }
+
+    img, .small-icons {
+      transition: opacity 0.2s;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 
   @media (max-width: $breaking-width) {
-    .welcome-text {
+    .welcome {
       display: none;
     }
 

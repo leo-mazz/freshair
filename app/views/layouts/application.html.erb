@@ -17,17 +17,24 @@
   <%= render partial: "shared/aside", locals: {events: @upcoming_events, tweets: @tweets} %>
   <div id="main-body">
     <header>
-      <%= link_to root_path do %>
-        <%= image_tag 'logo.png', class: 'logo', alt: 'FreshAir.org.uk'%>
-      <% end %>
-
       <div class="welcome">
+        <%= link_to root_path do %>
+        <%= image_tag 'logo.png', class: 'logo', alt: 'FreshAir.org.uk'%>
+        <% end %>
+
         <div class="welcome-text">Welcome to FreshAir.org.uk, Edinburgh’s student radio station.</div>
-        <div class="small-icons">
-          <a href="https://www.facebook.com/FreshAirorguk-223159361033540/" target="_blank"><%= image_tag 'ext/facebook.png', alt: 'FreshAir'%></a>
-          <a href="https://twitter.com/FreshAirRadio" target="_blank"><%= image_tag 'ext/twitter.png', alt: 'FreshAir'%></a>
-          <a href="#"><%= image_tag 'ext/rss.png', alt: 'FreshAir'%></a>
+      </div>
+
+
+      <div class="ext">
+        <div class="social">
+          <a href="https://www.facebook.com/FreshAirorguk-223159361033540/" target="_blank"><%= image_tag 'ext/facebook2.png', alt: 'FreshAir'%></a>
+          <a href="https://twitter.com/FreshAirRadio" target="_blank"><%= image_tag 'ext/twitter2.png', alt: 'FreshAir'%></a>
+          <a class="feed" href="#"><%= image_tag 'ext/rss.png', alt: 'FreshAir'%></a>
         </div>
+        <a class="sponsor" href="#">
+          <%= image_tag 'waverley_care.png', width: '120', alt: 'Waverley Care'%>
+        </a>
       </div>
     </header>
 
