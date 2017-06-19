@@ -10,6 +10,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= auto_discovery_link_tag :rss, feed_path(:format => :rss) %>
 </head>
 
 <body>
@@ -30,7 +31,9 @@
         <div class="social">
           <a href="https://www.facebook.com/FreshAirorguk-223159361033540/" target="_blank"><%= image_tag 'ext/facebook2.png', alt: 'FreshAir'%></a>
           <a href="https://twitter.com/FreshAirRadio" target="_blank"><%= image_tag 'ext/twitter2.png', alt: 'FreshAir'%></a>
-          <a class="feed" href="#"><%= image_tag 'ext/rss.png', alt: 'FreshAir'%></a>
+          <%= link_to feed_path(format: :rss), class: 'feed' do %>
+            <%= image_tag 'ext/rss.png', alt: 'FreshAir'%></a>
+          <% end %>
         </div>
         <a class="sponsor" href="#">
           <%= image_tag 'waverley_care.png', width: '120', alt: 'Waverley Care'%>

@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   # TODO: the above was written by prev. webmaster. Check whether it's true
   match 'listen', to: 'player#listen', as: "listen", via: [:get, :post]
 
+  # Feed RSS
+  get 'feed', to: 'feed#general', as: 'feed'
+
   # Posts
   resources :posts, only: ['show']
 
