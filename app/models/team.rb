@@ -6,6 +6,7 @@ class Team < ApplicationRecord
 
   has_many :team_memberships
   has_many :users, through: :team_memberships
+  has_many :tags, through: :posts
 
   # For friendlier URLs, use the name of the team instead of its id
   extend FriendlyId

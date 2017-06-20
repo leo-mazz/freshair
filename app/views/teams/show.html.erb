@@ -21,5 +21,14 @@
 
 <section>
   <h2>Latest posts.</h2>
-  <%= render partial: "shared/posts", locals: {posts: @team_posts} %>
+  <%= render partial: 'shared/posts', locals: {posts: @team_posts} %>
 </section>
+
+<% @tags.each do |tag, posts| %>
+  <section>
+    <%= link_to tag, class: 'team-tag' do %>
+      <h2 class="team-tag-name"><%= tag.name %>.</h2>
+    <% end %>
+    <%= render partial: 'shared/posts', locals: {posts: posts} %>
+  </section>
+<% end %>

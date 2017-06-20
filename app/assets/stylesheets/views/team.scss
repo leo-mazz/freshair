@@ -1,3 +1,15 @@
 .team-body {
   margin-top: 10px;
 }
+
+a.team-tag {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .team-tag-name {
+    display: inline;
+  }
+}
