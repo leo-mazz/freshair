@@ -32,6 +32,11 @@ class Post < ApplicationRecord
     self.post_metadata.find_by_key(key).value
   end
 
+  def summary
+    return self.short_body unless self.short_body.blank?
+    ActionController::Base.helpers.strip_tags(ActionController::Base.helpers.truncate(self.content, length: 130,  separator: ' '))
+  end
+
   private
 
     def default_to_not_published
