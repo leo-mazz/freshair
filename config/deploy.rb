@@ -5,12 +5,21 @@ set :application, "FreshAir.org.uk"
 set :repo_url, "https://leo-mazz:ACCIDENTI1209@bitbucket.org/freshair/refresh-website.git"
 set :deploy_to, "/var/www/refresh"
 
-# Default value for :linked_files is []
+# Folders and files shared among releases (don't need to be in repo)
 append :linked_files, "config/application.yml"
-
-# Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads", "vendor/bundle"
 
+# Disallow deployment if tests fail
+namespace :deploy do
+  desc 'Run test suite before deployment'
+  task :test_suite do
+    run_locally do
+      execute :rake, 'test'
+    end
+  end
+end
+
+before 'deploy:starting', 'deploy:test_suite'
 
 
 # The following lines are required because we can't directly access our Virtual
