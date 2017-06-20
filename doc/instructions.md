@@ -53,6 +53,7 @@ To access recordings, go to studio.freshair.org.uk (where Broadcast Controls are
 
 ### Podcasts
 You should be able to manage your podcasts and create new ones from Admin Dashboard > Contents > Podcasts. To create a new podcast, you should first upload it on MixCloud, as you will need a MixCloud URL to create a new podcast. After this is done, get the newly uploaded podcast's URL (for example by clicking on the 'share' button in the player on MixCloud).
+You can add a list of the tracks played on that episode.
 
 ### Moderating posts
 You have the ability of editing and deleting all posts associated to your show, even you're not the author. Use this power wisely.

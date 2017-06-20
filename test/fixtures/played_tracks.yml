@@ -1,0 +1,10 @@
+one:
+  title: Wesley's Theory
+  artist: Kendrick Lamar
+  album: To Pimp a Butterfly
+  podcast: :one
+
+two:
+  title: Parabola
+  artist: Tool
+  podcast: :one

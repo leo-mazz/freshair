@@ -1,14 +1,8 @@
-
-
-
-
-
-
 <div class="post-wrapper">
   <div class="post-info-column">
     <div class="post-info podcast-info">
       <div class="post-details">
-        <%= link_to @podcast.show, class: 'post-show'  do %>
+        <%= link_to @podcast.show, class: 'post-show podcast-show'  do %>
           <%= @podcast.show.title.capitalize %>
         <% end %><br><br>
         <div class="post-detail">
@@ -33,5 +27,24 @@
     <div class="podcast">
       <%= mixcloud(@podcast.uri).html_safe %>
     </div>
+    <% unless @podcast.played_tracks.blank? %>
+      <div class="tracklist">
+        <h3>Playlist</h3>
+        <ul class="boxes">
+          <% @podcast.played_tracks.each do |track| %>
+            <li>
+              <i class="fa fa-music" aria-hidden="true"></i>
+              <div class="track-info">
+                <span class="title"><%= track.title %></span>
+                <span class="author"><%= track.artist %></span>
+                <% unless track.album.blank? %>
+                <span style="display:none;" class="album"><%= track.album %></span>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>

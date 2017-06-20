@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618233313) do
+ActiveRecord::Schema.define(version: 20170620115851) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20170618233313) do
     t.text    "content"
     t.string  "slug"
     t.integer "priority"
+  end
+
+  create_table "played_tracks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.string   "album"
+    t.integer  "podcast_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "podcasts", force: :cascade do |t|

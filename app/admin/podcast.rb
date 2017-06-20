@@ -2,7 +2,7 @@ ActiveAdmin.register Podcast do
 
   menu :parent => "Content"
 
-  permit_params :title, :description, :uri, :broadcast_date, :show_id
+  permit_params :title, :description, :uri, :broadcast_date, :show_id, played_tracks_attributes: [:id, :podcast_id, :artist, :title, :album, :_destroy]
 
   index do
     selectable_column
@@ -27,6 +27,14 @@ ActiveAdmin.register Podcast do
       f.input :uri, label: 'Mixcloud URL'
       f.input :title
       f.input :description
+    end
+
+    f.inputs "Playlist" do
+      f.has_many :played_tracks, :allow_destroy => true do |tmf|
+        tmf.input :artist
+        tmf.input :title
+        tmf.input :album
+      end
     end
 
     f.actions
