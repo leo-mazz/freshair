@@ -71,6 +71,14 @@ Rails.application.configure do
     password: ENV['SMTP_PASSWORD']
   }
 
+  # Enable ExceptionNotifier
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[EXCEPTION] ",
+    :sender_address => %{"notifier" <noreply@freshair.org.uk>},
+    :exception_recipients => [ENV['WEBMASTER_EMAIL']]
+  }
+
 
 
   # Ignore bad email addresses and do not raise email delivery errors.

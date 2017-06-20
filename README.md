@@ -218,6 +218,7 @@ slug instead of their id and automatically generates slugs
 - **Rolify** to define user roles
 - **CanCanCan** to restrict resources to user with specific roles
 - **Figaro** to use environment variables
+- **ExceptionNotification** to notice webmaster of errors (through emails)
 
 ### Player
 #### Broadcast information
