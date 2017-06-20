@@ -13,7 +13,7 @@
 </nav>
 
   <% unless @team.body.blank? %>
-    <section>
+    <section class="team-body">
       <%# Crucial to sanitize %>
       <%= sanitize @team.body.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
     </section>
