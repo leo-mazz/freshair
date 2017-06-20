@@ -68,15 +68,6 @@ Rails.application.routes.draw do
     get 'shows/:slug/check-broadcast-time/:start(-:end)', to: 'api#check_broadcast_time', :constraints => { start: /[0-9]+/, end: /[0-9]+/ }
   end
 
-  # OpenID
-  scope '/oid', module: :open_id, as: :open_id do
-    match '/'        => 'provider#index',     as: :index, via: [:get, :post]
-    get   'me'       => 'provider#user_page', as: :user
-    get   'me/xrds'  => 'provider#user_xrds', as: :user_xrds
-    get   'decision' => 'provider#show_decision_page', as: :show_decision_page
-    post  'decision' => 'provider#decision',  as: :decision
-  end
-
   # Static pages
   # (should be at the end of the file not to mess with other routes)
   resources :pages, path: '/', only: ['show'] do
