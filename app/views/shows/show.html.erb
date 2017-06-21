@@ -44,6 +44,9 @@
 </div>
 <br>
 <div class="show-content">
+  <% if @show.podcasts.blank? && @show.posts.blank? %>
+    <em class="no-content-warning">This show hasn't published content yet</em>
+  <% end %>
   <% unless @show.podcasts.blank? %>
     <section class="podcasts">
       <h2>Podcasts.</h2>
