@@ -2,7 +2,7 @@ ActiveAdmin.register SubPage do
 
   menu :parent => "Pages"
 
-  config.sort_order = 'page_desc'
+  config.sort_order = 'page_id_desc'
 
   index do
     selectable_column
