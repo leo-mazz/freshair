@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   match '500', to: 'error#server_error', via: :all
   match '418', to: 'error#teapot', via: :all
 
-  # Current schedule
+  # Schedules
   get 'schedule', to: 'schedules#current', as: 'current_schedule'
+  get 'schedule/next', to: 'schedules#next', as: 'next_schedule'
 
   # Standalone player
   # POST required for Facebook Tab Page.

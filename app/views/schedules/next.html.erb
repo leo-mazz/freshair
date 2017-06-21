@@ -1,0 +1,38 @@
+<div class="current-schedule">
+  <nav class="main-nav">
+    <ul>
+      <% @days_of_week.each do |day, i| %>
+        <li id="<%= day.downcase %>" class="tablinks" onclick="openTab(event, '<%= day %>')">
+          <%= day %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+
+  <% @days_of_week.each do |day, i| %>
+    <div id="<%= day %>" class="tabcontent">
+      <% if @schedule.assignments_on(i).empty? %>
+      <em class="no-content-warning">Nothing scheduled</em>
+      <% end %>
+      <% @schedule.assignments_on(i).order(start_time: :asc).each do |assignment| %>
+      <div> (
+        <%= format_time(assignment.start_time) %>
+        -
+        <%= format_time(assignment.end_time) %>
+        )
+        <%= link_to assignment.show.title, show_path(assignment.show)%>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+  <br><br>
+  <p>You are looking into the future. The future is mysterious and uncertain, so this schedule may be subject to change.</p>
+
+
+
+
+<script>
+// Get the element with id="defaultOpen" and click on it
+  document.getElementById("<%= Date.today.strftime("%A").downcase %>").click();
+</script>

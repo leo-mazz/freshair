@@ -32,6 +32,14 @@
 
     <% end %>
 
+    <br><br>
+    <% if (@schedule.end_date - Date.today).to_i <= 10 %>
+      <p>This schedule will be valid until <%= format_date @schedule.end_date %></p>
+      <% unless @schedule.next_schedule.nil? %>
+        <p>Then it will be replaced by <%= link_to 'this one', next_schedule_path %></p>
+      <% end %>
+      <p></p>
+    <% end %>
 
 <% end %>
 
