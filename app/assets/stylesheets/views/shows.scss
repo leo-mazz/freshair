@@ -2,7 +2,7 @@
   // Index view
 
   .shows {
-    margin-top: 10px; 
+    margin-top: 10px;
   }
 
   .show-box {
@@ -14,14 +14,21 @@
 
     flex-grow: 1;
     display: flex;
-    width: 460px;
-    box-shadow: 2px 2px 5px rgb(218, 218, 218);
+    width: 500px;
+    box-shadow: 1px 1px 14px rgba(100,100,100,0.1);
     padding: 10px;
     position: relative;
 
     img {
       width: 140px;
       height: 140px;
+    }
+
+    .title-line {
+
+      h2 {
+        margin-top: 0;
+      }
     }
 
     .details {
