@@ -7,7 +7,6 @@ class Show < ApplicationRecord
   has_many :podcasts, dependent: :delete_all
   has_many :show_memberships, dependent: :delete_all
   has_many :users, through: :show_memberships
-  has_many :show_scopes, dependent: :delete_all
   has_many :posts
 
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
