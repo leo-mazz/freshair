@@ -51,7 +51,7 @@ CKEDITOR.editorConfig = function( config )
   config.toolbar_mini = [
     { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source'] },
     { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
-    { name: 'insert', items: [ 'Image', 'Table', 'SpecialChar', 'Maximize', 'Attachments' ] },
+    { name: 'insert', items: [ 'Image', 'Table', 'SpecialChar', 'Maximize', 'Attachments', 'HorizontalRule' ] },
     { name: 'links', items: [ 'Link', 'Unlink'] },
     { name: 'paragraph', groups: ['indent', 'blocks', 'align', 'bidi' ], items: [ 'NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
     { name: 'styles', items: [ 'FontSize' ] },
