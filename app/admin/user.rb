@@ -78,7 +78,7 @@ ActiveAdmin.register User do
     column :teams do |user|
       user.team_memberships.each do |tm|
         if tm.is_manager
-          li tm.team.name + '(Manager)'
+          li tm.team.name + ' (Manager)'
         else
           li tm.team.name
         end
@@ -137,7 +137,7 @@ ActiveAdmin.register User do
         row :teams do
           user.team_memberships.each do |tm|
             if tm.is_manager
-              li tm.team.name + '(Manager)'
+              li tm.team.name + ' (Manager)'
             else
               li tm.team.name
             end
