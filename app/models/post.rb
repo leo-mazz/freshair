@@ -34,7 +34,7 @@ class Post < ApplicationRecord
 
   def summary
     return self.short_body unless self.short_body.blank?
-    ActionController::Base.helpers.strip_tags(ActionController::Base.helpers.truncate(self.content, length: 130,  separator: ' '))
+    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content), length: 130,  separator: ' ')
   end
 
   private
