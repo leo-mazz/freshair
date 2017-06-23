@@ -13,7 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "Recent posts of yours" do
-          posts = current_user.posts.unscoped.order(created_at: :desc).limit(5)
+          posts = Post.unscoped.where(author: current_user).order(created_at: :desc).limit(5)
           if posts.count > 0
             ul do
               posts.map do |post|
