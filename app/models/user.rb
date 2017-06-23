@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :delete_all
 
   has_many :podcasts, through: :shows
+  has_many :show_posts, through: :shows, source: :posts
+  has_many :posts, class_name: 'Post', foreign_key: 'author_id'
 
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
   accepts_nested_attributes_for :team_memberships, :allow_destroy => true
