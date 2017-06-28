@@ -4,7 +4,8 @@ class Team < ApplicationRecord
 
   has_many :posts
 
-  has_many :team_memberships
+  # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
+  has_many :team_memberships, :inverse_of => :team
   has_many :users, through: :team_memberships
   has_many :tags, through: :posts
 

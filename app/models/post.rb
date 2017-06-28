@@ -8,7 +8,8 @@ class Post < ApplicationRecord
 
   belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_and_belongs_to_many :tags
-  has_many :post_metadata
+  # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
+  has_many :post_metadata, :inverse_of => :post
   belongs_to :show
   belongs_to :team
 

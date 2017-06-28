@@ -2,7 +2,7 @@ ActiveAdmin.register Podcast do
 
   menu :parent => "Content"
 
-  permit_params :title, :description, :uri, :broadcast_date, :show_id, played_tracks_attributes: [:id, :podcast_id, :artist, :title, :album, :_destroy]
+  permit_params :title, :description, :uri, :broadcast_date, :show_id, played_tracks_attributes: [:id, :podcast, :artist, :title, :album, :_destroy]
 
   index do
     selectable_column

@@ -8,7 +8,8 @@ class Schedule < ApplicationRecord
   validates_with ScheduleValidator
 
   belongs_to :next_schedule, class_name: 'Schedule', foreign_key: 'next_schedule_id'
-  has_many :assignments, class_name: 'ScheduleAssignment', dependent: :delete_all
+  # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
+  has_many :assignments, class_name: 'ScheduleAssignment', dependent: :delete_all, :inverse_of => :schedule
 
   accepts_nested_attributes_for :assignments, :allow_destroy => true
 

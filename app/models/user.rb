@@ -3,11 +3,11 @@ class User < ApplicationRecord
   validates_presence_of :first_name, :last_name
 
   rolify
-
-  has_many :show_memberships, dependent: :delete_all
+  # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
+  has_many :show_memberships, dependent: :delete_all, :inverse_of => :user
   has_many :shows, through: :show_memberships
 
-  has_many :team_memberships, dependent: :delete_all
+  has_many :team_memberships, dependent: :delete_all, :inverse_of => :user
   has_many :teams, through: :team_memberships
 
   has_many :bookings, dependent: :delete_all

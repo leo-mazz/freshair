@@ -5,7 +5,8 @@ class Show < ApplicationRecord
 
   # has_and_belongs_to_many :users, join_table: :hosts_shows
   has_many :podcasts, dependent: :delete_all
-  has_many :show_memberships, dependent: :delete_all
+  # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
+  has_many :show_memberships, dependent: :delete_all, :inverse_of => :show
   has_many :users, through: :show_memberships
   has_many :posts
 

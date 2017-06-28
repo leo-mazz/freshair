@@ -77,5 +77,5 @@ ActiveAdmin.register Show do
   end
 
 
-  permit_params :title, :tag_line, :description, :slug, :pic, show_memberships_attributes: [:id, :show_id, :user_id, :_destroy]
+  permit_params :title, :tag_line, :description, :slug, :pic, show_memberships_attributes: [:id, :show, :user, :_destroy]
 end

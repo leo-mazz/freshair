@@ -1,6 +1,6 @@
 class ScheduleAssignment < ApplicationRecord
 
-  validates_presence_of :day_of_week, :start_time, :end_time, :show_id, :schedule_id
+  validates_presence_of :day_of_week, :start_time, :end_time, :show, :schedule
   # Day of week is an integer. 1 is Monday, 7 is Sunday
   validates_inclusion_of :day_of_week, :in => 1..7
   validates_with ScheduleAssignmentValidator

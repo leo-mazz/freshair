@@ -1,6 +1,6 @@
 class PostMetadatum < ApplicationRecord
 
-  validates_presence_of :post_id, :key, :value
+  validates_presence_of :post, :key, :value
   validates_uniqueness_of :key, :scope => :post_id
   validates_with PostMetadatumValidator
 
