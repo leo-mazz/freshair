@@ -55,9 +55,11 @@ hr {
   display: none;
 }
 
-#top-toggler:checked + aside {
-  section, .on-air {
-    display: block;
+@media(max-width: $break-width) {
+  #top-toggler:checked + aside {
+    section, .on-air {
+      display: block;
+    }
   }
 }
 
