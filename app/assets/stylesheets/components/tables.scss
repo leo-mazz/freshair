@@ -8,6 +8,13 @@ table, td, th {
 table {
     border-collapse: collapse;
     width: 500px;
+
+    @media (max-width: $break-width) {
+      // This might break things in some cases. But it's probably better
+      // than allow Ckeditor to put an inline width and break things on small
+      // screens for all tables
+      width: 100% !important;
+    }
 }
 
 th, td {

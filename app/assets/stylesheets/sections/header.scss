@@ -70,12 +70,12 @@ header {
   }
 
   @media (max-width: $breaking-width) {
-    .welcome {
+    .welcome-text {
       display: none;
     }
 
     .welcome {
-      justify-content: flex-end;
+      width: auto;
     }
   }
 

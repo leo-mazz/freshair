@@ -45,19 +45,19 @@
         <%= yield %>
       </div>
       <footer>
-        <span>
-          FreshAir © <%= Date.today.year %> |
+        <div>
+          <span>FreshAir © <%= Date.today.year %> |</span>
           <% if signed_in? %>
             <%= link_to 'Dashboard', admin_root_path %>
             | <%= link_to 'Edit account', edit_user_registration_path %>
           <% else %>
             <%= link_to 'Members Access', admin_root_path %>
           <% end %>
-        </span>
-        <span>
-          <%= link_to 'Join the techteam!', techteam_path %>&nbsp;&nbsp;&nbsp;
+        </div>
+        <div>
+          <%= link_to 'Join the techteam!', techteam_path, class: 'join-techteam-link' %>&nbsp;&nbsp;&nbsp;
           <%= link_to 'Report an issue', issue_path %>
-        </span>
+        </div>
       </footer>
 
   </div>

@@ -6,6 +6,10 @@ nav.main-nav {
     list-style: none;
     text-transform: uppercase;
 
+    @media(max-width: $break-width) {
+      flex-wrap: wrap;
+    }
+
     li {
       margin-right: 4px;
       cursor: pointer;

@@ -79,6 +79,10 @@
     .description {
       margin-top: 5px;
       font-size: 20px;
+
+      @media (max-width: $break-width) {
+        font-size: 18px;
+      }
     }
 
     .hosts {
@@ -116,9 +120,6 @@
       }
 
       .show-body {
-        .title-line {
-          // display: block;
-        }
 
         .tag-line {
           margin-bottom: 5px;
@@ -132,6 +133,10 @@
 
   .show-content {
     display: flex;
+
+    @media (max-width: $break-width) {
+      display: block;
+    }
 
     .podcasts {
       width: 150px;

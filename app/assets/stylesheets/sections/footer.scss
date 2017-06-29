@@ -14,8 +14,10 @@ footer {
     text-decoration: none;
   }
 
-  * {
-    min-width: 100px;
+  .join-techteam-link {
+    @media(max-width: $break-width) {
+      display: none;
+    }
   }
 
 }

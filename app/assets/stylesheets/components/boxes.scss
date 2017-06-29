@@ -32,6 +32,10 @@
       padding-left: 10px;
       position: relative;
       width: 100%;
+
+      @media (max-width: $break-width) {
+        padding: 0;
+      }
     }
 
     .post-title {

@@ -20,4 +20,10 @@
     justify-content: space-between;
     align-items: center;
   }
+
+  @media (max-width: $break-width) {
+    .latest-posts-line {
+      display: block;
+    }
+  }
 }
