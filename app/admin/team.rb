@@ -1,6 +1,6 @@
 ActiveAdmin.register Team do
 
-  permit_params :name, :body, :display_order, team_memberships_attributes: [:id, :team, :user, :_destroy]
+  permit_params :name, :body, :display_order, :hub_show_id, team_memberships_attributes: [:id, :team, :user, :_destroy]
 
   filter :name
 
@@ -47,6 +47,7 @@ ActiveAdmin.register Team do
         f.input :display_order
       end
       f.input :body, as: :ckeditor, input_html: { ckeditor: { toolbar: 'mini', height: 400 } }
+      f.input :hub_show
     end
 
     f.inputs "Members" do

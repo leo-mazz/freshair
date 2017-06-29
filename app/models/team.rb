@@ -2,8 +2,8 @@ class Team < ApplicationRecord
 
   validates_presence_of :name
 
+  belongs_to :hub_show, class_name: 'Show', foreign_key: 'hub_show_id'
   has_many :posts
-
   # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
   has_many :team_memberships, :inverse_of => :team
   has_many :users, through: :team_memberships

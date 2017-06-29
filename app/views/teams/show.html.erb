@@ -12,12 +12,24 @@
   </ul>
 </nav>
 
-  <% unless @team.body.blank? %>
-    <section class="team-body">
-      <%# Crucial to sanitize %>
-      <%= sanitize @team.body.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
-    </section>
-  <% end %>
+<% unless @latest_podcast.blank? %>
+  <div class="latest-hub-podcast">
+    Latest podcast for <%= @team.name %> show:
+    <%= link_to url_for([@latest_podcast.show, @latest_podcast]) do %>
+      <%= format_date_small @latest_podcast.broadcast_date %>
+      <% unless @latest_podcast.title.blank? %>
+        - <%= @latest_podcast.title %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% unless @team.body.blank? %>
+  <section class="team-body">
+    <%# Crucial to sanitize %>
+    <%= sanitize @team.body.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
+  </section>
+<% end %>
 
 <section>
   <h2>Latest posts.</h2>
