@@ -219,6 +219,7 @@ slug instead of their id and automatically generates slugs
 - **CanCanCan** to restrict resources to user with specific roles
 - **Figaro** to use environment variables
 - **ExceptionNotification** to notice webmaster of errors (through emails)
+- **Kaminari** for pagination
 
 ### Player
 #### Broadcast information

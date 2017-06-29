@@ -1,2 +1,3 @@
 <h2><i class="fa fa-tag" aria-hidden="true"></i> <%= @tag.name %></h2>
 <%= render partial: "shared/posts", locals: {posts: @tag_posts} %>
+<%= paginate @tag_posts %>

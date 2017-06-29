@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   get 'feed', to: 'feed#general', as: 'feed'
 
   # Posts
-  resources :posts, only: ['show']
+  resources :posts, only: ['show', 'index']
 
   # Teams
   resources :teams, only: ['show']

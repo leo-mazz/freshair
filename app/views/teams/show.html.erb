@@ -26,7 +26,7 @@
 
 <% @tags.each do |tag, posts| %>
   <section>
-    <%= link_to tag, class: 'team-tag' do %>
+    <%= link_to tag, class: 'post-collection-link' do %>
       <h2 class="team-tag-name"><%= tag.name %>.</h2>
     <% end %>
     <%= render partial: 'shared/posts', locals: {posts: posts} %>

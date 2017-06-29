@@ -51,6 +51,8 @@ gem 'rolify'
 
 gem 'figaro'
 
+gem 'kaminari'
+
 gem 'exception_notification'
 
 # Use Redis adapter to run Action Cable in production
