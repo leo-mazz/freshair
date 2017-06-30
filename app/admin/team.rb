@@ -1,6 +1,6 @@
 ActiveAdmin.register Team do
 
-  permit_params :name, :body, :display_order, :hub_show_id, team_memberships_attributes: [:id, :team, :user, :_destroy]
+  permit_params :name, :body, :display_order, :hub_show_id, team_memberships_attributes: [:id, :team, :user_id, :_destroy]
 
   filter :name
 
