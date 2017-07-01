@@ -10,7 +10,7 @@ fetchBroadcastInfo = ->
   request = new XMLHttpRequest
 
   request.onload = ->
-    info = JSON.parse(request.response)
+    info = request.response
     statusElement.innerHTML = info.status
     titleElement.innerHTML = info.title
     if info.link == null
