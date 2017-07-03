@@ -10,6 +10,10 @@
   <%= javascript_include_tag 'listen' %>
 </head>
 <body>
+  <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    FB.Canvas.setSize({ width: 800, height: 500 });
+  </script>
   <div class="player-wrapper">
     <%= yield %>
   </div>
