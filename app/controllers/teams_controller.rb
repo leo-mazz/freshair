@@ -12,6 +12,8 @@ class TeamsController < ApplicationController
 
     @latest_podcast = nil
     @latest_podcast = @team.hub_show.podcasts.last unless @team.hub_show.blank?
+
+    @title = @team.name
   end
 
 end
