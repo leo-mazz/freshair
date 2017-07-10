@@ -1,4 +1,17 @@
+.label {
+  font-weight: bold;
+  margin-right: 7px;
+  font-size: 15px;
+  padding: 1px 6px;
+}
+
 .date-label {
   background-color: $color-yellow;
+}
+
+.hub-show-label {
+  background-color: $color-red;
+  color: white;
   font-weight: bold;
+  display: inline;
 }

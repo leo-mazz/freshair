@@ -6,31 +6,39 @@
   <% end %>
 
   <div class="show-body">
-    <div class="title-line">
-      <h1><%= @show.title %></h1>
+    <h1><%= @show.title %></h1>
 
-      <!-- Only display tag line if there is one (it's not mandatory) -->
-      <% unless @show.tag_line.blank?  %>
-      <i class="tag-line">
-        - <%= @show.tag_line %><br>
-      </i>
+    <!-- Only display tag line if there is one (it's not mandatory) -->
+    <% unless @show.tag_line.blank?  %>
+    <i class="tag-line">
+      <%= @show.tag_line %><br>
+    </i>
+    <% end %>
+
+    <div class="labels">
+      <!-- If the show has a team property, it is a hub show -->
+      <% unless @show.team.blank? %>
+        <div class="label hub-show-label">
+          Hub show
+        </div>
+      <% end %>
+
+      <% unless @show.broadcast_times.nil? %>
+        <span class="label date-label">
+          <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
+          <%= @show.broadcast_times[:day] %>
+          <%= @show.broadcast_times[:start] %> -
+          <%= @show.broadcast_times[:end] %>
+        </span>
       <% end %>
     </div>
 
-
-    <% unless @show.broadcast_times.nil? %>
-    <span class="date-label">
-      <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
-      <%= @show.broadcast_times[:day] %>
-      <%= @show.broadcast_times[:start] %> -
-      <%= @show.broadcast_times[:end] %>
-    </span>
-    <% end %>
     <div class="description">
       <%= @show.description %>
     </div>
 
-    <% unless @show.show_memberships.blank? %>
+    <!-- If it's a hub show, don't display hosts -->
+    <% unless @show.show_memberships.blank? || !@show.team.blank? %>
       <div class="hosts">
           Hosted by
 

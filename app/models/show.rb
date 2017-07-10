@@ -9,6 +9,8 @@ class Show < ApplicationRecord
   has_many :show_memberships, dependent: :delete_all, :inverse_of => :show
   has_many :users, through: :show_memberships
   has_many :posts
+  # belongs_to :team, class_name: 'User', foreign_key: 'hub_show_id'
+  has_one :team, foreign_key: 'hub_show_id'
 
   accepts_nested_attributes_for :show_memberships, :allow_destroy => true
 
