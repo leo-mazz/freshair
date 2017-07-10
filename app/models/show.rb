@@ -75,6 +75,10 @@ class Show < ApplicationRecord
     end
   end
 
+  def is_hub_show
+    !self.team.blank?
+  end
+
   def check_broadcast_time(start_time, end_time=nil)
 
     if (not end_time.nil?) and (end_time <= start_time)

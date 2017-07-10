@@ -16,8 +16,7 @@
     <% end %>
 
     <div class="labels">
-      <!-- If the show has a team property, it is a hub show -->
-      <% unless @show.team.blank? %>
+      <% unless @show.is_hub_show %>
         <div class="label hub-show-label">
           Hub show
         </div>
@@ -38,7 +37,7 @@
     </div>
 
     <!-- If it's a hub show, don't display hosts -->
-    <% unless @show.show_memberships.blank? || !@show.team.blank? %>
+    <% unless @show.show_memberships.blank? || @show.is_hub_show %>
       <div class="hosts">
           Hosted by
 
