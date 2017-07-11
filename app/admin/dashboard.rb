@@ -43,6 +43,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
           else
             em "No podcast"
+            br
           end
 
 

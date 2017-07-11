@@ -29,8 +29,12 @@ class Ability
     end
 
     # Heads of team
-    can :manage, Post, :team_id => user.teams.map(&:id)
-    can [:read, :update], Team, :id => user.teams.map(&:id)
+    # user can manage a post that is assigned to a team the user manages
+    can :manage, Post, team: {team_memberships: {user_id: user.id, is_manager: true}}
+    # user can read and update a team it manages
+    can [:read, :update], Team, team_memberships: {user_id: user.id, is_manager: true}
+    # user can read and update a show assigned to a team the user manages
+    can [:read, :update], Show, team: {team_memberships: {user_id: user.id, is_manager: true}}
 
     # Committee members
     if user.has_role? :committee
