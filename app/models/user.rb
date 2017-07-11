@@ -37,7 +37,7 @@ class User < ApplicationRecord
   def all_shows
     hosted_shows = self.shows.to_a
     team_shows = self.teams.map(&:hub_show).compact.to_a
-    return hosted_shows + team_shows
+    return (hosted_shows + team_shows).uniq
   end
 
   # https://github.com/plataformatec/devise/wiki/How-To:-Require-admin-to-activate-account-before-sign_in
