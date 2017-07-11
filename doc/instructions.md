@@ -1,15 +1,23 @@
 # FreshAir.org.uk IT: a simple guide for users
 [[toc]]
+## Formatting guide
+Wherever on the website you find a visual editor (like for posts, pages and events) you can format text, create tables and so on. You can upload a picture (or embed an external one) by clicking on the ‘Picture’ button. You can add an attachment by clicking on the ‘Link’ button, then on ‘Upload’. You can embed other types of content (like youtube videos) by clicking on the ‘Source’ button in the editor and pasting the relevant HTML code.  Remember to switch back to visual editing.
+ Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some HTML code you add may be filtered away before being presented to users. If you have any special need on that regard, get in touch with the webmaster.
+If you have some systematic issue with formatting, such as the font-size being too small for all posts, get in touch with the webmaster, **do not** systematically manually change the font size yourself.
+
 ## Publishing posts
 ### Tags
-Please assign the appropriate existing tags (and/or create new) before publishing a post. When there is a tag related to an event, and the event becomes past, please add a temporal identifier to the name of the tag (e.g. change 'General Elections' to 'General Elections 2017').
+You can manage tags through Admin Dashboard > Content > Tags
+Please assign the appropriate existing tags (and/or create new ones) before publishing a post. When there is a tag related to an event, and the event becomes past, please add a temporal identifier to the name of the tag (e.g. change 'General Elections' to 'General Elections 2017').
 
 ### Posts
+You can manage posts through Admin Dashboard > Content > Posts
 If you are in a show, you can assign a show to your post. It will then be displayed in your show's page.
 If you're in a team, you can assign a team to your post. It will then be displayed in your team's page.
-In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked.
-Please write a short body for your post, it will be displayed in the multiple posts view.
-To embed content (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own pictures by using the 'Image' button.
+In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked. You can use this feature to write drafts.
+You can write a short body for your post, it will be displayed in the multiple posts view. If you don't, it will be automatically generated from the post content.
+As for the post content, **please**, refer to the Formatting Guide above.
+
 
 ### Reviews
 If your post is a review, you can add a rating to it (it will be appropriately represented by the website with a 0 to 5 stars graphic). To do so, before publishing a post, add 'Post Metadata' to it, selecting the type 'rating' and inserting a numeric score from 0 to 10.
@@ -23,13 +31,12 @@ Ideally, before each broadcast cycle you should gather a list of all the users t
 ###  Shows
 You should be able to create, delete and edit all shows on the website from Admin Dashboard > Programming > Shows
 
-Shows need to have a title and a description. The title must be unique. Shows can have a tag line if desired by their hosts. Ideally, you would upload a show picture; if you don't, a default one will be used for the show. Shows should be assigned hosts and producers. They should be able to update the details of the shows you assign them to through the Admin Dashboard.
+Shows need to have a title and a description. The title must be unique. Shows can have a tag line if desired by their hosts. Ideally, you would upload a show picture; if you don't, a default one will be used for the show. Shows should be assigned hosts. These should then be able to update the details of the shows you assign them to through the Admin Dashboard.
 
 ### Schedules
 You should be able to create, delete and edit schedules on the website from Admin Dashboard > Programming > Schedules.
 
-Before creating a schedule you should create all the shows you want to add to it.
-To create a new schedule, pick a descriptive name (e.g. 'Semester1 2017'), set an end date and add *assignments*. Each assignment will consist of a show, a day of the week, a start time and an end time.
+Before creating a schedule you should create all the shows you want to add to it. To create a new schedule, pick a descriptive name (e.g. 'Semester1 2017'), set an end date and add *assignments*. Each assignment will consist of a show, a day of the week, a start time and an end time.
 
 You can also mark a schedule as *free schedule*, meaning that users will be able to book the Main Studio through the 'Bookings' tab in the Admin Dashboard and their shows will be assumed to be on-air by the system at the time and date they choose. Free schedules are meant as temporary schedules in transitory periods (e.g. the end of the semester). You can still add standard assignments to a free schedule.
 
@@ -37,9 +44,9 @@ The system won't let you save a schedule with time clashes, either between two a
 
 If a schedule is the current schedule, you should set it as *current* in the schedules list view in the Admin Dashboard. Then the schedule will be displayed on the website and will help determine which shows are active and what's their broadcast day and time. You can also set it back as not current. There can only be one current schedule. You cannot set as current a schedule whose end date is in the past.
 
-A current schedule whose end date becomes past will automatically be set as 'not current' and the website will warn users that there is no current schedule. This is to make sure that the information the website holds are always as accurate as possible. To prevent that from happening you can either extend the end date of the current schedule, or
-- Create a new, *successor schedule*
-- Edit the current schedule that's about to expire and set as the attribute 'Next schedule' the successor schedule you previously created. Then, after the end date passes, the successor schedule will automatically be set as current.
+A current schedule whose end date becomes past will automatically be set as 'not current' and the website will warn users that there is no current schedule. This is to make sure that the information the website holds are always as accurate as possible. To prevent that from happening you can either extend the end date of the current schedule, or - Create a new, *successor schedule* - Edit the current schedule that's about to expire and set as the attribute 'Next schedule' the successor schedule you previously created. Then, after the end date passes, the successor schedule will automatically be set as current.
+
+"Free schedules" haven't been implemented yet. For the present moment, if you want extra flexibility with schedules
 
 ## Hosts and Producers
 As a host or producer you'll need to sign up for a user account on the website and to be assigned to a show.
@@ -78,10 +85,10 @@ Currently you can only upload prerecorded shows from the studio:
 5. Select the time and date you want to broadcast on. Make sure that you have been allocated that time and that the file you're uploading is not too long.
 6. Select a file on your computer, click upload
 
-If everything worked out, you will read a comforting 'Upload successful'. To make sure your prerecording goes on air, please upload it at least 24 hours in advance. You should upload an mp3 file. There are other indications on how to export your file on the 'Upload Prerecord', to obtain the best results, on the 'Upload prerecording' page.
+If everything worked out, you will read a comforting 'Upload successful'. To make sure your prerecording goes on air, please upload it at least 24 hours in advance. You should upload an mp3 file. There are other indications on how to export your file and obtain the best results, on the 'Upload prerecording' page.
 
 ### Bookings
-From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time, and to book the Main Studio when a 'free schedule' is in place (you should be notified by the Head of Programming if this is the case). In general, please make sure that the period and time you're booking for is bookable. You can't, for example, book the Recording Studio for July the 17th and expect to be granted access.
+From the Admin Dashboard of the website, you should be able to book the Recording Studio at any time. In general, please make sure that the period and time you're booking for is bookable. You can't, for example, book the Recording Studio for July the 17th and expect to be granted access.
 
 For your convenience, if you're looking for a bookable time, click on the 'Future' scope above the Bookings list, or on the 'Recording Studio Next 7 Days' scope. You should see a corresponding list of bookings, ordered by booking date and time. You can also make a more specific query by using the 'Filter' sidebar on the right.
 
@@ -93,10 +100,13 @@ You should instruct all the members of the team on how to sign up for a user acc
 
 ### Team pages
 Each team has a dedicated page on the website. You can personalize the top content of your teams' pages. Following the procedure described in the previous paragraph, click 'edit' on your chosen team, and just edit its 'body' field. Then, click 'Update Team'.
-**Please**: before doing anything adventourous with your team's body, like embedding content, get in touch with the webmaster.
+**Please**: before doing anything adventourous with your team's body, like embedding content, get in touch with the webmaster. Refer to the Formatting Guide above at the beginning of this document.
 
 ### Moderating posts
 You have the ability of editing and deleting all the posts associated to the teams you're a head of. Use this power wisely.
+
+### Hub show
+You have the ability of editing the details of your team's show.
 
 ## Committee members
 If you are a member of the committee you should sign up for a user account on the website and request the role 'Committee Member'.
@@ -106,21 +116,18 @@ You should be able to manage events throgh the Admin Dashboard of the website.
 Events will need to have a title, location and start date and time. Optionally, you can add a description (which you can format), an end date and time, a link to a facebook event, and a link to the tickets.
 Upcoming events will be displayed in the left sidebar of the website. Newly published events will be displayed in the 'Latest posts' section in the website.
 Please only add events relevant to the whole station (a team meeting should not be worth of a website event. You can instead publicize it using the top section in your team's page).
-To embed content in the description (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own picture by using the 'Image' button.
+As for the description of the event, **please**, refer to the Formatting Guide above at the beginning of this document.
 
 ### Highlights
-You can highlight a playlist, event, review, interview, podcast, generic post or tag. An highlighted content will be displayed in the top section of the homepage. You should **only** highlight something very important to the station, not just some content you wrote you want to give visibility to, and you should seek the committee approval.
+Highlights haven't been implemented yet.
 
 ### Pages
-You should be able, through the Admin Dashboard of the website, to edit existing main pages and to create, destroy and edit sub pages.
-To embed content (for example from YouTube or MixCloud), get the embed code and copy it as HTML, after clicking on the 'Source' button in the editor. Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some code you add may be filtered away before being presented to users. If you have any special need, get in touch with the webmaster. You can upload your own pictures by using the 'Image' button.
+You should be able, through the Admin Dashboard of the website, to edit existing main pages and to create, destroy and edit sub pages. Sub pages need a parent page.
+As for their content, **please**, refer to the Formatting Guide above at the beginning of this document.
 
-## Music Team
-If you're a member of the Music Team, you should sign up for a user account on the website and select 'Music Team' as your team.
-### Playlists
-You should be able to manage playlists through the Admin Dashboard of the website.
-A playlist will need to have a title. You can add tracks to the playlist by specifying a track title, an artist, an album, and embed data. Remember to add the relevant tags to your playlist! The most recent playlist with the tag 'weekly music team playlist' will be displayed in TODO.
-Newly published playlists will be displayed in the 'Latest posts' section in the website.
+## Legacy content
+The current website was completely rewritten in the summer of 2017. The content from the previous website hasn't been migrated, but it's still live at old.freshair.org.uk.
+Thus, if you have a broken link from the old website, just prefix it with "old." and it should magically work.
 
 ## Reporting issues
 If you experience an issue while using the website (or the Broadcast Controls), please report it through the 'Report an issue' link, at the bottom of the website.
