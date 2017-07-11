@@ -75,7 +75,7 @@ class Show < ApplicationRecord
     end
   end
 
-  def is_hub_show
+  def hub_show?
     !self.team.blank?
   end
 

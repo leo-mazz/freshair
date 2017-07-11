@@ -140,7 +140,8 @@ Shows are deemed to be 'active' if they are assigned to the current schedule.
 They can be assigned to the current schedule multiple times (i.e. they can occur
 more than once a week or at multiple times). Currently though, only the first
 broadcast time will be displayed on the show pages. This might be changed in the
-future.
+future. Shows that are 'hub shows' (assigned to a team) not let assigning users
+through the admin panel.
 
 #### Schedules
 Schedules record 'assignments', which include a day of the week, a start time,
@@ -193,6 +194,8 @@ tag from the home page.
 Each team will have its page, with a personalized body, displayed at the top,
 a list of the latest posts associated to the team and, for each of the latest
 tags used by that team, the latest posts under that tag associated to that team.
+If the team has a 'hub show' and the 'hub show' has a latest podcast, that will
+be displayed right below the navigation.
 
 #### Users
 Users can sign up to request a user account and specify which roles they want

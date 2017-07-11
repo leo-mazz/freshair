@@ -33,6 +33,13 @@ class User < ApplicationRecord
     name
   end
 
+  # Include shows users can broadcast cause they're hub shows of their teams
+  def all_shows
+    hosted_shows = self.shows.to_a
+    team_shows = self.teams.map(&:hub_show).compact.to_a
+    return hosted_shows + team_shows
+  end
+
   # https://github.com/plataformatec/devise/wiki/How-To:-Require-admin-to-activate-account-before-sign_in
   def active_for_authentication?
     super && approved?

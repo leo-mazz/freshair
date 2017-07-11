@@ -5,7 +5,7 @@ class ApiController < ActionController::Base
     if @user.nil?
       render json: nil
     else
-      @shows = @user.shows
+      @shows = @user.all_shows
       @shows = @shows.map do |s|
         {slug: s.slug, title: s.title, tag_line: s.tag_line, description: s.description, link: s.link, pic: s.pic_uri}
       end

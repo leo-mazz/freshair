@@ -23,7 +23,7 @@ ActiveAdmin.register Show do
     selectable_column
 
     column :title
-    column :is_hub_show
+    column :hub_show?
     actions
   end
 
@@ -36,7 +36,7 @@ ActiveAdmin.register Show do
       attributes_table_for show do
         row :title
         row :tag_line
-        row :is_hub_show
+        row :hub_show?
         row :description
         row :slug
         row :created_at
@@ -66,7 +66,7 @@ ActiveAdmin.register Show do
       f.input :pic
     end
 
-    unless f.object.is_hub_show
+    unless f.object.hub_show?
       f.inputs "People involved" do
         f.has_many :show_memberships, :allow_destroy => true do |tmf|
           tmf.input :user, collection: User.by_first_name
