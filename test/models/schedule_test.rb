@@ -19,10 +19,10 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'Schedule.current sets as current a successor if it can' do
-    schedule3 = Schedule.create(end_date: Date.today, name: 'Three')
-    schedule2 = Schedule.create(end_date: Date.today - 1, name: 'Two', next_schedule: schedule3)
-    schedule1 = Schedule.create(end_date: Date.today - 2, name: 'One', next_schedule: schedule2)
-    Schedule.current.update(is_current:false)
+    schedule3 = create(:schedule, end_date: Date.today, name: 'Three')
+    schedule2 = create(:schedule, end_date: Date.today - 1, name: 'Two', next_schedule: schedule3)
+    schedule1 = create(:schedule, end_date: Date.today - 2, name: 'One', next_schedule: schedule2)
+    Schedule.current.update(is_current:false) unless Schedule.current.nil?
     schedule1.update(is_current:true)
 
     assert_equal Schedule.current, schedule3
@@ -42,13 +42,16 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_set_current
   test 'set_current works' do
-    schedule = schedules(:one)
+    Schedule.current.set_non_current unless Schedule.current.blank?
+    assert_nil Schedule.current
+
+    schedule = create(:schedule, is_current: true)
     assert schedule.is_current
 
-    schedule2 = Schedule.create(name: 'New current', end_date: Date.tomorrow)
+    schedule2 = create(:schedule, name: 'New current', end_date: Date.tomorrow)
     assert_not schedule2.is_current
-    schedule2.set_current
 
+    schedule2.set_current
     assert_equal Schedule.current, schedule2
   end
 
@@ -56,7 +59,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_set_non_current
   test 'set_non_current works' do
-    schedule = schedules(:one)
+    schedule = create(:schedule, is_current:true)
     assert schedule.is_current
 
     schedule.set_non_current
@@ -67,20 +70,22 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_show_valid_for_time?
   test 'show_valid_for_time? returns false if show is not in schedule' do
-    schedule = schedules(:two)
-    show = shows(:two)
+    schedule = create(:schedule)
+    show = create(:show)
+    show1 = create(:show, title: 'Bangers and Mash', description: 'Fun show')
+    assignment = create(:schedule_assignment, show:show1, schedule:schedule)
 
-    time = schedule.assignments.first.start_time.to_i
+    time = assignment.start_time.to_i
 
     assert_not schedule.show_valid_for_time?(show, time)
   end
 
   test 'show_valid_for_time? returns false if show is not on the right day' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
-    show = assignment.show
     start_time = assignment.start_time
 
     start_time_day = start_time.to_date.cwday
@@ -94,8 +99,9 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'show_valid_for_time? returns false if show starts before right time' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
     show = assignment.show
@@ -112,11 +118,11 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'show_valid_for_time? returns false if show starts after right time' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
-    show = assignment.show
     start_time = assignment.start_time
 
     start_time_day = start_time.to_date.cwday
@@ -130,11 +136,11 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'show_valid_for_time? returns false if show does not end in time' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
-    show = assignment.show
     start_time = assignment.start_time
     end_time = assignment.end_time
 
@@ -150,11 +156,11 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'show_valid_for_time? returns true if all is right' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
-    show = assignment.show
     start_time = assignment.start_time
     end_time = assignment.end_time
 
@@ -170,11 +176,11 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'show_valid_for_time? returns true if all is right but end time is early' do
-    schedule = schedules(:one)
-    assignment = schedule.assignments.first
+    schedule = create(:schedule)
+    show = create(:show)
+    assignment = create(:schedule_assignment, show:show, schedule:schedule)
 
     day = assignment.day_of_week
-    show = assignment.show
     start_time = assignment.start_time
     end_time = assignment.end_time
 
@@ -193,7 +199,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_ends_after_time?
   test 'ends_after_time? returns true' do
-    schedule = schedules(:one)
+    schedule = create(:schedule)
     seconds_in_year = 60*60*24*365
     long_time = (seconds_in_year * 1000)
     past_time = Time.now.to_i - long_time
@@ -201,7 +207,7 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'ends_after_time? returns false' do
-    schedule = schedules(:one)
+    schedule = create(:schedule)
     seconds_in_year = 60*60*24*365
     long_time = (seconds_in_year * 1000)
     future_time = Time.now.to_i + long_time
@@ -209,7 +215,7 @@ class ScheduleTest < ActiveSupport::TestCase
   end
 
   test 'ends_after_time? handles corner-case' do
-    schedule = schedules(:one)
+    schedule = create(:schedule)
     time = schedule.end_date.to_time.to_i
     assert_not schedule.ends_after_time?(time)
   end
@@ -218,12 +224,14 @@ class ScheduleTest < ActiveSupport::TestCase
 
   # test_Schedule_for_time
   test 'Schedule.for_time returns nil when given a time that is not future' do
-    schedules(:one).set_current
+    schedule = create(:schedule)
+    schedule.set_current
     assert_nil Schedule.for_time(Time.now)
   end
 
   test 'Schedule.for_time returns nil when no schedule is current' do
-    schedules(:one).set_non_current
+    schedule = create(:schedule)
+    schedule.set_non_current
     assert_nil Schedule.for_time(Time.now)
   end
 

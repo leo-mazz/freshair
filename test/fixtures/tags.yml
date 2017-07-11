@@ -1,8 +1,0 @@
-one:
-  name: UK general elections
-  slug: uk-general-elections
-  is_post_type: true
-
-two:
-  name: Six nations
-  slug: six-nations

@@ -67,14 +67,14 @@ People working on this project are expected to be volunteers and busy students,
 thus, writing a complete test suite is unfeasible (even though that's the goal
 to aspire to).
 
-You **should**, on the other hand, write tests for code sections that use
+You **should**, on the other hand, write unit tests for code sections that use
 complicated logic or if you're a little bit hazy on what you want to implement
 (please, in the best spirit of
 [TDD](https://en.wikipedia.org/wiki/Test-driven_development), write your tests
-first).
+first). You should also write integration tests for crucial workflows.
 
-Please, always keep the fixtures up to date when creating new models and change
-existig ones.
+Instead of standard Rails fixtures, we use [FactoryGirl](https://github.com/thoughtbot/factory_girl). They are defined in
+`test/factories.rb`
 
 More info [here](http://guides.rubyonrails.org/testing.html)
 
@@ -140,7 +140,7 @@ Shows are deemed to be 'active' if they are assigned to the current schedule.
 They can be assigned to the current schedule multiple times (i.e. they can occur
 more than once a week or at multiple times). Currently though, only the first
 broadcast time will be displayed on the show pages. This might be changed in the
-future. Shows that are 'hub shows' (assigned to a team) not let assigning users
+future. Shows that are 'hub shows' (assigned to a team) won't let assigning users
 through the admin panel.
 
 #### Schedules
@@ -217,14 +217,15 @@ slug instead of their id and automatically generates slugs
 - **Active Admin** for an admin interface
 - **CKeditor**, WYSIWYG editor
 - **Font Awesome** for sweet inline icons
-- **Twitter** helper, for the Twitter feed
+- **Twitter**, for the Twitter feed
 - **Autolink** to automatically generate 'a' tags from links
 - **Devise** for user authentication
 - **Rolify** to define user roles
 - **CanCanCan** to restrict resources to user with specific roles
 - **Figaro** to use environment variables
-- **ExceptionNotification** to notice webmaster of errors (through emails)
+- **ExceptionNotification** to email exception alerts to the webmaster
 - **Kaminari** for pagination
+- **FactoryGirl** for fixtures
 
 ### Player
 #### Broadcast information
