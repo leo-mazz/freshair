@@ -2,66 +2,22 @@ ActiveAdmin.register Schedule do
 
   menu :parent => "Programming"
 
-  config.sort_order = 'updated_at_desc'
-
-  member_action :set_current, :method => :post do
-    schedule = Schedule.find(params[:id])
-    schedule.set_current
-    redirect_to admin_schedules_path
-
-    # Notify user of success or failure
-    if schedule.errors.empty?
-      flash[:notice] = "Schedule successfully set as current!"
-    else
-      schedule.errors.each do |attribute, message|
-        flash[:errors] = "#{attribute}: #{message}"
-      end
-    end
-
-  end
-
-  member_action :set_non_current, :method => :post do
-    schedule = Schedule.find(params[:id])
-    schedule.set_non_current
-    redirect_to admin_schedules_path
-
-    # Notify user of success or failure
-    if schedule.errors.empty?
-      flash[:notice] = "Schedule successfully set as not current!"
-    else
-      schedule.errors.each do |attribute, message|
-        flash[:errors] = "#{attribute}: #{message}"
-      end
-    end
-
-  end
+  config.sort_order = 'start_date_desc'
 
 
   index do
     selectable_column
 
     column :name
-    column :is_current
+    column :start_date
     column :end_date
-    column "Next schedule", :next_schedule
 
     actions
-
-    column '' do |schedule|
-      if schedule.is_current
-        link_to 'Set as not current', set_non_current_admin_schedule_path(schedule), method: :post
-      elsif not schedule.past?
-        link_to 'Set as current', set_current_admin_schedule_path(schedule), method: :post
-      end
-    end
-
-    # column :created_at
-    # column :updated_at
 
   end
 
   filter :name
-  filter :is_current
+  filter :start_date
   filter :end_date
   filter :created_at
   filter :updated_at
@@ -72,9 +28,8 @@ ActiveAdmin.register Schedule do
       attributes_table_for schedule do
         row :id
         row :name
-        row :is_current
+        row :start_date
         row :end_date
-        row :next_schedule
         row :created_at
         row :updated_at
       end
@@ -111,8 +66,8 @@ ActiveAdmin.register Schedule do
   form do |f|
     f.inputs name: 'Basic details' do
       f.input :name
+      f.input :start_date, as: :datepicker
       f.input :end_date, as: :datepicker
-      f.input :next_schedule, collection: Schedule.where.not(id: f.object.id)
     end
     # TODO: display better, at least order by date and time :(
     f.inputs name: 'Show assignments' do
@@ -129,7 +84,7 @@ ActiveAdmin.register Schedule do
     f.actions
   end
 
-  permit_params :name, :end_date, :next_schedule_id, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
+  permit_params :name, :start_date, :end_date, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
 
 
 end

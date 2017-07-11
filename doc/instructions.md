@@ -40,13 +40,9 @@ Before creating a schedule you should create all the shows you want to add to it
 
 You can also mark a schedule as *free schedule*, meaning that users will be able to book the Main Studio through the 'Bookings' tab in the Admin Dashboard and their shows will be assumed to be on-air by the system at the time and date they choose. Free schedules are meant as temporary schedules in transitory periods (e.g. the end of the semester). You can still add standard assignments to a free schedule.
 
-The system won't let you save a schedule with time clashes, either between two assignments or between an assignment and a previous booking. The system won't allow users to make a booking conflicting with a pre-existing assignment. You should be able to edit, create and delete all bookings. Use this power with wisdom.
+The system won't let you save a schedule with time clashes, either between two assignments or between an assignment and a previous booking. The system won't allow users to make a booking conflicting with a preexisting assignment. You should be able to edit and delete all bookings. Use this power with wisdom.
 
-If a schedule is the current schedule, you should set it as *current* in the schedules list view in the Admin Dashboard. Then the schedule will be displayed on the website and will help determine which shows are active and what's their broadcast day and time. You can also set it back as not current. There can only be one current schedule. You cannot set as current a schedule whose end date is in the past.
-
-A current schedule whose end date becomes past will automatically be set as 'not current' and the website will warn users that there is no current schedule. This is to make sure that the information the website holds are always as accurate as possible. To prevent that from happening you can either extend the end date of the current schedule, or - Create a new, *successor schedule* - Edit the current schedule that's about to expire and set as the attribute 'Next schedule' the successor schedule you previously created. Then, after the end date passes, the successor schedule will automatically be set as current.
-
-"Free schedules" haven't been implemented yet. For the present moment, if you want extra flexibility with schedules
+If you want a given schedule to be a draft, leave both the start date and end date fields empty. The website will use these to determine whether a schedule is current, and will make it accessible to users. The website will also make accessible the most imminent future schedule.
 
 ## Hosts and Producers
 As a host or producer you'll need to sign up for a user account on the website and to be assigned to a show.

@@ -148,16 +148,10 @@ Schedules record 'assignments', which include a day of the week, a start time,
 an end time and a show.
 Before a schedule is saved, its assignments are validated for consistency: time
 clashes are not allowed.
-A schedule can be set to be 'current'. There can only be one current schedule.
-Schedules have a mandatory end_date field: after the end_date expires a current
-schedule is automatically set to non-current. This is meant to encourage Heads
-of Programming to keep an up-to-date current schedule.
-If another schedule is assigned to the expired one, in the field 'next_schedule',
-and it is valid (i.e. it wouldn't immediately expire as well), it will
-automatically be set as 'current' and replace the previous one.
 If the current schedule will expire in a period of 10 days, users are notified
-on the 'Schedule' page, and if a 'next schedule' is present and valid they will
-be allowed to check it out.
+on the 'Schedule' page.
+A schedule can be marked as *free schedule*, meaning that users will be able to book the Main Studio. Free schedules are meant as temporary schedules in transitory periods (e.g. the end of the semester). You can still add standard assignments to a free schedule. Additional checks are performed on schedules and bookings to prevent clashes.
+The website will consider a schedule to be current on the basis of the start date and end date fields. They can either be both empty (to make draft schedules) or both be full. The website makes the current schedule and the most imminent future schedule accessible by users.
 
 #### Events
 If upcoming events are present, they will be displayed in the sidebar. They're

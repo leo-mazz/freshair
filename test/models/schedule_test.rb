@@ -2,68 +2,47 @@ require 'test_helper'
 
 class ScheduleTest < ActiveSupport::TestCase
 
-  # test_Schedule.current
-  test 'Schedule.current leaves it current if it is ok' do
-    schedule = Schedule.create(name: 'Current', end_date: Date.tomorrow)
-    schedule.set_current
+  # test_self.current
+  test 'Schedule.current returns nil if it needs to' do
+    create(:schedule)
+    assert_nil Schedule.current
+  end
 
+
+  test 'Schedule.current returns right schedule' do
+    schedule = create(:current_schedule)
     assert_equal schedule, Schedule.current
   end
 
-  test 'Schedule.current sets as non current if it is not ok' do
-    schedule = Schedule.create(name: 'Past', end_date: Date.yesterday)
-    Schedule.current.update(is_current: false)
-    schedule.update(is_current: true)
 
-    assert_nil Schedule.current
-  end
 
-  test 'Schedule.current sets as current a successor if it can' do
-    schedule3 = create(:schedule, end_date: Date.today, name: 'Three')
-    schedule2 = create(:schedule, end_date: Date.today - 1, name: 'Two', next_schedule: schedule3)
-    schedule1 = create(:schedule, end_date: Date.today - 2, name: 'One', next_schedule: schedule2)
-    Schedule.current.update(is_current:false) unless Schedule.current.nil?
-    schedule1.update(is_current:true)
+  # test_self.next
+  test "Schedule.next returns nil if no schedule is next" do
+    current_schedule = create(:current_schedule)
+    assert_equal Schedule.current, current_schedule
 
-    assert_equal Schedule.current, schedule3
-  end
+    assert_equal Schedule.all.count, 1
 
-  test 'Schedule.current sets as non current all successors if has to' do
-    schedule3 = Schedule.create(end_date: Date.today - 2, name: 'Three')
-    schedule2 = Schedule.create(end_date: Date.today - 3, name: 'Two', next_schedule: schedule3)
-    schedule1 = Schedule.create(end_date: Date.today - 4, name: 'One', next_schedule: schedule2)
-    Schedule.current.update(is_current:false)
-    schedule1.update(is_current:true)
-
-    assert_nil Schedule.current
+    assert_nil Schedule.next
   end
 
 
+  test "Schedule.next returns right next schedule" do
+    create(:current_schedule)
 
-  # test_set_current
-  test 'set_current works' do
-    Schedule.current.set_non_current unless Schedule.current.blank?
-    assert_nil Schedule.current
+    right_schedule = create(:schedule,
+      name: 'Future schedule',
+      start_date: 1000.days.from_now.to_date,
+      end_date: 1002.days.from_now.to_date
+    )
 
-    schedule = create(:schedule, is_current: true)
-    assert schedule.is_current
+    create(:schedule,
+      name: 'Less future schedule',
+      start_date: 100.days.from_now.to_date,
+      end_date: 102.days.from_now.to_date
+    )
 
-    schedule2 = create(:schedule, name: 'New current', end_date: Date.tomorrow)
-    assert_not schedule2.is_current
-
-    schedule2.set_current
-    assert_equal Schedule.current, schedule2
-  end
-
-
-
-  # test_set_non_current
-  test 'set_non_current works' do
-    schedule = create(:schedule, is_current:true)
-    assert schedule.is_current
-
-    schedule.set_non_current
-    assert_not schedule.is_current
+    assert_equal Schedule.next, right_schedule
   end
 
 
@@ -79,6 +58,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     assert_not schedule.show_valid_for_time?(show, time)
   end
+
 
   test 'show_valid_for_time? returns false if show is not on the right day' do
     schedule = create(:schedule)
@@ -97,6 +77,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     assert_not schedule.show_valid_for_time?(show, proper_start_time)
   end
+
 
   test 'show_valid_for_time? returns false if show starts before right time' do
     schedule = create(:schedule)
@@ -117,6 +98,7 @@ class ScheduleTest < ActiveSupport::TestCase
     assert_not schedule.show_valid_for_time?(show, proper_start_time)
   end
 
+
   test 'show_valid_for_time? returns false if show starts after right time' do
     schedule = create(:schedule)
     show = create(:show)
@@ -134,6 +116,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     assert_not schedule.show_valid_for_time?(show, proper_start_time)
   end
+
 
   test 'show_valid_for_time? returns false if show does not end in time' do
     schedule = create(:schedule)
@@ -155,6 +138,7 @@ class ScheduleTest < ActiveSupport::TestCase
     assert_not schedule.show_valid_for_time?(show, proper_start_time, proper_end_time)
   end
 
+
   test 'show_valid_for_time? returns true if all is right' do
     schedule = create(:schedule)
     show = create(:show)
@@ -174,6 +158,7 @@ class ScheduleTest < ActiveSupport::TestCase
 
     assert schedule.show_valid_for_time?(show, proper_start_time, proper_end_time)
   end
+
 
   test 'show_valid_for_time? returns true if all is right but end time is early' do
     schedule = create(:schedule)
@@ -197,78 +182,92 @@ class ScheduleTest < ActiveSupport::TestCase
 
 
 
-  # test_ends_after_time?
-  test 'ends_after_time? returns true' do
-    schedule = create(:schedule)
-    seconds_in_year = 60*60*24*365
-    long_time = (seconds_in_year * 1000)
-    past_time = Time.now.to_i - long_time
-    assert schedule.ends_after_time?(past_time)
-  end
-
-  test 'ends_after_time? returns false' do
-    schedule = create(:schedule)
-    seconds_in_year = 60*60*24*365
-    long_time = (seconds_in_year * 1000)
-    future_time = Time.now.to_i + long_time
-    assert_not schedule.ends_after_time?(future_time)
-  end
-
-  test 'ends_after_time? handles corner-case' do
-    schedule = create(:schedule)
-    time = schedule.end_date.to_time.to_i
-    assert_not schedule.ends_after_time?(time)
-  end
-
-
-
   # test_Schedule_for_time
-  test 'Schedule.for_time returns nil when given a time that is not future' do
-    schedule = create(:schedule)
-    schedule.set_current
-    assert_nil Schedule.for_time(Time.now)
+  test 'Schedule.for_time returns nil when no schedule fits' do
+    schedule = create(:current_schedule)
+    assert_nil Schedule.for_time(10000.years.from_now.to_time)
   end
 
-  test 'Schedule.for_time returns nil when no schedule is current' do
-    schedule = create(:schedule)
-    schedule.set_non_current
-    assert_nil Schedule.for_time(Time.now)
+
+  test 'Schedule.for_time returns right schedule' do
+    schedule1 = create(:current_schedule)
+    schedule2 = create(
+      :schedule,
+      name: 'Schedule 2',
+      start_date: schedule1.end_date+1,
+      end_date: schedule1.end_date+2
+    )
+    schedule3 = create(
+      :schedule,
+      name: 'Schedule 3',
+      start_date: schedule2.end_date+1,
+      end_date: schedule2.end_date+2
+    )
+
+    time = (schedule2.start_date).to_time
+    assert_equal Schedule.for_time(time), schedule2
   end
 
-  test 'Schedule.for_time returns something when current schedule works' do
-    tomorrow = Date.today + 1
-    schedule = Schedule.create(end_date: tomorrow, name: 'Ethernal schedule')
-    schedule.set_current
 
-    assert_not_nil Schedule.for_time(Time.now + 1)
+
+  # test_clash_with?
+  test 'clash_with? returns false if two schedules do not clash' do
+    schedule1 = build(:schedule, start_date: Date.today, end_date: Date.tomorrow)
+    schedule2 = build(:schedule,
+      name: 'Schedule 2',
+      start_date: 100.years.from_now.to_date,
+      end_date: 101.years.from_now.to_date
+    )
+
+    assert_not schedule1.clash_with?(schedule2)
   end
 
-  test 'Schedule.for_time returns nil when current schedule does not work and has no successor' do
-    tomorrow = Date.today + 1
-    schedule = Schedule.create(end_date: Date.today, name: 'Ethernal schedule')
-    schedule.set_current
 
-    assert_nil Schedule.for_time(tomorrow.to_time)
+  test 'clash_with? returns true if one schedule is contained by other' do
+    schedule1 = build(:schedule, start_date: Date.yesterday, end_date: Date.tomorrow)
+    schedule2 = build(:schedule,
+      name: 'Schedule 2',
+      start_date: Date.today,
+      end_date: Date.today
+    )
+
+    assert schedule1.clash_with?(schedule2)
   end
 
-  test 'Schedule.for_time returns something when a successor schedule works' do
-    schedule3 = Schedule.create(end_date: Date.today + 2, name: 'Three')
-    schedule2 = Schedule.create(end_date: Date.today + 1, name: 'Two', next_schedule: schedule3)
-    schedule1 = Schedule.create(end_date: Date.today, name: 'One', next_schedule: schedule2)
-    schedule1.set_current
 
-    tomorrow = Date.today + 1
-    assert_not_nil Schedule.for_time((Date.today + 2).to_time - 1)
+  test 'clash_with? returns true if schedule dates are identical' do
+    schedule1 = build(:schedule, start_date: Date.yesterday, end_date: Date.tomorrow)
+    schedule2 = build(:schedule,
+      name: 'Schedule 2',
+      start_date: Date.yesterday,
+      end_date: Date.tomorrow
+    )
+
+    assert schedule1.clash_with?(schedule2)
   end
 
-  test 'Schedule.for_time returns nil when no successor schedule works' do
-    schedule3 = Schedule.create(end_date: Date.today + 2, name: 'Three')
-    schedule2 = Schedule.create(end_date: Date.today + 1, name: 'Two', next_schedule: schedule3)
-    schedule1 = Schedule.create(end_date: Date.today, name: 'One', next_schedule: schedule2)
-    schedule1.set_current
 
-    tomorrow = Date.today + 1
-    assert_nil Schedule.for_time((Date.today + 2).to_time + 1)
+  test 'clash_with? returns true if one schedule begins during other' do
+    schedule1 = build(:schedule, start_date: Date.yesterday, end_date: Date.tomorrow)
+    schedule2 = build(:schedule,
+      name: 'Schedule 2',
+      start_date: Date.yesterday,
+      end_date: Date.tomorrow+1
+    )
+
+    assert schedule1.clash_with?(schedule2)
+  end
+
+
+  test 'clash_with? returns true if one schedule ends while other is on' do
+    schedule1 = build(:schedule, start_date: Date.yesterday, end_date: Date.tomorrow)
+    schedule2 = build(:schedule,
+      name: 'Schedule 2',
+      start_date: Date.tomorrow,
+      end_date: Date.tomorrow+1
+    )
+
+    assert schedule1.clash_with?(schedule2)
   end
 
 end

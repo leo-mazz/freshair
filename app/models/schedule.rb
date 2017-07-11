@@ -1,13 +1,9 @@
 class Schedule < ApplicationRecord
 
-  after_initialize :default_to_non_current
-
   validates :name, presence: true
   validates :name, uniqueness: true
-  validates :end_date, presence: true
   validates_with ScheduleValidator
 
-  belongs_to :next_schedule, class_name: 'Schedule', foreign_key: 'next_schedule_id'
   # https://stackoverflow.com/questions/16782990/rails-how-to-populate-parent-object-id-using-nested-attributes-for-child-obje
   has_many :assignments, class_name: 'ScheduleAssignment', dependent: :delete_all, :inverse_of => :schedule
 
@@ -17,42 +13,24 @@ class Schedule < ApplicationRecord
     self.end_date < Date.today
   end
 
+  def future?
+    self.start_date > Date.today
+  end
+
+  def current?
+    !self.future? && !self.past?
+  end
+
+  def expiring?
+    (self.end_date - Date.today).to_i <= 10
+  end
+
   def self.current
-    schedule = self.find_by_is_current true
-
-    return nil if schedule.nil?
-
-    until (not schedule.past?) || (schedule.next_schedule.nil?)
-      schedule.set_non_current
-      schedule = schedule.next_schedule
-    end
-
-    if schedule.past?
-      schedule.set_non_current
-      return nil
-    elsif not schedule.is_current
-      schedule.set_current
-    end
-
-    return schedule
+    Schedule.where('start_date <= ? AND end_date >= ?', Date.today, Date.today).take
   end
 
-  def set_non_current
-    self.update(is_current: false)
-  end
-
-  def set_current
-    if self.past?
-      self.errors.add(:is_current, "You can't set as current a schedule that ends in the past!")
-      return
-    end
-
-    previous_current = Schedule.current
-    unless previous_current.nil?
-      previous_current.set_non_current
-    end
-
-    self.update(is_current: true)
+  def self.next
+    Schedule.where('start_date >= ? ', Date.tomorrow).order(start_date: :desc).first
   end
 
   def assignments_on(day)
@@ -61,9 +39,8 @@ class Schedule < ApplicationRecord
   end
 
   # Assumption: the schedule won't change between the start_time and end_time
-  # The following function will reject (show, start_time, end_time) triplets
-  # where the start time and end time are in different schedules because of how
-  # schedules are modelled
+  # This can't happen because of how schedules are modelled: they are assumed
+  # to start at midnight of a day and assignments cannot end after 23.59
   def show_valid_for_time?(show, start_time, end_time=nil)
     # Select schedule assignments on same week day corresponding to start time for show
     assignments = self.assignments_on(Time.at(start_time).to_date.cwday)
@@ -85,38 +62,19 @@ class Schedule < ApplicationRecord
     not valid_times.empty?
   end
 
-  def ends_after_time?(time)
-    self.end_date > Time.at(time).to_date
-  end
 
   def self.for_time(time)
-    if Time.now >= time
-      return nil
-    end
-
-    schedule = Schedule.current
-
-    if schedule.nil?
-      return nil
-    end
-
-    until schedule.ends_after_time?(time) || schedule.next_schedule.nil?
-      schedule = schedule.next_schedule
-    end
-
-    if schedule.ends_after_time?(time)
-      return schedule
-    else
-      return nil
-    end
-
+    date = Time.at(time).to_date
+    Schedule.where('start_date <= ? AND end_date >= ?', date, date).take
   end
 
-
-  private
-
-    def default_to_non_current
-      self.is_current = false if self.is_current.nil?
-    end
+  def clash_with?(schedule)
+    # Two schedules clash if, either the first contains the second,
+      (((self.start_date <= schedule.start_date) && (self.end_date >= schedule.end_date)) ||
+        # or the first starts while the second is on,
+        ((self.start_date >= schedule.start_date) && (self.start_date <= schedule.end_date)) ||
+        # or if the first ends while the second is on
+        ((self.end_date >= schedule.start_date) && (self.end_date <= schedule.end_date)))
+  end
 
 end
