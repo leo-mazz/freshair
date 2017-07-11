@@ -16,7 +16,7 @@
     <% end %>
 
     <div class="labels">
-      <% unless @show.hub_show? %>
+      <% if @show.hub_show? %>
         <div class="label hub-show-label">
           Hub show
         </div>
