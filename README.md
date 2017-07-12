@@ -150,8 +150,15 @@ Before a schedule is saved, its assignments are validated for consistency: time
 clashes are not allowed.
 If the current schedule will expire in a period of 10 days, users are notified
 on the 'Schedule' page.
-A schedule can be marked as *free schedule*, meaning that users will be able to book the Main Studio. Free schedules are meant as temporary schedules in transitory periods (e.g. the end of the semester). You can still add standard assignments to a free schedule. Additional checks are performed on schedules and bookings to prevent clashes.
-The website will consider a schedule to be current on the basis of the start date and end date fields. They can either be both empty (to make draft schedules) or both be full. The website makes the current schedule and the most imminent future schedule accessible by users.
+A schedule can be marked as *free schedule*, meaning that users will be able to
+book the Main Studio. Free schedules are meant as temporary schedules in
+transitory periods (e.g. the end of the semester). You can still add standard
+assignments to a free schedule. Additional checks are performed on schedules and
+bookings to prevent clashes.
+The website will consider a schedule to be current on the basis of the start
+date and end date fields. They can either be both empty (to make draft
+schedules) or both be full. The website makes the current schedule and the most
+imminent future schedule accessible by users.
 
 #### Events
 If upcoming events are present, they will be displayed in the sidebar. They're
@@ -259,9 +266,10 @@ a 'ShowMembership' entity referencing both the user and the show.
 ### Secrets
 The application needs a few secrets to do things like generate user session ids,
 authenticate to the Twitter API, or send emails through its service provider.
-These secrets are contained in `congif/application.yml`, not staged to the
-version control system for obvious security reasons. The application will
-definitely need these in production. Ask the current webmaster if you need them.
+These secrets are contained in `config/application.yml`, not staged to the
+version control system for obvious security reasons. This file contains also
+some configuration variables. The application will definitely need these in
+production. Ask the current webmaster if you need them.
 
 ### API
 The sub-routes of `/api/` are utilities for exchanging information (in JSON)

@@ -64,14 +64,13 @@ class Show < ApplicationRecord
     active
   end
 
-# TODO: I don't expect following two methods to work in production
   def link
-    Rails.root.join(shows_path(self)).to_s
+    ENV['WEBSITE_HOME'] + show_path(self).to_s
   end
 
   def pic_uri
     unless self.pic.url.nil?
-      Rails.root.join(self.pic.resized.url).to_s
+      ENV['WEBSITE_HOME'] + self.pic.resized.url.to_s
     end
   end
 

@@ -9,6 +9,9 @@ require 'capistrano/rails'
 
 # require 'capistrano/passenger'
 
+# Allow loading figaro env variables during deployment
+require 'capistrano/figaro'
+
 require 'capistrano/bundler'
 #
 # require "capistrano/scm/hg"

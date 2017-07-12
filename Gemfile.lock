@@ -81,6 +81,9 @@ GEM
     capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-figaro (1.0.0.0)
+      capistrano (~> 3.1)
+      figaro (~> 1.1)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
     capistrano-rails (1.2.3)
@@ -321,6 +324,7 @@ DEPENDENCIES
   cancancan (~> 1.10)
   capistrano (~> 3.8)
   capistrano-bundler (~> 1.2)
+  capistrano-figaro
   capistrano-passenger
   capistrano-rails (~> 1.2)
   carrierwave (~> 1.0)
