@@ -1,14 +1,12 @@
 // External requirements
 @import "font-awesome";
-
-// Basic graphical elements
+// Site-wide variables
 @import "vars";
+// Fundamental graphical elements
+@import "elements/*";
+// Reusable components
 @import "components/*";
-
-// Main app
+// Main layout and basic site-wide formatting
 @import "layout";
+// View-specific rules
 @import "views/*";
-@import "sections/*";
-
-// Non-standard views
-@import "player";
