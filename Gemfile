@@ -29,32 +29,40 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# To upload files
 
 gem 'carrierwave', '~> 1.0'
+# Carrierwave dependency (it uses it to resize pics to make thumbnails)
 gem 'mini_magick'
-
+# for friendlier URLs
 gem 'friendly_id', '~> 5.1.0'
-
+# Validates user emails
 gem 'validates_email_format_of'
-
+# Admin interface
 gem 'activeadmin', github: 'activeadmin'
+# WYSIWYG editor
 gem 'ckeditor'
+# Datetime picker for ActiveAdmine
 gem 'just-datetime-picker'
-
+# For sweet inline icons
 gem 'font-awesome-rails'
+# For the twitter feed
 gem 'twitter'
+# Automatically generate 'a' tags from links
 gem 'rails_autolink'
-
+# Restrict resources to user with specific roles
 gem 'cancancan', '~> 1.10'
+# User authentication
 gem 'devise'
+# To define user roles
 gem 'rolify'
-
+# To use environment variables defined in config/application.yml
 gem 'figaro'
-
+# To generate pagination
 gem 'kaminari'
-
+# HTML parser
 gem 'nokogiri'
-
+# Emails exception alerts to the webmaster
 gem 'exception_notification'
 
 # Use Redis adapter to run Action Cable in production
@@ -69,6 +77,7 @@ group :development, :test do
 end
 
 group :development do
+  # for deployment and to automate tasks on the server
   gem "capistrano", "~> 3.8"
   gem 'capistrano-rails', '~> 1.2'
   gem 'capistrano-passenger'

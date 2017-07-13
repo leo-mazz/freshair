@@ -206,27 +206,10 @@ of doubt, check with the Committee.
 
 
 ### Gems
-This is a partial list of the gems used by this application. For information
-check their respective documentations.
+This project depends on a range of gems. Their purpose is described in the
+Gemfile. For more details about usage, please refer to their individual
+documentations.
 
-- **CarrierWave** for uploading files
-- **MiniMagick** for image manipulation, required by CarrierWave to create
-thumbnails
-- **FriendlyId** for friendlier URLs. It allows to reference entities by their
-slug instead of their id and automatically generates slugs
-- **Capistrano** for deployment and to automate tasks on the server
-- **Active Admin** for an admin interface
-- **CKeditor**, WYSIWYG editor
-- **Font Awesome** for sweet inline icons
-- **Twitter**, for the Twitter feed
-- **Autolink** to automatically generate 'a' tags from links
-- **Devise** for user authentication
-- **Rolify** to define user roles
-- **CanCanCan** to restrict resources to user with specific roles
-- **Figaro** to use environment variables
-- **ExceptionNotification** to email exception alerts to the webmaster
-- **Kaminari** for pagination
-- **FactoryGirl** for fixtures
 
 ### Player
 #### Broadcast information
