@@ -17,6 +17,7 @@ If you're in a team, you can assign a team to your post. It will then be display
 In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked. You can use this feature to write drafts.
 You can write a short body for your post, it will be displayed in the multiple posts view. If you don't, it will be automatically generated from the post content.
 As for the post content, **please**, refer to the Formatting Guide above.
+If your post is on the homepage and has a picture displayed, the chosen picture will be the first one of your post by default. To override this behaviour, click a picture of your choice, click on the 'Image' button, select the 'Advanced' tab, write 'main' in the 'Id' field and confirm.
 
 
 ### Reviews

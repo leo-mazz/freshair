@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 class Post < ApplicationRecord
 
   after_initialize :default_to_not_published
@@ -26,6 +28,7 @@ class Post < ApplicationRecord
     slug.blank? || title_changed?
   end
 
+  # Unpublished posts are hidden from standard queries
   default_scope { where(is_published: true) }
 
   def has_meta?(key)
@@ -39,6 +42,22 @@ class Post < ApplicationRecord
   def summary
     return self.short_body unless self.short_body.blank?
     ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content), length: 130,  separator: ' ')
+  end
+
+  def pic_url
+    content = self.content
+    return nil if content.blank?
+    parsed_content = Nokogiri::HTML(content)
+
+    designated_image = parsed_content.css('img#main').first
+    first_image = parsed_content.css('img').first
+    image = designated_image || first_image
+    return nil if image.nil?
+
+    src_attribute = image.attributes['src']
+    return nil if src_attribute.nil?
+
+    return src_attribute.value
   end
 
   private

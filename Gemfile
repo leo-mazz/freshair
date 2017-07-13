@@ -53,6 +53,8 @@ gem 'figaro'
 
 gem 'kaminari'
 
+gem 'nokogiri'
+
 gem 'exception_notification'
 
 # Use Redis adapter to run Action Cable in production
