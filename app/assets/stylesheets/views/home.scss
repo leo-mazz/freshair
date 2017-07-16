@@ -30,6 +30,8 @@
 
 .home-grid {
   margin-top: 13px;
+  // For browsers that don't support it, hide grid
+  display: none;
   display: grid;
   grid-template-rows: 10.5vw $home-grid-margins 10.5vw;
   grid-template-columns: calc(66.6% - #{$home-grid-margins}) $home-grid-margins 1fr;
@@ -86,7 +88,6 @@
     }
 
     .title {
-      line-height: 27px;
       padding: 0 4px;
       position: relative;
       z-index: 1;
