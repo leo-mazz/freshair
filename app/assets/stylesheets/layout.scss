@@ -24,7 +24,7 @@ iframe {
   margin-bottom: 10px;
   margin-top: 10px;
 
-  @media (max-width: $break-width) {
+  @media (max-width: $mobile-version-width) {
     width: 100%;
     height: 200px;
   }
@@ -55,7 +55,7 @@ hr {
   display: none;
 }
 
-@media(max-width: $break-width) {
+@media(max-width: $mobile-version-width) {
   #top-toggler:checked + aside {
     section, .on-air {
       display: block;
@@ -66,6 +66,7 @@ hr {
 h1, h2 {
   margin-top: 7px;
 }
+
 
 #main-body {
   position: relative;
@@ -87,15 +88,9 @@ h1, h2 {
       color: #1b1b1b;
     }
 
-    img {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-
     .simple-notice {
       font-style: italic;
-      margin-top: 10px;
-      margin-left: 10px;
+      margin: 10px;
       display: block;
     }
 
@@ -104,7 +99,7 @@ h1, h2 {
     }
   }
 
-  @media (max-width: $break-width) {
+  @media (max-width: $mobile-version-width) {
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 5px;

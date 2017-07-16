@@ -16,7 +16,101 @@
   <%= render 'shared/messages', locals: {messages: flash} %>
 <% end %>
 
+<section class="home-grid">
+  <%# The following is not very DRY but allows for treating each position differently if we ever need to %>
+  <% unless @highlights.first.nil? %>
+    <%= link_to @highlights.first[:element], class:'element pos-1' do %>
+      <div class="filter"></div>
+      <div class="pic">
+        <% unless @highlights.first[:pic].nil? %>
+          <%= image_tag @highlights.first[:pic] %>
+        <% else %>
+          <%= image_tag 'bg/dummy-1.png' %>
+        <% end %>
+      </div>
+      <div class="title-wrapper">
+        <div class="title">
+          <%= @highlights.first[:title] %>
+        </div>
+      </div>
+    <% end %>
+    <% else %>
+      <%= link_to '#', class:'element pos-1' do %>
+        <div class="filter"></div>
+        <div class="pic">
+          <%= image_tag 'bg/dummy-1.png' %>
+        </div>
+        <div class="title-wrapper">
+          <div class="title">
+            Content goes here
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
+  <% unless @highlights.second.nil? %>
+    <%= link_to @highlights.second[:element], class:'element pos-2' do %>
+      <div class="filter"></div>
+      <div class="pic">
+        <% unless @highlights.second[:pic].nil? %>
+          <%= image_tag @highlights.second[:pic] %>
+        <% else %>
+          <%= image_tag 'bg/dummy-2.png' %>
+        <% end %>
+      </div>
+      <div class="title-wrapper">
+        <div class="title">
+          <%= @highlights.second[:title] %>
+        </div>
+      </div>
+    <% end %>
+    <% else %>
+      <%= link_to '#', class:'element pos-2' do %>
+        <div class="filter"></div>
+        <div class="pic">
+          <%= image_tag 'bg/dummy-2.png' %>
+        </div>
+        <div class="title-wrapper">
+          <div class="title">
+            Content goes here
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+
+  <% unless @highlights.third.nil? %>
+
+    <%= link_to @highlights.third[:element], class:'element pos-3' do %>
+      <div class="filter"></div>
+      <div class="pic">
+        <% unless @highlights.third[:pic].nil? %>
+          <%= image_tag @highlights.third[:pic] %>
+        <% else %>
+          <%= image_tag 'bg/dummy-3.png' %>
+        <% end %>
+      </div>
+      <div class="title-wrapper">
+        <div class="title">
+          <%= @highlights.third[:title] %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to '#', class:'element pos-3' do %>
+      <div class="filter"></div>
+      <div class="pic">
+        <%= image_tag 'bg/dummy-3.png' %>
+      </div>
+      <div class="title-wrapper">
+        <div class="title">
+          Content goes here
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</section>
 
 <section class="latest-posts">
   <div class="latest-posts-line">
@@ -31,5 +125,5 @@
       <i class="fa fa-tags" aria-hidden="true"></i>
     </div>
   </div>
-  <%= render partial: "shared/posts", locals: {posts: @latest_posts} %>
+  <%= render partial: "shared/posts", locals: {posts: @latest_posts, pics: false} %>
 </section>

@@ -9,7 +9,7 @@ table {
     border-collapse: collapse;
     width: 500px;
 
-    @media (max-width: $break-width) {
+    @media (max-width: $mobile-version-width) {
       // This might break things in some cases. But it's probably better
       // than allow Ckeditor to put an inline width and break things on small
       // screens for all tables

@@ -1,28 +1,61 @@
 <% unless posts.empty? %>
-  <div class="boxes posts">
-    <% posts.each do |post| %>
-      <%= link_to post do %>
-        <div class="post">
-          <div class="post-info">
-            <div class="post-title">
-              <%= post.title %>
-            </div>
-            <div class="post-caption">
-              <%= post.summary %>
-            </div>
-            <div class="post-details">
-              <div>
-                <%= format_date_small post.created_at %>
+
+  <% if pics == false %>
+    <div class="boxes posts">
+      <% posts.each do |post| %>
+        <%= link_to post, class: 'post' do %>
+            <div class="post-info">
+              <div class="post-title">
+                <%= post.title %>
               </div>
-              <div>
-                <%= post.author.name %>
+              <div class="post-caption">
+                <%= post_summary(post) %>
+              </div>
+              <div class="post-details">
+                <div>
+                  <%= format_date_small post.created_at %>
+                </div>
+                <div>
+                  <%= post.author.name %>
+                </div>
               </div>
             </div>
+        <% end%>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="boxes posts">
+      <% posts.each do |post| %>
+        <%= link_to post, class: 'post' do %>
+          <div class="<%= post.pic_url.nil? ? 'post-info' : 'post-info-pic' %>">
+
+            <% unless post.pic_url.nil? %>
+              <div class="post-pic">
+                <%= image_tag post.pic_url %>
+              </div>
+            <% end %>
+
+            <div class="title-wrapper">
+              <div class="post-title">
+                <%= post.title %>
+              </div>
+            </div>
+
+            <% if post.pic_url.nil? %>
+              <div class="post-caption">
+                <%= post_summary(post) %>
+              </div>
+            <% end %>
+
           </div>
-        </div>
-      <% end%>
-    <% end %>
-  </div>
+        <% end%>
+      <% end %>
+    </div>
+  <% end %>
+
+
+
+
 <% else %>
   <em class="simple-notice">No post here</em>
 <% end %>

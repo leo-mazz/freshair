@@ -40,6 +40,10 @@ class User < ApplicationRecord
     return (hosted_shows + team_shows).uniq
   end
 
+  def team_manager?
+    self.team_memberships.where(is_manager: true).count > 0
+  end
+
   # https://github.com/plataformatec/devise/wiki/How-To:-Require-admin-to-activate-account-before-sign_in
   def active_for_authentication?
     super && approved?

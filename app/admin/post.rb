@@ -10,7 +10,7 @@ ActiveAdmin.register Post do
     end
   end
 
-  permit_params :title, :short_body, :content, :author_id, :is_published, :team_id, :show_id, tag_ids: [], post_metadata_attributes: [:id, :post, :key, :value, :_destroy]
+  permit_params :title, :short_body, :content, :author_id, :is_published, :is_highlighted, :team_id, :show_id, tag_ids: [], post_metadata_attributes: [:id, :post, :key, :value, :_destroy]
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Post do
     column :title
     column :author if current_user.has_role? :admin
     column :is_published
+    column :is_highlighted
     column :show
     column :team
     column :tags do |post|
@@ -34,6 +35,7 @@ ActiveAdmin.register Post do
   filter :created_at
   filter :updated_at
   filter :is_published
+  filter :is_highlighted
   filter :short_body
   filter :tags
 
@@ -48,6 +50,7 @@ ActiveAdmin.register Post do
         end
         row :author
         row :is_published
+        row :is_highlighted
         row :created_at
         row :updated_at
         row :team
@@ -80,12 +83,19 @@ ActiveAdmin.register Post do
       elsif f.object.new_record?
         f.input :author_id, as: :hidden, input_html: {value: current_user.id}
       end
+
       f.input :title
 
       if f.object.new_record?
         f.input :is_published, label: "Publish?", input_html: {checked: 'checked'}
       else
         f.input :is_published, label: "Publish?"
+      end
+
+      if (current_user.has_role?(:admin) ||
+        current_user.has_role?(:committee) ||
+        current_user.team_manager?)
+          f.input :is_highlighted, label: 'Highlight?'
       end
 
       f.input :short_body

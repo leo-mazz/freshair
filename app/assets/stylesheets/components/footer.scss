@@ -15,7 +15,7 @@ footer {
   }
 
   .join-techteam-link {
-    @media(max-width: $break-width) {
+    @media(max-width: $mobile-version-width) {
       display: none;
     }
   }

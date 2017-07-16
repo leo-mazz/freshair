@@ -9,7 +9,7 @@
       <i class="fa fa-tags" aria-hidden="true"></i>
     </div>
   </div>
-  <%= render partial: "shared/posts", locals: {posts: @posts} %>
+  <%= render partial: "shared/posts", locals: {posts: @posts, pics: false} %>
 </section>
 
 <%= paginate @posts %>

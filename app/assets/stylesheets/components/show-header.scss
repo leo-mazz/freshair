@@ -13,7 +13,7 @@
     margin-top: 5px;
     font-size: 20px;
 
-    @media (max-width: $break-width) {
+    @media (max-width: $mobile-version-width) {
       font-size: 18px;
     }
   }
@@ -43,7 +43,7 @@
   }
 
 
-  @media (max-width: $break-width) {
+  @media (max-width: $mobile-version-width) {
     flex-direction: column-reverse;
 
     img {
@@ -70,7 +70,7 @@
 .show-content {
   display: flex;
 
-  @media (max-width: $break-width) {
+  @media (max-width: $mobile-version-width) {
     display: block;
   }
 

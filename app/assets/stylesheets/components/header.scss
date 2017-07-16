@@ -79,7 +79,7 @@ header {
     }
   }
 
-  @media (max-width: $break-width) {
+  @media (max-width: $mobile-version-width) {
     img.logo {
       display: none;
     }

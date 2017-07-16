@@ -33,7 +33,7 @@
 
 <section>
   <h2>Latest posts.</h2>
-  <%= render partial: 'shared/posts', locals: {posts: @team_posts} %>
+  <%= render partial: 'shared/posts', locals: {posts: @team_posts, pics: false} %>
 </section>
 
 <% @tags.each do |tag, posts| %>
@@ -41,6 +41,6 @@
     <%= link_to tag, class: 'post-collection-link' do %>
       <h2 class="team-tag-name"><%= tag.name %>.</h2>
     <% end %>
-    <%= render partial: 'shared/posts', locals: {posts: posts} %>
+    <%= render partial: 'shared/posts', locals: {posts: posts, pics: true} %>
   </section>
 <% end %>

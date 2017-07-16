@@ -1,10 +1,13 @@
 class Tag < ApplicationRecord
 
-  after_initialize :default_to_non_post_type
+  after_initialize :set_defaults
+
+  mount_uploader :pic, TagPicUploader
 
   validates_presence_of :name
   validates :name, uniqueness: true
   validates :slug, uniqueness: true
+  validates_with TagValidator
 
   has_and_belongs_to_many :posts
 
@@ -22,7 +25,8 @@ class Tag < ApplicationRecord
 
   private
 
-    def default_to_non_post_type
+    def set_defaults
+      self.is_highlighted = false if self.is_highlighted.nil?
       self.is_post_type = false if self.is_post_type.nil?
     end
 end

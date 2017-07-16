@@ -41,11 +41,13 @@ ActiveAdmin.register Show do
         row :slug
         row :created_at
         row :updated_at
-        row 'pic' do
-          img src: show.pic.resized.url
-        end
-        row 'remove_pic' do
-          link_to 'Delete picture', delete_pic_admin_show_path(show.id), method: :post
+        unless show.pic.url.nil?
+          row 'pic' do
+            img src: show.pic.resized.url
+          end
+          row 'remove_pic' do
+            link_to 'Delete picture', delete_pic_admin_show_path(show.id), method: :post
+          end
         end
         row 'People involved' do
           show.show_memberships.each do |membership|

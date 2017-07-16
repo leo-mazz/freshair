@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711162154) do
+ActiveRecord::Schema.define(version: 20170716095303) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -110,11 +110,12 @@ ActiveRecord::Schema.define(version: 20170711162154) do
     t.text     "content"
     t.integer  "author_id"
     t.boolean  "is_published"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "slug"
     t.integer  "team_id"
     t.integer  "show_id"
+    t.boolean  "is_highlighted"
     t.index ["author_id"], name: "index_posts_on_author_id"
     t.index ["show_id"], name: "index_posts_on_show_id"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
@@ -189,9 +190,11 @@ ActiveRecord::Schema.define(version: 20170711162154) do
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.boolean  "is_post_type"
+    t.boolean  "is_highlighted"
+    t.string   "pic"
   end
 
   create_table "team_memberships", force: :cascade do |t|

@@ -2,7 +2,7 @@ require 'nokogiri'
 
 class Post < ApplicationRecord
 
-  after_initialize :default_to_not_published
+  after_initialize :set_defaults
 
   validates_presence_of :title, :author
   validates :slug, uniqueness: true
@@ -41,7 +41,7 @@ class Post < ApplicationRecord
 
   def summary
     return self.short_body unless self.short_body.blank?
-    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content), length: 130,  separator: ' ')
+    ActionController::Base.helpers.truncate(ActionController::Base.helpers.strip_tags(self.content), length: 140,  separator: ' ')
   end
 
   def pic_url
@@ -62,8 +62,9 @@ class Post < ApplicationRecord
 
   private
 
-    def default_to_not_published
+    def set_defaults
       self.is_published = false if self.is_published.nil?
+      self.is_highlighted = false if self.is_highlighted.nil?
     end
 
 end
