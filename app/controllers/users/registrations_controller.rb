@@ -19,12 +19,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       @show = params['user']['_show']
       @is_manager = params['user']['team_manager?'] || false
       if @show != 'nil'
-        @show_membership = ShowMembership.create(user: resource, show: Show.find(@show), is_manager: @is_manager)
+        @show_membership = ShowMembership.create(user: resource, show: Show.find(@show))
       end
 
       @team = params['user']['_team']
       if @team != 'nil'
-        @team_membership = TeamMembership.create(user:resource, team:Team.find(@team))
+        @team_membership = TeamMembership.create(user:resource, team:Team.find(@team), is_manager: @is_manager)
       end
 
       # Notify webmaster there's a user to approve
