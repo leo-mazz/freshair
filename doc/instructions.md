@@ -17,11 +17,17 @@ If you're in a team, you can assign a team to your post. It will then be display
 In order for your post to be actually published, make sure that the 'Is published?' checkbox is checked. You can use this feature to write drafts.
 You can write a short body for your post, it will be displayed in the multiple posts view. If you don't, it will be automatically generated from the post content.
 As for the post content, **please**, refer to the Formatting Guide above.
-If your post is on the homepage and has a picture displayed, the chosen picture will be the first one of your post by default. To override this behaviour, click a picture of your choice, click on the 'Image' button, select the 'Advanced' tab, write 'main' in the 'Id' field and confirm.
+If your post is displayed under a tag, and it has pictures, the first one will be  selected and displayed. To override this behaviour (select a different picture), click on a picture of your choice, click on the 'Image' button, select the 'Advanced' tab, write 'main' in the 'Id' field and confirm.
 
 
 ### Reviews
 If your post is a review, you can add a rating to it (it will be appropriately represented by the website with a 0 to 5 stars graphic). To do so, before publishing a post, add 'Post Metadata' to it, selecting the type 'rating' and inserting a numeric score from 0 to 10.
+
+### Highlighting content
+If you're a committee member, or the head of a team, you will be displayed an option in both the Tag Edit view and Post Edit view to highlight the tag or post. The homepage will display the three latest highlights.
+
+You can only highlight content that has a picture associated to it. In the case of a tag, you will be requested to upload it. In the case of a post, the first picture of the post body will automatically be used. If you want to use a different picture for a post, select that picture, click on the 'picture' button on the editor, select the 'Advanced' tab, write 'main' in the 'Id' field and confirm.
+
 
 ## Head of Programming
 As the Head of Programming, you'll need to sign up for a user account on the website and request the role 'Head of Programming'.
