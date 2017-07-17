@@ -56,6 +56,9 @@ Rails.application.routes.draw do
   # Techteam page
   get 'techteam', to: 'techteam#index', as: 'techteam'
 
+  # FreshAir.org.uk IT instructions for users
+  get 'help', to: 'static#help'
+
   # Report issue page
   get 'issue', to: 'issue#report', as: 'issue'
   post 'issue', to: 'issue#submit'

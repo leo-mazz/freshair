@@ -232,6 +232,11 @@ example be embedded on the official Facebook page. It should not be used in
 cases where only a stream of audio is needed. For that, simply use
 https://studio.freshair.org.uk:8443/radio.
 
+#### Instructions
+The file `doc/instructions.md` is meant as a simple but comprehensive guide
+on FreshAir IT. Please, keep it up to date. It will be parsed and served to
+users at the endpoint `/help`.
+
 ### Sending emails
 The website uses email through SMTP using its domain provider (currently
 NameCheap). It will need outbound access to port 587.

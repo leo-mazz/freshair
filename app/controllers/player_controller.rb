@@ -4,6 +4,7 @@ class PlayerController < ApplicationController
   layout 'player'
 
   def listen
+    @title = 'Player'
     # Allow embedding on other websites
     response.headers.delete "X-Frame-Options"
   end

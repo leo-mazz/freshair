@@ -1,0 +1,34 @@
+.static {
+  height: 100%;
+  width: 100%;
+  background: #1d2021;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.static-content {
+  max-width: 710px;
+  margin: auto;
+  padding: 30px 15px;
+  color: rgb(175, 174, 174);
+  line-height: auto;
+
+  h1 {
+    padding: 10px 0;
+  }
+
+  h2 {
+    padding-top: 10px;
+    padding-bottom: 3px;
+  }
+
+  h3, h4 {
+    padding-top: 6px;
+    padding-bottom: 3px;
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 25px;
+  }
+}

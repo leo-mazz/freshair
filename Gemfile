@@ -62,6 +62,8 @@ gem 'figaro'
 gem 'kaminari'
 # HTML parser
 gem 'nokogiri'
+# Markdown parser
+gem 'redcarpet'
 # Emails exception alerts to the webmaster
 gem 'exception_notification'
 

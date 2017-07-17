@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 module ContentHelper
 
   def rating(score)
@@ -26,6 +28,18 @@ module ContentHelper
       result += '</div>'
     end
     result
+  end
+
+  def markdown_toc(string)
+    renderer = Redcarpet::Render::HTML_TOC.new()
+    markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    markdown.render(string)
+  end
+
+  def markdown(string)
+    renderer = Redcarpet::Render::HTML.new(hard_wrap: true, with_toc_data: true)
+    markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    markdown.render(string)
   end
 
   def accepted_tags

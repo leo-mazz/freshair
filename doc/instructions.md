@@ -1,5 +1,3 @@
-# FreshAir.org.uk IT: a simple guide for users
-[[toc]]
 ## Formatting guide
 Wherever on the website you find a visual editor (like for posts, pages and events) you can format text, create tables and so on. You can upload a picture (or embed an external one) by clicking on the ‘Picture’ button. You can add an attachment by clicking on the ‘Link’ button, then on ‘Upload’. You can embed other types of content (like youtube videos) by clicking on the ‘Source’ button in the editor and pasting the relevant HTML code.  Remember to switch back to visual editing.
  Please use as little formatting as possible. Setting your text bold or italic is definitely ok, changing its background-color is almost definitely not ok. Some HTML code you add may be filtered away before being presented to users. If you have any special need on that regard, get in touch with the webmaster.
