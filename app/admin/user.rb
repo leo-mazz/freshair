@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 
   menu :parent => "Site Admin"
 
-  permit_params :first_name, :last_name, :email, :password, :password_confirmation, role_ids: [], show_memberships_attributes: [:id, :show, :user, :_destroy], team_memberships_attributes: [:id, :team_id, :user, :is_manager, :_destroy]
+  permit_params :first_name, :last_name, :email, :password, :password_confirmation, role_ids: [], show_memberships_attributes: [:id, :show_id, :user, :_destroy], team_memberships_attributes: [:id, :team_id, :user, :is_manager, :_destroy]
 
   scope :to_approve
 
