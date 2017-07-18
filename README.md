@@ -202,7 +202,9 @@ be displayed right below the navigation.
 Users can sign up to request a user account and specify which roles they want
 to be assigned. They need to confirm their email and also be approved by an
 admin. Before approving them, their roles should be carefully checked. In case
-of doubt, check with the Committee.
+of doubt, check with the Committee. Users can edit, but not destroy their
+accounts. Please note that if you destroy a user account, you risk creating
+orphans (and breaking many things). So maybe don't.
 
 
 ### Gems

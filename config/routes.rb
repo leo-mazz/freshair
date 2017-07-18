@@ -3,11 +3,22 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   # Authentication, registration
-  devise_for :users,
+  devise_for :users, skip: :registrations,
   controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
+    sessions: 'users/sessions'
   }
+
+  devise_scope :user do
+    resource :registration,
+      only: [:new, :create, :edit, :update],
+      path: 'users',
+      path_names: { new: 'sign_up' },
+      controller: 'users/registrations',
+      as: :user_registration do
+        get :cancel
+      end
+  end
+
   get '/users', to: redirect('/users/sign_in')
 
 
