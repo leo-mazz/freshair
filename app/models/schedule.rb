@@ -30,7 +30,7 @@ class Schedule < ApplicationRecord
   end
 
   def self.next
-    Schedule.where('start_date >= ? ', Date.tomorrow).order(start_date: :desc).first
+    Schedule.where('start_date >= ? ', Date.tomorrow).order(start_date: :asc).first
   end
 
   def assignments_on(day)

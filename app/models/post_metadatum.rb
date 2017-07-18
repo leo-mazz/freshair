@@ -14,15 +14,18 @@ class PostMetadatum < ApplicationRecord
     PostMetadatum.allowed_keys.include?(key)
   end
 
-  def self.number_or_nil(value)
-    num = value.to_i
-    num if num.to_s == value.to_s
-  end
-
   def self.valid_rating?(rating)
     num_rating = PostMetadatum.number_or_nil(rating)
     return false if (num_rating.nil? or num_rating > 10 or num_rating < 0)
     true
   end
+
+  private
+
+    def self.number_or_nil(string)
+      num = string.to_i
+      return num if num.to_s == string.to_s
+      return nil
+    end
 
 end
