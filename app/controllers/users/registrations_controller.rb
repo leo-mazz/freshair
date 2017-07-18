@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
       # Notify webmaster there's a user to approve
       if resource.errors.empty?
-        AdminMailer.new_user_notification(resource).deliver_later
+        GenericMailer.new_user_notification(resource).deliver_later
       end
     end
   end

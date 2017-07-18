@@ -1,6 +1,5 @@
-<p>Hello <%= @email %>,</p>
-<%# TODO: display the name instead %>
-<p>You can confirm your account email through the link below:</p>
+<p>Hello there,</p>
+<p>It looks like you requested a user account at FreshAir.org.uk, connected to this email address. You can confirm your account email through the link below:</p>
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 <p>In order for your account to be activated the webmaster has to approve it.</p>
 <p>Once these two actions take place, you'll be able to access the Admin Dashboard by clicking on the link at the bottom of any page on the website.</p><br>

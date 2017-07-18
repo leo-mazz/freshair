@@ -27,9 +27,11 @@ ActiveAdmin.register User do
     user.save
     redirect_to admin_users_path
 
-    # Notify user of success or failure
+    # Notify admin of success or failure
     if user.errors.empty?
       flash[:notice] = "User approved"
+      # Warn users their account has been approved
+      GenericMailer.account_approval(user).deliver_later
     else
       user.errors.each do |attribute, message|
         flash[:errors] = "#{attribute}: #{message}"

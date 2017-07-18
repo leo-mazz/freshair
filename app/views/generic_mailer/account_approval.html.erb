@@ -1,0 +1,10 @@
+<p>Dear <%= @user.name %>,</p>
+<p>Your FreshAir.org.uk account has been approved</p>
+<% if @user.confirmed? %>
+  <p>This means you can now log in :)</p>
+<% else %>
+  <p>You still have to confirm your email address by clicking on the link sent to you.</p>
+<% end %>
+
+<p>Kind Regards,</p>
+<p>FreshAir Committee and FreshAir's webmaster</p>
