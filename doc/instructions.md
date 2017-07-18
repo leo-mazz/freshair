@@ -66,7 +66,7 @@ If you upload podcasts for a show which has been marked as a Team Hub Show, its
 latest podcast will be displayed on the team page.
 
 ### Moderating posts
-You have the ability of editing and deleting all posts associated to your show, even you're not the author. Use this power wisely.
+You have the ability of editing and deleting all posts associated to your show, even if you're not the author. Use this power wisely.
 
 ### Broadcasting
 #### Live shows
@@ -118,9 +118,6 @@ Events will need to have a title, location and start date and time. Optionally, 
 Upcoming events will be displayed in the left sidebar of the website. Newly published events will be displayed in the 'Latest posts' section in the website.
 Please only add events relevant to the whole station (a team meeting should not be worth of a website event. You can instead publicize it using the top section in your team's page).
 As for the description of the event, **please**, refer to the Formatting Guide above at the beginning of this document.
-
-### Highlights
-Highlights haven't been implemented yet.
 
 ### Pages
 You should be able, through the Admin Dashboard of the website, to edit existing main pages and to create, destroy and edit sub pages. Sub pages need a parent page.
