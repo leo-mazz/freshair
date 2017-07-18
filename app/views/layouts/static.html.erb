@@ -3,8 +3,9 @@
 <head>
   <title>FreshAir.org.uk <% unless @title.nil?%> <%= '> ' + @title %><% end %></title>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width">
 
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <%= stylesheet_link_tag    'application', media: 'all' %>
 </head>
