@@ -5,7 +5,7 @@
   <%= link_to root_path do %>
     <%= image_tag 'logo-white.png', class: 'logo-white' %>
   <% end %>
-  <div id="player">
+  <div data-turbolinks-permanent id="player">
     <div class="on-air">
       <%= image_tag 'default-cover.png', id: 'player-default-picture'%>
       <img src="" style="display:none;" id="player-picture">
@@ -20,7 +20,7 @@
         </div>
         <div class="player-buttons">
           <%= link_to 'Schedule', current_schedule_path, class: 'button button-transparent' %>
-          <span data-turbolinks-permanent id="audio-control" class="button button-blue">
+          <span id="audio-control" class="button button-blue">
             <span id="play-icon"><i class="fa fa-play" aria-hidden="true"></i></span>
             <span id="audio-control-txt">Play now</span>
           </span>
