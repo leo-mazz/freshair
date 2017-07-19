@@ -30,13 +30,13 @@ class ScheduleTest < ActiveSupport::TestCase
   test "Schedule.next returns right next schedule" do
     create(:current_schedule)
 
-    right_schedule = create(:schedule,
+    create(:schedule,
       name: 'Future schedule',
       start_date: 1000.days.from_now.to_date,
       end_date: 1002.days.from_now.to_date
     )
 
-    create(:schedule,
+    right_schedule = create(:schedule,
       name: 'Less future schedule',
       start_date: 100.days.from_now.to_date,
       end_date: 102.days.from_now.to_date
