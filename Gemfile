@@ -41,7 +41,7 @@ gem 'validates_email_format_of'
 # Admin interface
 gem 'activeadmin', github: 'activeadmin'
 # WYSIWYG editor
-gem 'ckeditor'
+gem 'ckeditor', '~> 4.2.4'
 # Datetime picker for ActiveAdmine
 gem 'just-datetime-picker'
 # For sweet inline icons
