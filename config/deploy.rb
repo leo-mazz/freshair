@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock "3.8.1"
+lock "3.9.0"
 
 set :application, "FreshAir.org.uk"
 set :repo_url, "https://#{ENV['REPO_CREDENTIALS']}@bitbucket.org/freshair/refresh-website.git"
