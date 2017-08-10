@@ -21,7 +21,7 @@
   .post {
     display: flex;
     height: 120px;
-    max-width: 330px;
+    max-width: calc(33.3% - 19px);
     margin: 10px;
     flex-basis: 240px;
     flex-grow: 1;
