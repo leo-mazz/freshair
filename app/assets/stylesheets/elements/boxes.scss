@@ -21,10 +21,10 @@
   .post {
     display: flex;
     height: 120px;
-    max-width: calc(33.3% - 19px);
+    flex-basis: : calc(33.3% - 20px);
     margin: 10px;
-    flex-basis: 240px;
     flex-grow: 1;
+    min-width: 283px;
 
     &:hover .post-info .post-title {
       background: $color-yellow;
