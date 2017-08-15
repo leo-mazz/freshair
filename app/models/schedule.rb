@@ -1,5 +1,7 @@
 class Schedule < ApplicationRecord
 
+  after_initialize :set_defaults
+
   validates :name, presence: true
   validates :name, uniqueness: true
   validates_with ScheduleValidator
@@ -76,5 +78,29 @@ class Schedule < ApplicationRecord
         # or if the first ends while the second is on
         ((self.end_date >= schedule.start_date) && (self.end_date <= schedule.end_date)))
   end
+
+  def compatible_with_times?(start_time, end_time)
+    # Note: this method should be used to check whether datetimes clash with some
+    # assignments and won't check whether datetimes are in the schedule's frame
+    # of validity
+    # Assumption: bookings' start and end times are on the same day
+    day_of_week = start_time.wday
+
+    booking = ScheduleAssignment.new(
+      start_time: start_time.to_time,
+      end_time: end_time.to_time,
+      day_of_week: start_time.wday
+    )
+
+    assignments = self.assignments_on(day_of_week)
+
+    return booking.compatible_with?(assignments)
+  end
+
+  private
+
+    def set_defaults
+      self.is_free_schedule = false if self.is_free_schedule.nil?
+    end
 
 end

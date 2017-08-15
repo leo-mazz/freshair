@@ -270,4 +270,41 @@ class ScheduleTest < ActiveSupport::TestCase
     assert schedule1.clash_with?(schedule2)
   end
 
+
+  # test_compatible_with_times?
+  test "Schedule.compatible_with_times? returns false with uncompatible times" do
+    schedule = create(:current_schedule)
+
+    start_time = DateTime.now
+    end_time = DateTime.now + 1.hour
+    day_of_week = DateTime.now.cwday
+
+    assignment = create(:schedule_assignment,
+      schedule: schedule,
+      start_time: start_time.to_time,
+      end_time: end_time.to_time,
+      day_of_week: day_of_week,
+    )
+
+    assert_not schedule.compatible_with_times?(start_time, end_time)
+  end
+
+  test "Schedule.compatible_with_times? returns true with compatible times" do
+    schedule = create(:current_schedule)
+
+    datetime = '2000-01-01 10:00:00'.to_datetime
+    start_time = datetime
+    end_time = datetime + 1.hour
+    day_of_week = datetime.cwday
+
+    assignment = create(:schedule_assignment,
+      schedule: schedule,
+      start_time: start_time.to_time,
+      end_time: end_time.to_time,
+      day_of_week: day_of_week
+    )
+
+    assert schedule.compatible_with_times?(start_time + 2.hour, end_time + 3.hours)
+  end
+
 end

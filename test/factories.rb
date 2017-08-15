@@ -10,16 +10,17 @@ FactoryGirl.define do
   end
 
 
+  factory :show do
+    title 'Eve was Framed'
+    description 'Cool show'
+  end
+
+
   factory :schedule_assignment do
     day_of_week 1
     start_time '2000-01-01 10:00:00'.to_time
     end_time '2000-01-01 11:00:00'.to_time
-  end
-
-
-  factory :show do
-    title 'Eve was Framed'
-    description 'Cool show'
+    show
   end
 
 

@@ -9,6 +9,7 @@ ActiveAdmin.register Schedule do
     selectable_column
 
     column :name
+    column :is_free_schedule
     column :start_date
     column :end_date
 
@@ -17,6 +18,7 @@ ActiveAdmin.register Schedule do
   end
 
   filter :name
+  filter :is_free_schedule
   filter :start_date
   filter :end_date
   filter :created_at
@@ -28,6 +30,7 @@ ActiveAdmin.register Schedule do
       attributes_table_for schedule do
         row :id
         row :name
+        row :is_free_schedule
         row :start_date
         row :end_date
         row :created_at
@@ -66,6 +69,7 @@ ActiveAdmin.register Schedule do
   form do |f|
     f.inputs name: 'Basic details' do
       f.input :name
+      f.input :is_free_schedule
       f.input :start_date, as: :datepicker
       f.input :end_date, as: :datepicker
     end
@@ -84,7 +88,7 @@ ActiveAdmin.register Schedule do
     f.actions
   end
 
-  permit_params :name, :start_date, :end_date, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
+  permit_params :name, :is_free_schedule, :start_date, :end_date, assignments_attributes: [:id, :day_of_week, :start_time, :end_time, :show_id, :_destroy]
 
 
 end

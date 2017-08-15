@@ -3,7 +3,7 @@ ActiveAdmin.register Booking do
   scope :future
   scope :recording_studio_next_7_days
 
-  permit_params :user, :start, :end, :location
+  permit_params :user, :show_id, :start, :end, :location
 
   config.sort_order = 'start_asc'
 
@@ -19,6 +19,7 @@ ActiveAdmin.register Booking do
       Booking.locations.key(booking.location)
     end
     column :user
+    column :show
     column :start
     column :end
 
@@ -28,6 +29,7 @@ ActiveAdmin.register Booking do
   form do |f|
     f.inputs do
       f.input :location, as: :select, collection: Booking.locations
+      f.input :show, collection: current_user.shows
       f.input :start
       f.input :end
     end

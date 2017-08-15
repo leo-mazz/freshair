@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
 
   belongs_to :user
+  belongs_to :show
+
   validates_presence_of :start, :end, :user, :location
   validates_with BookingValidator
 
@@ -29,7 +31,8 @@ class Booking < ApplicationRecord
   end
 
   def creates_clash?
-    Booking.future.each do |a|
+    other_bookings = Booking.future - [self]
+    other_bookings.each do |a|
       return true if self.clash_with?(a)
     end
 
