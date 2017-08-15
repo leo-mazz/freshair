@@ -21,7 +21,8 @@ class ScheduleValidator <  ActiveModel::Validator
       record.errors[:end_date] << 'If you specify an end date you have to give a start date'
     end
 
-    Schedule.all.each do |schedule|
+    other_schedules = Schedule.all - [record]
+    other_schedules.each do |schedule|
       if record.clash_with?(schedule)
         record.errors[:name] << 'There is a date clash between this schedule and another one'
       end
