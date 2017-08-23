@@ -7,7 +7,7 @@ ActiveAdmin.register Event do
     selectable_column
     column :name
     column(:is_upcoming) do |event|
-      event.is_upcoming? ? status_tag( "yes", :ok ) : status_tag( "no" )
+      event.is_upcoming? ? status_tag("yes") : status_tag("no")
     end
     column :start
     column :end
@@ -28,7 +28,7 @@ ActiveAdmin.register Event do
       attributes_table_for event do
         row :name
         row :is_upcoming do
-          event.is_upcoming? ? status_tag( "yes", :ok ) : status_tag( "no" )
+          event.is_upcoming? ? status_tag("yes") : status_tag("no")
         end
         row :start
         row :end

@@ -89,7 +89,7 @@ ActiveAdmin.register User do
     end
 
     column(:email_confirmed) do |user|
-      user.confirmed? ? status_tag( "yes", :ok ) : status_tag( "no" )
+      user.confirmed? ? status_tag("yes") : status_tag("no")
     end
     column :approved
 
