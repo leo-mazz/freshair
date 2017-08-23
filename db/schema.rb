@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815162200) do
+ActiveRecord::Schema.define(version: 20170823113211) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -159,6 +159,11 @@ ActiveRecord::Schema.define(version: 20170815162200) do
     t.datetime "updated_at",       null: false
     t.date     "start_date"
     t.boolean  "is_free_schedule"
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "key"
+    t.text   "value"
   end
 
   create_table "show_memberships", force: :cascade do |t|

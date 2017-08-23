@@ -2,13 +2,27 @@
 class TwitterService
 
   def self.get_timeline
-    account = ENV['TWITTER_ACCOUNT']
+
+    unless SettingsService.get('fringe-twitter-feed') == 'true'
+      account = ENV['TWITTER_ACCOUNT']
+      consumer_key = ENV['TWITTER_CONSUMER_KEY']
+      access_token = ENV['TWITTER_ACCESS_TOKEN']
+      access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+      consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
+    else
+      account = ENV['TWITTER_FRINGE_ACCOUNT']
+      consumer_key = ENV['TWITTER_FRINGE_CONSUMER_KEY']
+      access_token = ENV['TWITTER_FRINGE_ACCESS_TOKEN']
+      access_token_secret = ENV['TWITTER_FRINGE_ACCESS_TOKEN_SECRET']
+      consumer_secret = ENV['TWITTER_FRINGE_CONSUMER_SECRET']
+    end
+
 
     client = Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV['TWITTER_CONSUMER_KEY']
-      config.consumer_secret = ENV['TWITTER_CONSUMER_SECRET']
-      config.access_token = ENV['TWITTER_ACCESS_TOKEN']
-      config.access_token_secret = ENV['TWITTER_ACCESS_TOKEN_SECRET']
+      config.consumer_key = consumer_key
+      config.consumer_secret = consumer_secret
+      config.access_token = access_token
+      config.access_token_secret = access_token_secret
     end
 
     Rails.cache.fetch("#{account}_tweets", :expires_in => 5.minutes) do

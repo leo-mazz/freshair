@@ -206,6 +206,14 @@ of doubt, check with the Committee. Users can edit, but not destroy their
 accounts. Please note that if you destroy a user account, you risk creating
 orphans (and breaking many things). So maybe don't.
 
+#### Settings
+Settings can be used by a system administrator to tweak the behavior of the
+website. Right now, the setting 'home-header' will allow inserting sanitized
+HTML on the homepage, after the navigation, and the setting
+'fringe-twitter-feed' will display the FreshFringe feed instead of the standard
+one when set to 'true'. The website is supposed to work out of the box with
+no settings.
+
 
 ### Gems
 This project depends on a range of gems. Their purpose is described in the

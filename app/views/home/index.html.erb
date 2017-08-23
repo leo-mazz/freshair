@@ -16,9 +16,12 @@
   <%= render 'shared/messages', locals: {messages: flash} %>
 <% end %>
 
-<section class="team-body">
-  <a target="_blank" href="http://uk.virginmoneygiving.com/fundraiser-web/fundraiser/showFundraiserProfilePage.action?userUrl=freshfringe2017&isTeam=true">Fresh Fringe 24hr show for Waverley Care</a>
-</section>
+<% unless SettingsService.get('home-header').nil? %>
+  <section class="content-header">
+    <%# Crucial to sanitize %>
+    <%= sanitize SettingsService.get('home-header').html_safe, tags: accepted_tags, attributes: accepted_attributes %>
+  </section>
+<% end %>
 
 
 <section class="home-grid">

@@ -25,7 +25,7 @@
 <% end %>
 
 <% unless @team.body.blank? %>
-  <section class="team-body">
+  <section class="content-header">
     <%# Crucial to sanitize %>
     <%= sanitize @team.body.html_safe, tags: accepted_tags, attributes: accepted_attributes %>
   </section>
