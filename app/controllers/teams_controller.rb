@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.friendly.find(params[:id])
-    @team_posts = @team.posts.order(created_at: :desc)
+    @team_posts = @team.posts.order(created_at: :desc).limit(6)
 
     @tags  = {}
 
