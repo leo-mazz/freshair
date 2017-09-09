@@ -4,6 +4,7 @@ clearMessageStudio = (authorField, contentField, messageInfo)->
   authorField.value = ''
   contentField.value = ''
   messageInfo.style.display = 'none'
+  @messageSent = false
 
 initializeMessageStudio = ->
   message = {}
@@ -13,7 +14,7 @@ initializeMessageStudio = ->
 
   clearMessageStudio(messageAuthorField, messageContentField, messageInfo)
 
-  messageAuthorField.addEventListener 'keyup', (e) ->
+  messageAuthorField.addEventListener 'keydown', (e) ->
     # If press enter
     if 13 == e.keyCode && messageAuthorField.value != ""
       messageAuthorField.style.display = 'none'
@@ -25,9 +26,9 @@ initializeMessageStudio = ->
     return
 
 
-  messageContentField.addEventListener 'keyup', (e) ->
+  messageContentField.addEventListener 'keydown', (e) ->
     # If press enter
-    if 13 == e.keyCode && messageContentField.value != ""
+    if 13 == e.keyCode && messageContentField.value != "" && !@messageSent
       message.author = messageAuthorField.value
       message.content = messageContentField.value
 
@@ -42,8 +43,11 @@ initializeMessageStudio = ->
       request = new XMLHttpRequest
       request.open 'POST', 'https://studio.freshair.org.uk/api/messages/submit', true
       request.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
-
+      console.log 'sending message'
       request.send 'author='+ message.author + '&content=' + message.content + '&time=' + message.time
+
+      @messageSent = true
+
       e.preventDefault()
     return
 
