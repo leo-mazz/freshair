@@ -13,9 +13,9 @@ initializeMessageStudio = ->
 
   clearMessageStudio(messageAuthorField, messageContentField, messageInfo)
 
-  messageAuthorField.addEventListener 'keydown', (e) ->
+  messageAuthorField.addEventListener 'keyup', (e) ->
     # If press enter
-    if 13 == e.keyCode
+    if 13 == e.keyCode && messageAuthorField.value != ""
       messageAuthorField.style.display = 'none'
       messageContentField.style.display = 'block'
       messageInfo.innerHTML = 'You\'re writing as ' + messageAuthorField.value + '. Press Esc to cancel'
@@ -25,9 +25,9 @@ initializeMessageStudio = ->
     return
 
 
-  messageContentField.addEventListener 'keydown', (e) ->
+  messageContentField.addEventListener 'keyup', (e) ->
     # If press enter
-    if 13 == e.keyCode
+    if 13 == e.keyCode && messageContentField.value != ""
       message.author = messageAuthorField.value
       message.content = messageContentField.value
 
