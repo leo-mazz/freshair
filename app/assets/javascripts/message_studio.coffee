@@ -35,7 +35,11 @@ initializeMessageStudio = ->
       today = new Date
       hours = today.getHours()
       minutes = if today.getMinutes() < 10 then '0' + today.getMinutes() else today.getMinutes()
+      dd = today.getDay()
+      mm = today.getMonth() + 1
+      yyyy = today.getFullYear()
       message.time =  hours + ':' + minutes
+      message.date = dd + '/' + mm + '/' + yyyy
       messageContentField.style.display = 'none'
       messageInfo.innerHTML = 'Message sent! Press Esc to start over'
       messageInfo.style.display = 'block'
@@ -43,8 +47,7 @@ initializeMessageStudio = ->
       request = new XMLHttpRequest
       request.open 'POST', 'https://studio.freshair.org.uk/api/messages/submit', true
       request.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
-      console.log 'sending message'
-      request.send 'author='+ message.author + '&content=' + message.content + '&time=' + message.time
+      request.send 'author='+ message.author + '&content=' + message.content + '&time=' + message.time + '&date=' + message.date
 
       @messageSent = true
 
