@@ -1,7 +1,7 @@
 class ApiController < ActionController::Base
 
   def shows_for_user
-    @user = User.find_by_email(params[:email])
+    @user = User.valid.find_by_email(params[:email])
     if @user.nil?
       render json: nil
     else
