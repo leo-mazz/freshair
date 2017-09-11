@@ -10,6 +10,7 @@ class IssueController < ApplicationController
 
     if @issue.save
       redirect_to issue_submitted_path
+      GenericMailer.new_issue(@issue).deliver_later
     else
       render 'report'
     end

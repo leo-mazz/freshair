@@ -10,4 +10,9 @@ class GenericMailer < ApplicationMailer
     mail(to: user.email, subject: 'Your account has been approved')
   end
 
+  def new_issue(issue)
+    @issue = issue
+    mail(to: ENV['WEBMASTER_EMAIL'], subject: 'New issue submitted')
+  end
+
 end
