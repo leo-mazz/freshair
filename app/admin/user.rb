@@ -193,7 +193,7 @@ ActiveAdmin.register User do
 
     f.inputs name: 'Show assignments' do
       f.has_many :show_memberships, :allow_destroy => true do |tmf|
-        tmf.input :show, collection: Show.by_title
+        tmf.input :show, collection: Show.not_hub_shows
       end
     end
 

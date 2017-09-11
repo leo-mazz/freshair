@@ -103,7 +103,7 @@ ActiveAdmin.register Post do
       f.input :tags, as: :check_boxes
 
       if current_user.has_role? :admin
-        f.input :show, as: :select, collection: Show.by_title, label: 'Associate to a show?'
+        f.input :show, as: :select, collection: Show.not_hub_shows, label: 'Associate to a show?'
         f.input :team, as: :select, collection: Team.all, label: 'Associate to a team?'
       else
         f.input :show, as: :select, collection: current_user.shows, label: 'Associate to a show?'

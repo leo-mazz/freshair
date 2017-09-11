@@ -78,6 +78,14 @@ class Show < ApplicationRecord
     !self.team.blank?
   end
 
+  def self.hub_shows
+    Team.all.map(&:hub_show).compact
+  end
+
+  def self.not_hub_shows
+    (Show.all - Show.hub_shows).sort_by { |show| show.title }
+  end
+
   def check_broadcast_time(start_time, end_time=nil)
 
     if (not end_time.nil?) and (end_time <= start_time)
