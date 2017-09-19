@@ -16,4 +16,10 @@ class TeamsController < ApplicationController
     @title = @team.name
   end
 
+  def all_posts
+    @team = Team.friendly.find(params[:id])
+    @team_posts = @team.posts.order(created_at: :desc).page(params[:page])
+
+  end
+
 end

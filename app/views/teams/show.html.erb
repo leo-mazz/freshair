@@ -32,7 +32,9 @@
 <% end %>
 
 <section>
-  <h2>Latest posts.</h2>
+  <%= link_to all_posts_team_path(@team), class: 'post-collection-link' do %>
+    <h2>Latest posts.</h2>
+  <% end %>
   <%= render partial: 'shared/posts', locals: {posts: @team_posts, pics: false} %>
 </section>
 

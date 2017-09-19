@@ -49,7 +49,9 @@ Rails.application.routes.draw do
   resources :posts, only: ['show', 'index']
 
   # Teams
-  resources :teams, only: ['show']
+  resources :teams, only: ['show'] do
+    get 'all_posts', on: :member, as: 'all_posts'
+  end
 
   # Events
   resources :events, only: ['show']
