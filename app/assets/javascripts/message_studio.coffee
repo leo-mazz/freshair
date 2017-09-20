@@ -1,3 +1,5 @@
+messageSent = false
+
 clearMessageStudio = (authorField, contentField, messageInfo)->
   authorField.style.display = 'block'
   contentField.style.display = 'none'
@@ -43,7 +45,7 @@ initializeMessageStudio = ->
       messageContentField.style.display = 'none'
       messageInfo.innerHTML = 'Message sent! Press Esc to start over'
       messageInfo.style.display = 'block'
-
+      console.log 'sending message'
       request = new XMLHttpRequest
       request.open 'POST', 'https://studio.freshair.org.uk/api/messages/submit', true
       request.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
