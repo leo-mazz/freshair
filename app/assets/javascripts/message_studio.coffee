@@ -4,7 +4,7 @@ clearMessageStudio = (authorField, contentField, messageInfo)->
   authorField.value = ''
   contentField.value = ''
   messageInfo.style.display = 'none'
-  @messageSent = false
+  messageSent = false
 
 initializeMessageStudio = ->
   message = {}
@@ -28,7 +28,7 @@ initializeMessageStudio = ->
 
   messageContentField.addEventListener 'keydown', (e) ->
     # If press enter
-    if (13 == e.keyCode) && (messageContentField.value != "") && (!@messageSent)
+    if (13 == e.keyCode) && (messageContentField.value != "") && (!messageSent)
       message.author = messageAuthorField.value
       message.content = messageContentField.value
 
@@ -49,7 +49,7 @@ initializeMessageStudio = ->
       request.setRequestHeader 'Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8'
       request.send 'author='+ message.author + '&content=' + message.content + '&time=' + message.time + '&date=' + message.date
 
-      @messageSent = true
+      messageSent = true
 
       e.preventDefault()
     return
