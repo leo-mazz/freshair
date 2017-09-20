@@ -75,7 +75,11 @@ In the Main Studio, just follow these steps:
 1. On PC1, open studio.freshair.org.uk in a browser window
 2. Enter your email
 3. Select the show you're about to broadcast from the list and confirm
-4. Click on the 'off air' button. When it becomes red and displays 'on air', well you're on air
+4. Click on the 'off air' button. When it becomes red and displays 'on air', well, you're on air
+
+If the studio is already on air from a previous show, remember to logout and login with your credentials! We record these logins to ensure attendance, thus if you fail to do so you might unwillingly get in trouble.
+
+If yours is the last show for the day, please remember to go off air.
 
 #### Pre-recorded shows
 Currently you can only upload prerecorded shows from the studio:
