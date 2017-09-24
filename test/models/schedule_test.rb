@@ -272,12 +272,12 @@ class ScheduleTest < ActiveSupport::TestCase
 
 
   # test_compatible_with_times?
-  test "Schedule.compatible_with_times? returns false with uncompatible times" do
+  test "Schedule.compatible_with_times? returns false with incompatible times" do
     schedule = create(:current_schedule)
 
-    start_time = "6:00".to_time
-    end_time = "7:00".to_time
-    day_of_week = DateTime.now.cwday
+    start_time = '2000-01-01 10:00:00'.to_datetime
+    end_time = '2000-01-01 11:00:00'.to_datetime
+    day_of_week = start_time.cwday
 
     assignment = create(:schedule_assignment,
       schedule: schedule,
