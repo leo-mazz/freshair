@@ -5,6 +5,7 @@ ActiveAdmin.register User do
   permit_params :first_name, :last_name, :email, :password, :password_confirmation, role_ids: [], show_memberships_attributes: [:id, :show_id, :user, :_destroy], team_memberships_attributes: [:id, :team_id, :user, :is_manager, :_destroy]
 
   scope :to_approve
+  scope :not_confirmed
 
   controller do
 

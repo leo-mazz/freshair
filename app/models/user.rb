@@ -22,6 +22,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :confirmable, :timeoutable, :lockable
 
   scope :to_approve, -> { where(approved: false) }
+  scope :not_confirmed, -> { where(confirmed_at: nil) }
   scope :valid, -> { where("approved = ? AND confirmed_at IS NOT NULL", true ) }
   scope :by_first_name, -> { order(:first_name) }
 
