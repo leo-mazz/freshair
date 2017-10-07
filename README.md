@@ -280,3 +280,9 @@ we encounter an Error 500, caused by
 An extra refresh should fix.
 
 If you use Ckeditor for a new field, its layout will be broken (which sucks). You'll have to use a hack: edit the file `app/assets/stylesheets/active_admin.scss` and add a new selector like the ones already there (use your browser's code inspector to find the right one).
+
+When studio messages are submitted, the date sent is the one of the timezone of
+the user sending the message. This should be fixed.
+
+When submitting schedule assignments something really weird happens with the
+timezone sometimes.
