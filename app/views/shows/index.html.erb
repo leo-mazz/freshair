@@ -33,14 +33,6 @@
             <span class="show-description">
               <%= truncate show.description, length: 110,  separator: ' ' %>
             </span><br>
-            <% unless show.broadcast_times.nil? %>
-              <span class="time">
-                <i class="fa fa-clock-o fa-grey" aria-hidden="true"></i>
-                 <%= show.broadcast_times[:day] %>
-                 <%= show.broadcast_times[:start] %> -
-                 <%= show.broadcast_times[:end] %>
-               </span>
-             <% end %>
           </div>
       <% end %>
     <% end %>
