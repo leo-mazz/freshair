@@ -46,8 +46,8 @@ class Ability
 
     # Hosts
     can [:read, :update], Show, :id => user.shows.map(&:id)
-    can :manage, Podcast, :id => user.podcasts.map(&:id)
     can :create, Podcast
+    can :manage, Podcast, :id => user.all_podcasts.map(&:id)
     can :manage, Post, :show_id => user.shows.map(&:id)
 
   end

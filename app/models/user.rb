@@ -41,6 +41,12 @@ class User < ApplicationRecord
     return (hosted_shows + team_shows).uniq
   end
 
+  def all_podcasts
+    standard_podcasts = self.podcasts.to_a
+    hub_podcasts = self.teams.map(&:hub_show).compact.map(&:podcasts).compact.flatten
+    return standard_podcasts + hub_podcasts
+  end
+
   def team_manager?
     self.team_memberships.where(is_manager: true).count > 0
   end
