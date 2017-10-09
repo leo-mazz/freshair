@@ -31,7 +31,7 @@ class ShowsController < ApplicationController
 
   def set_shows
     @all_shows = Show.by_title
-    @active_shows = Show.active
+    @active_shows = Show.by_title.active
   end
 
 end
