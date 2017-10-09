@@ -38,7 +38,7 @@ ActiveAdmin.register_page "Dashboard" do
             div strong 'Podcasts'
             ul do
               podcasts.map do |podcast|
-                li link_to("#{podcast.show.title}: #{podcast.title} (#{format_date_small (podcast.broadcast_date || podcast.created_at)})", admin_post_path(podcast))
+                li link_to("#{podcast.show.title}: #{podcast.title} (#{format_date_small podcast.date})", admin_post_path(podcast))
               end
             end
           else

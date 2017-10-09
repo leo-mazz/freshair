@@ -9,4 +9,8 @@ class Podcast < ApplicationRecord
 
   accepts_nested_attributes_for :played_tracks, :allow_destroy => true
 
+  def date
+    self.broadcast_date || self.created_at
+  end
+
 end

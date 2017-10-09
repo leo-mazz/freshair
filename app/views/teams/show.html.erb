@@ -16,7 +16,7 @@
   <div class="latest-hub-podcast">
     Latest podcast for <%= @team.name %> show:
     <%= link_to url_for([@latest_podcast.show, @latest_podcast]) do %>
-      <%= format_date_small @latest_podcast.broadcast_date %>
+      <%= format_date_small @latest_podcast.date %>
       <% unless @latest_podcast.title.blank? %>
         - <%= @latest_podcast.title %>
       <% end %>
