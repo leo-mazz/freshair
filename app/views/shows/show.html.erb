@@ -60,7 +60,7 @@
       <% @show.podcasts.each do |podcast| %>
       <div class="podcast-link">
         <%= link_to url_for([@show, podcast]) do %>
-          <%= format_date_small podcast.broadcast_date %>
+          <%= format_date_small (podcast.broadcast_date || podcast.created_at) %>
           <% unless podcast.title.blank? %>
             - <%= podcast.title %>
           <% end %>
@@ -76,8 +76,8 @@
       <% @show_posts.each do |post| %>
         <div class="podcast-link">
           <%= link_to post do %>
-            <%= format_date_small post.created_at %>
-              <%= post.title %>
+            <%= format_date_small post.created_at %> - 
+            <%= post.title %>
           <% end %>
         </div>
       <% end %>
