@@ -22,7 +22,7 @@ ActiveAdmin.register Podcast do
 
   form do |f|
     f.inputs do
-      f.input :show, collection: current_user.shows
+      f.input :show, collection: (current_user.shows.to_a + current_user.teams.map(&:hub_show)).compact
       f.input :broadcast_date
       f.input :uri, label: 'Mixcloud URL'
       f.input :title
