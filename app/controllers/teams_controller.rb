@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
     @tags  = {}
 
     @team.tags.each do |tag|
-      @tags[tag] = tag.posts.where(team_id: @team.id).limit(6)
+      @tags[tag] = tag.posts.where(team_id: @team.id).limit(6).order(created_at: :desc)
     end
 
     @latest_podcast = nil
