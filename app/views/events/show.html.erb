@@ -13,9 +13,8 @@
               - <%= format_time @event.end %>
             <% end %>
           <% else %>
-            From <%= format_date  @event.start %> <%= format_time @event.start %>
-            <i class="fa fa-calendar-o" aria-hidden="true" style="visibility:hidden;"></i>
-            to <%= format_date @event.end %> <%= format_time @event.start %>
+            From <%= format_date_no_year  @event.start %> <%= format_time @event.start %>
+            to <%= format_date_no_year @event.end %> <%= format_time @event.start %>
           <% end %>
         </div>
         <% if not @event.facebook_event.blank? %>
