@@ -66,16 +66,3 @@
   }
 
 }
-
-.show-content {
-  display: flex;
-
-  @media (max-width: $mobile-version-width) {
-    display: block;
-  }
-
-  .podcasts {
-    width: 150px;
-    margin-right: 20px;
-  }
-}

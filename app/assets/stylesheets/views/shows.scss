@@ -1,5 +1,7 @@
 #content {
 
+  // Shows index
+
   .shows {
     margin-top: 10px;
   }
@@ -59,5 +61,24 @@
       }
     }
 
+  }
+
+  // Shows show
+
+  .show-content {
+    display: flex;
+
+    @media (max-width: $mobile-version-width) {
+      display: block;
+    }
+
+    .podcasts {
+      width: 150px;
+      margin-right: 20px;
+
+      .podcast-link {
+        padding-bottom: 6px;
+      }
+    }
   }
 }
