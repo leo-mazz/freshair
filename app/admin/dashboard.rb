@@ -6,6 +6,18 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
           para "Welcome, #{current_user.first_name}!"
+          para  do
+            b "To access recordings:"
+            span "Login to "
+            a href:"https://studio.freshair.org.uk/recordings" do
+              "https://studio.freshair.org.uk/recordings"
+            end
+            span " with username '" + ENV['RECORDINGS_USER'] + "' and password '" + ENV['RECORDINGS_PASSWORD'] + "'"
+            br
+            b "The code to the studio is: "
+            span ENV['STUDIO_CODE']
+            br
+          end
           para 'The following are some quick links tailored to you. You can find all administration options accessible with your privileges using the top navigation.'
       end
     end
