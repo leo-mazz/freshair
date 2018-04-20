@@ -39,6 +39,13 @@ class ApiController < ActionController::Base
     end
   end
 
+  def get_all_shows
+    @shows = Show.by_title
+    @shows = @shows.map do |s|
+      {slug: s.slug, title: s.title, tag_line: s.tag_line, description: s.description, link: s.link, pic: s.pic_uri}
+      render json: @shows
+  end
+
   def check_broadcast_time
     @show = Show.find_by_slug(params[:slug])
     start_time = params[:start].to_i
