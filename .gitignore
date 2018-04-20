@@ -34,6 +34,9 @@ pickle-email-*.html
 /test/version_tmp/
 /tmp/
 
+# IDEA
+.idea/
+
 
 # Ignore secrets config
 /config/application.yml
