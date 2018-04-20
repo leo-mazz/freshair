@@ -44,6 +44,7 @@ class ApiController < ActionController::Base
     @shows = @shows.map do |s|
       {slug: s.slug, title: s.title, tag_line: s.tag_line, description: s.description, link: s.link, pic: s.pic_uri}
       render json: @shows
+    end
   end
 
   def check_broadcast_time
