@@ -39,7 +39,7 @@ class ApiController < ActionController::Base
     end
   end
 
-  def get_all_shows
+  def all_shows
     @shows = Show.by_title
     @shows = @shows.map do |s|
       {slug: s.slug, title: s.title, tag_line: s.tag_line, description: s.description, link: s.link, pic: s.pic_uri}

@@ -81,9 +81,9 @@ Rails.application.routes.draw do
   scope 'api' do
     get 'users/:email/shows', to: 'api#shows_for_user', :constraints => { email: /[\w|.|-]+@[\w|.|-]+/ }
     get 'schedules/current', to: 'api#current_schedule'
+    get 'shows/all', to: 'api#all_shows'
     get 'shows/:slug', to: 'api#show_by_slug'
     get 'shows/:slug/check-broadcast-time/:start(-:end)', to: 'api#check_broadcast_time', :constraints => { start: /[0-9]+/, end: /[0-9]+/ }
-    get 'shows/all', to: 'api#get_all_shows'
   end
 
   # Static pages
