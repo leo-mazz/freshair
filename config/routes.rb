@@ -84,6 +84,7 @@ Rails.application.routes.draw do
     get 'shows/all', to: 'api#all_shows'
     get 'shows/:slug', to: 'api#show_by_slug'
     get 'shows/:slug/check-broadcast-time/:start(-:end)', to: 'api#check_broadcast_time', :constraints => { start: /[0-9]+/, end: /[0-9]+/ }
+    get 'podcasts/:show_slug', to: 'api#podcasts_by_show'
   end
 
   # Static pages

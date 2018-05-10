@@ -63,4 +63,12 @@ class ApiController < ActionController::Base
     render plain: response
   end
 
+  def podcasts_by_show
+    @show = Show.find_by_slug(params[:show_slug])
+    @podcast_list = @show.podcasts.map do |podcast|
+      {title: podcast.title, description: podcast.description, uri: podcast.uri, broadcast_date: podcast.broadcast_date}
+    end
+    render json: @podcast_list
+  end
+
 end
