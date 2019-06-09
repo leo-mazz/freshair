@@ -2,7 +2,7 @@
 This is the old repo of the website for FreshAir.org.uk, Edinburgh’s student radio station. This project has been forked and is now maintained by FreshAir's web team.
 
 ## Credits
-This website was originally built by [Leonardo Mazzone](http://leomazzone.me).
+This website was originally built by [Leonardo Mazzone](https://mazzone.space).
 
 ## Quick Start
 ### Requirements
