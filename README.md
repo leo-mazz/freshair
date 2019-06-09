@@ -1,10 +1,8 @@
 # README
-This is the website for FreshAir.org.uk, Edinburgh’s student radio station.
+This is the old repo of the website for FreshAir.org.uk, Edinburgh’s student radio station. This project has been forked and is now maintained by FreshAir's web team.
 
 ## Credits
-This website was originally built by [Leonardo Mazzone](http://leomazzone.me),
-with inspiration from a previous project (Project FreshFeel) by
-[Hayden Ball](http://haydenball.me.uk).
+This website was originally built by [Leonardo Mazzone](http://leomazzone.me).
 
 ## Quick Start
 ### Requirements
