@@ -1,6 +1,8 @@
 # README
 This is the legacy website for FreshAir.org.uk, Edinburgh’s student radio station. This project has been discontinued and is here for educational / sentimental reasons. The current website is managed by FreshAir's web team, in which I am now not at all involved.
 
+![Screenshot](freshair.png)
+
 ## Quick Start
 ### Requirements
 To run this application, you will need Ruby 2 and Rails 5.
