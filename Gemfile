@@ -31,7 +31,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # To upload files
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 # Carrierwave dependency (it uses it to resize pics to make thumbnails)
 gem 'mini_magick'
 # for friendlier URLs
